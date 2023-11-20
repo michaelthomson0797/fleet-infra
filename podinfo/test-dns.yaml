@@ -1,11 +1,11 @@
 apiVersion: externaldns.k8s.io/v1alpha1
 kind: DNSEndpoint
 metadata:
-  name: podinfo.example.com
+  name: podinfo.michaelthomson.dev
   namespace: podinfo
 spec:
   endpoints:
-  - dnsName: podinfo.example.com
+  - dnsName: podinfo.michaelthomson.dev
     recordTTL: 180
     recordType: A
     targets:
