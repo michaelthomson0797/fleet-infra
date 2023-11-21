@@ -345,7 +345,7 @@ spec:
       email: "michael@michaelthomson.dev"
       ## @param cloudflare.proxied When using the Cloudflare provider, enable the proxy feature (DDOS protection, CDN...) (optional)
       ##
-      proxied: true
+      proxied: false
     ## CoreDNS configuration to be set via arguments/env variables
     ##
     coredns:
