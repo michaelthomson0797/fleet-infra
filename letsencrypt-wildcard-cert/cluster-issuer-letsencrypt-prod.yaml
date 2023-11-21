@@ -15,6 +15,6 @@ spec:
       dns01:
         cloudflare:
           email: michael@michaelthomson.dev
-          apiTokenSecretRef:
+          apiKeySecretRef:
             name: cloudflare-api-key
             key: cloudflare_api_key
