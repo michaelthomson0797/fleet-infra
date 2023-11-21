@@ -120,14 +120,14 @@ spec:
     securityContext: {}
 
     ingress:
-      enabled: false
+      enabled: true
       className: ""
       additionalLabels: {}
       annotations: {}
         # kubernetes.io/ingress.class: nginx
         # kubernetes.io/tls-acme: "true"
       hosts:
-        - host: podinfo.local
+        - host: podinfo.michaelthomson.dev
           paths:
             - path: /
               pathType: ImplementationSpecific
