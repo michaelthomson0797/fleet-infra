@@ -128,9 +128,9 @@ spec:
         # kubernetes.io/tls-acme: "true"
       hosts:
         - host: podinfo.michaelthomson.dev
-          # paths:
-# - path: /
-# pathType: ImplementationSpecific
+          paths:
+            - path: /
+              pathType: ImplementationSpecific
       tls: []
       #  - secretName: chart-example-tls
       #    hosts:
