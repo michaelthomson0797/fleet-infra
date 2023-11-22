@@ -46,7 +46,8 @@ spec:
     # Kubernetes Service settings
     service:
       enabled: true
-      annotations: {}
+      annotations: 
+        metallb.universe.tf/loadBalancerIPs: 192.168.2.201
       type: LoadBalancer
       metricsPort: 9797
       httpPort: 9898
