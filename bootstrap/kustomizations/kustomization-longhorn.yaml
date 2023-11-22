@@ -15,4 +15,4 @@ spec:
     - apiVersion: apps/v1
       kind: Deployment
       name: longhorn
-      namespace: longhorn
+      namespace: longhorn-system
