@@ -316,10 +316,10 @@ spec:
         # format: json
         # By default, the level is set to ERROR.
         # -- Alternative logging levels are DEBUG, PANIC, FATAL, ERROR, WARN, and INFO.
-        level: WARN
+        level: DEBUG
       access:
         # -- To enable access logs
-        enabled: false
+        enabled: true
         ## By default, logs are written using the Common Log Format (CLF) on stdout.
         ## To write logs in JSON, use json in the format option.
         ## If the given format is unsupported, the default (CLF) is used instead.
@@ -783,7 +783,8 @@ spec:
       single: true
       type: LoadBalancer
       # -- Additional annotations applied to both TCP and UDP services (e.g. for cloud provider specific config)
-      annotations: {}
+      annotations: 
+        metallb.universe.tf/loadBalancerIPs: 192.168.2.200
       # -- Additional annotations for TCP service only
       annotationsTCP: {}
       # -- Additional annotations for UDP service only
