@@ -251,22 +251,22 @@ spec:
 
     ingress:
       ## Set to true to enable ingress record generation
-      enabled: false
+      enabled: true
 
       ## Add ingressClassName to the Ingress
       ## Can replace the kubernetes.io/ingress.class annotation on v1.18+
       ingressClassName: ~
 
-      host: sslip.io
+      host: longhorn.michaelthomson.dev
 
       ## Set this to true in order to enable TLS on the ingress record
-      tls: false
+      tls: true
 
       ## Enable this in order to enable that the backend service will be connected at port 443
       secureBackends: false
 
       ## If TLS is set to true, you must declare what secret will store the key/certificate for TLS
-      tlsSecret: longhorn.local-tls
+      tlsSecret: letsencrypt-wildcard-cert-michaelthomson.dev
 
       ## If ingress is enabled you can set the default ingress path
       ## then you can access the UI by using the following full path {{host}}+{{path}}
