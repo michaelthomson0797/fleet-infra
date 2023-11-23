@@ -106,6 +106,7 @@ spec:
       provider-display-name: "Authentik"
       skip-provider-button: "true"
       pass-authorization-header: "true" 
+      oidc-issuer-url: "https://authentik.michaelthomson.dev/application/o/kube-apiserver/"
     extraEnv: []
 
     # -- Custom labels to add into metadata
