@@ -305,7 +305,7 @@ spec:
       enabled: true
       postgresqlMaxConnections: 500
       postgresqlUsername: "authentik"
-      # postgresqlPassword: "${AUTHENTIK_POSTGRESQL__PASSWORD}"
+      postgresqlPassword: "2cX69Cf2QKkjugvuUaues7TupEd74s"
       postgresqlDatabase: "authentik"
       persistence:
         enabled: true
