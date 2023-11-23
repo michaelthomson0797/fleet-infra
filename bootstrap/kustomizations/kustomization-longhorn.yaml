@@ -16,3 +16,7 @@ spec:
       kind: Deployment
       name: longhorn-driver-deployer
       namespace: longhorn-system
+    - apiVersion: helm.toolkit.fluxcd.io/v2beta1
+      kind: HelmRelease
+      name: oauth2-proxy
+      namespace: longhorn-system
