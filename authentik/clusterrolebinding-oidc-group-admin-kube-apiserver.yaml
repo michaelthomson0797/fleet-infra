@@ -9,3 +9,4 @@ roleRef:
 subjects:
 - kind: Group
   name: oidc:admin-kube-apiserver 
+  apiGroup: rbac.authorization.k8s.io
