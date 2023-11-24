@@ -33,7 +33,7 @@ spec:
     nameOverride: ""
     fullnameOverride: ""
     # -- What log level to output. Valid levels are 'debug', 'info', 'warn' and 'error'
-    logLevel: info
+    logLevel: debug
     # -- Additional arguments to pass in to the gitops-server
     additionalArgs:
     - --insecure-no-authentication-user=kube-apiserver
