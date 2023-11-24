@@ -1409,8 +1409,8 @@ spec:
 
       ## If your kube controller manager is not deployed as a pod, specify IPs it can be found on
       ##
-      endpoints: []
-      # - 10.141.4.22
+      endpoints:
+        - 192.168.2.100
       # - 10.141.4.23
       # - 10.141.4.24
 
@@ -1646,8 +1646,8 @@ spec:
 
       ## If your etcd is not deployed as a pod, specify IPs it can be found on
       ##
-      endpoints: []
-      # - 10.141.4.22
+      endpoints:
+        - 192.168.2.100
       # - 10.141.4.23
       # - 10.141.4.24
 
@@ -1738,8 +1738,8 @@ spec:
 
       ## If your kube scheduler is not deployed as a pod, specify IPs it can be found on
       ##
-      endpoints: []
-      # - 10.141.4.22
+      endpoints:
+        - 192.168.2.100
       # - 10.141.4.23
       # - 10.141.4.24
 
@@ -1827,8 +1827,8 @@ spec:
 
       ## If your kube proxy is not deployed as a pod, specify IPs it can be found on
       ##
-      endpoints: []
-      # - 10.141.4.22
+      endpoints:
+        - 192.168.2.100
       # - 10.141.4.23
       # - 10.141.4.24
 
