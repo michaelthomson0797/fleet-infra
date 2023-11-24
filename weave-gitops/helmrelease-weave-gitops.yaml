@@ -35,7 +35,8 @@ spec:
     # -- What log level to output. Valid levels are 'debug', 'info', 'warn' and 'error'
     logLevel: info
     # -- Additional arguments to pass in to the gitops-server
-    additionalArgs: []
+    additionalArgs:
+    - --auth-methods=oidc
     # Any other environment variables:
     envVars:
       - name: WEAVE_GITOPS_FEATURE_TENANCY
@@ -78,7 +79,7 @@ spec:
       impersonationResources: ["users", "groups"]
       # -- If non-empty, this limits the secrets that can be accessed by
       # the service account to the specified ones, e.g. `['weave-gitops-enterprise-credentials']`
-      viewSecretsResourceNames: ["oidc-auth"]
+      viewSecretsResourceNames: ["cluster-user-auth", "oidc-auth"]
       # -- If non-empty, these additional rules will be appended to the RBAC role and the cluster role.
       # for example,
       # additionalRules:
