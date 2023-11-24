@@ -168,11 +168,11 @@ spec:
         # -- Additional ingressRoute labels (e.g. for filtering IngressRoute by custom labels)
         labels: {}
         # -- The router match rule used for the dashboard ingressRoute
-        matchRule: Host(`server.michaelthomson.dev`)
+        matchRule: PathPrefix(`/dashboard`) || PathPrefix(`/api`)
         # -- Specify the allowed entrypoints to use for the dashboard ingress route, (e.g. traefik, web, websecure).
         # By default, it's using traefik entrypoint, which is not exposed.
         # /!\ Do not expose your dashboard without any protection over the internet /!\
-        entryPoints: ["websecure"]
+        entryPoints: ["traefik", "websecure"]
         # -- Additional ingressRoute middlewares (e.g. for authentication)
         middlewares: []
         # -- TLS options (e.g. secret containing certificate)
@@ -666,8 +666,8 @@ spec:
         # Port Redirections
         # Added in 2.2, you can make permanent redirects via entrypoints.
         # https://docs.traefik.io/routing/entrypoints/#redirection
-        redirectTo:
-          port: websecure
+        # redirectTo:
+        #   port: websecure
         #   (Optional)
         #   priority: 10
         #
