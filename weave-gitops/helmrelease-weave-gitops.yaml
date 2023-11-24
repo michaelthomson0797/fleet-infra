@@ -36,7 +36,7 @@ spec:
     logLevel: info
     # -- Additional arguments to pass in to the gitops-server
     additionalArgs:
-    - --auth-methods=oidc
+    - --insecure-no-authentication-user=kube-apiserver
     # Any other environment variables:
     envVars:
       - name: WEAVE_GITOPS_FEATURE_TENANCY
