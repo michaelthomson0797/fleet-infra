@@ -1206,7 +1206,7 @@ spec:
     ##
     kubelet:
       enabled: true
-      namespace: kube-prometheus-stack
+      namespace: kube-system
 
       serviceMonitor:
         ## Attach metadata to discovered targets. Requires Prometheus v2.45 for endpoints created by the operator.
@@ -2273,7 +2273,7 @@ spec:
       ##
       kubeletService:
         enabled: true
-        namespace: kube-prometheus-stack
+        namespace: kube-system
         ## Use '{{ template "kube-prometheus-stack.fullname" . }}-kubelet' by default
         name: ""
 
