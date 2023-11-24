@@ -936,6 +936,12 @@ spec:
       enabled: true
       namespaceOverride: ""
 
+      grafana.ini:
+        auth.anonymous:
+          enabled: true
+        auth:
+          disable_login_form: true
+
       ## ForceDeployDatasources Create datasource configmap even if grafana deployment has been disabled
       ##
       forceDeployDatasources: false
