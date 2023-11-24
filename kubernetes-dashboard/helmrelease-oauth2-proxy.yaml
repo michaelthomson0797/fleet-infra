@@ -57,7 +57,7 @@ spec:
       # Default configuration, to be overridden
       configFile: |-
         email_domains = [ "*" ]
-        upstreams = [ "https://kubernetes-dashboard" ]
+        upstreams = [ "http://kubernetes-dashboard" ]
       # Custom configuration file: oauth2_proxy.cfg
       # configFile: |-
       #   pass_basic_auth = false
