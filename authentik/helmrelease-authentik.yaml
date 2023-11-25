@@ -17,7 +17,7 @@ spec:
   releaseName: authentik
   values:
     # -- Server replicas
-    replicas: 1
+    replicas: 2
     # -- Custom priority class for different treatment by the scheduler
     priorityClassName:
     # -- server securityContext
@@ -33,7 +33,7 @@ spec:
 
     worker:
       # -- worker replicas
-      replicas: 1
+      replicas: 2
       # -- Custom priority class for different treatment by the scheduler
       priorityClassName:
       # -- worker securityContext
@@ -183,7 +183,14 @@ spec:
     volumeMounts: []
 
     # -- affinity applied to the deployments
-    affinity: {}
+    affinity:
+      podAntiAffinity:
+        requiredDuringSchedulingIgnoredDuringExecution:
+          - labelSelector:
+              matchLabels:
+                app.kubernetes.io/name: authentik
+                app.kubernetes.io/component: server
+            topologyKey: kubernetes.io/hostname
 
     #  -- tolerations applied to the deployments
     tolerations: []
