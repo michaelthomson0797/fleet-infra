@@ -14,7 +14,6 @@ spec:
         namespace: flux-system
   interval: 15m
   timeout: 5m
-  releaseName: weave-gitops
   values:
     adminUser:
       create: true
