@@ -1,0 +1,22 @@
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: weave-gitops
+  namespace: weave-gitops
+spec:
+  chart:
+    spec:
+      chart: weave-gitops
+      version: 4.x
+      sourceRef:
+        kind: HelmRepository
+        name: weave-gitops
+        namespace: flux-system
+  interval: 15m
+  timeout: 5m
+  releaseName: weave-gitops
+  values:
+    adminUser:
+      create: true
+      passwordHash: $2a$10$UbI.iTSJlbmim9A/FYGcHOSWdWnSd0Wwzdv5YXW4eGsPupA1nVW/y
+      username: admin
