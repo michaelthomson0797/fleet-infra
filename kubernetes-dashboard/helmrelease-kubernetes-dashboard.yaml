@@ -188,7 +188,7 @@ spec:
     ingress:
       ## If true, Kubernetes Dashboard Ingress will be created.
       ##
-      enabled: false
+      enabled: true
 
       ## Kubernetes Dashboard Ingress labels
       # labels:
