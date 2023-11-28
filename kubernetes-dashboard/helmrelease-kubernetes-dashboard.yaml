@@ -60,7 +60,7 @@ spec:
     ## Additional container arguments
     ##
     extraArgs:
-      - --enable-insecure-login
+    #   - --enable-insecure-login
     #   - --enable-skip-login
     #   - --system-banner="Welcome to Kubernetes"
 
