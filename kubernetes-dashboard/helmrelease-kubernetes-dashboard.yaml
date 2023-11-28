@@ -196,6 +196,8 @@ spec:
 
       ## Kubernetes Dashboard Ingress annotations
       annotations:
+        traefik.ingress.kubernetes.io/router.tls: "true"
+        traefik.ingress.kubernetes.io/router.entrypoints: websecure
         traefik.ingress.kubernetes.io/router.middlewares: traefik-authentik@kubernetescrd
 
       ## If you plan to use TLS backend with enableInsecureLogin set to false
