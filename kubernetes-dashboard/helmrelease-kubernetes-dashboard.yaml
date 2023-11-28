@@ -195,9 +195,8 @@ spec:
       #   key: value
 
       ## Kubernetes Dashboard Ingress annotations
-      # annotations:
-      #   kubernetes.io/ingress.class: nginx
-      #   kubernetes.io/tls-acme: 'true'
+      annotations:
+        traefik.ingress.kubernetes.io/router.middlewares: traefik-authentik@kubernetescrd
 
       ## If you plan to use TLS backend with enableInsecureLogin set to false
       ## (default), you need to uncomment the below.
@@ -207,7 +206,7 @@ spec:
       #   nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
 
       ## Kubernetes Dashboard Ingress Class
-      # className: "example-lb"
+      className: "traefik"
 
       ## Kubernetes Dashboard Ingress paths
       ## Both `/` and `/*` are required to work on gce ingress.
@@ -235,15 +234,15 @@ spec:
       ## Kubernetes Dashboard Ingress hostnames
       ## Must be provided if Ingress is enabled
       ##
-      # hosts:
-      #   - kubernetes-dashboard.domain.com
+      hosts:
+        - kubernetes-dashboard.michaelthomson.dev
       ## Kubernetes Dashboard Ingress TLS configuration
       ## Secrets must be manually created in the namespace
       ##
-      # tls:
-      #   - secretName: kubernetes-dashboard-tls
-      #     hosts:
-      #       - kubernetes-dashboard.domain.com
+      tls:
+        - secretName: letsencrypt-wildcard-cert-michaelthomson.dev
+          hosts:
+            - kubernetes-dashboard.michaelthomson.dev
 
     # Global dashboard settings
     settings:
