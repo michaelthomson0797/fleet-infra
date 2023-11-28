@@ -174,8 +174,7 @@ spec:
         # /!\ Do not expose your dashboard without any protection over the internet /!\
         entryPoints: ["traefik"]
         # -- Additional ingressRoute middlewares (e.g. for authentication)
-        middlewares:
-          - traefik-authentik@kubernetescrd
+        middlewares: []
         # -- TLS options (e.g. secret containing certificate)
         tls: {}
       healthcheck:
@@ -734,8 +733,7 @@ spec:
         # middlewares:
         #   - namespace-name1@kubernetescrd
         #   - namespace-name2@kubernetescrd
-        middlewares:
-          - traefik-authentik@kubernetescrd
+        middlewares: []
       metrics:
         # -- When using hostNetwork, use another port to avoid conflict with node exporter:
         # https://github.com/prometheus/prometheus/wiki/Default-port-allocations
