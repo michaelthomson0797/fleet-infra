@@ -168,15 +168,19 @@ spec:
         # -- Additional ingressRoute labels (e.g. for filtering IngressRoute by custom labels)
         labels: {}
         # -- The router match rule used for the dashboard ingressRoute
-        matchRule: PathPrefix(`/dashboard`) || PathPrefix(`/api`)
+        matchRule: Host(`server.michaelthomson.dev`) && PathPrefix(`/dashboard`)
         # -- Specify the allowed entrypoints to use for the dashboard ingress route, (e.g. traefik, web, websecure).
         # By default, it's using traefik entrypoint, which is not exposed.
         # /!\ Do not expose your dashboard without any protection over the internet /!\
-        entryPoints: ["traefik"]
+        entryPoints: ["websecure"]
         # -- Additional ingressRoute middlewares (e.g. for authentication)
-        middlewares: []
+        middlewares:
+          - name: authentik
         # -- TLS options (e.g. secret containing certificate)
-        tls: {}
+        tls:
+          secretName: letsencrypt-wildcard-cert-michaelthomson.dev
+          domains:
+            - main: server.michaelthomson.dev
       healthcheck:
         # -- Create an IngressRoute for the healthcheck probe
         enabled: false
