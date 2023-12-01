@@ -251,11 +251,11 @@ spec:
 
     ingress:
       ## Set to true to enable ingress record generation
-      enabled: false
+      enabled: true
 
       ## Add ingressClassName to the Ingress
       ## Can replace the kubernetes.io/ingress.class annotation on v1.18+
-      ingressClassName: ~
+      ingressClassName: traefik
 
       host: longhorn.michaelthomson.dev
 
@@ -263,7 +263,7 @@ spec:
       tls: true
 
       ## Enable this in order to enable that the backend service will be connected at port 443
-      secureBackends: false
+      secureBackends: true
 
       ## If TLS is set to true, you must declare what secret will store the key/certificate for TLS
       tlsSecret: letsencrypt-wildcard-cert-michaelthomson.dev
@@ -281,8 +281,9 @@ spec:
       ##
       ## If tls is set to true, annotation ingress.kubernetes.io/secure-backends: "true" will automatically be set
       annotations:
-      #  kubernetes.io/ingress.class: nginx
-      #  kubernetes.io/tls-acme: true
+        traefik.ingress.kubernetes.io/router.tls: "true"
+        traefik.ingress.kubernetes.io/router.entrypoints: websecure
+        traefik.ingress.kubernetes.io/router.middlewares: traefik-authentik@kubernetescrd
 
       secrets:
       ## If you're providing your own certificates, please use this to add the certificates as secrets
