@@ -20,3 +20,5 @@ spec:
             - X-authentik-meta-provider
             - X-authentik-meta-app
             - X-authentik-meta-version
+        tls:
+          certSecret: letsencrypt-wildcard-cert-michaelthomson.dev
