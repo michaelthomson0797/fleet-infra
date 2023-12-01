@@ -969,7 +969,7 @@ spec:
       ingress:
         ## If true, Grafana Ingress will be created
         ##
-        enabled: false
+        enabled: true
 
         ## IngressClassName for Grafana Ingress.
         ## Should be provided if Ingress is enable.
@@ -978,9 +978,10 @@ spec:
 
         ## Annotations for Grafana Ingress
         ##
-        annotations: {}
-          # kubernetes.io/ingress.class: nginx
-          # kubernetes.io/tls-acme: "true"
+        annotations:
+          traefik.ingress.kubernetes.io/router.tls: "true"
+          traefik.ingress.kubernetes.io/router.entrypoints: websecure
+          traefik.ingress.kubernetes.io/router.middlewares: traefik-authentik@kubernetescrd
 
         ## Labels to be added to the Ingress
         ##
@@ -991,7 +992,8 @@ spec:
         ##
         # hosts:
         #   - grafana.domain.com
-        hosts: []
+        hosts:
+        - grafana.michaelthomson.dev
 
         ## Path for grafana ingress
         path: /
@@ -999,10 +1001,10 @@ spec:
         ## TLS configuration for grafana Ingress
         ## Secret must be manually created in the namespace
         ##
-        tls: []
-        # - secretName: grafana-general-tls
-        #   hosts:
-        #   - grafana.example.com
+        tls:
+          - secretName: letsencrypt-wildcard-cert-michaelthomson.dev
+            hosts:
+              - authentik.michaelthomson.dev
 
       sidecar:
         dashboards:

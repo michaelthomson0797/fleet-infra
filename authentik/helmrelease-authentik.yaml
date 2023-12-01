@@ -64,7 +64,10 @@ spec:
     ingress:
       enabled: true
       ingressClassName: "traefik"
-      annotations: {}
+      annotations:
+        traefik.ingress.kubernetes.io/router.tls: "true"
+        traefik.ingress.kubernetes.io/router.entrypoints: websecure
+        traefik.ingress.kubernetes.io/router.middlewares: traefik-authentik@kubernetescrd
       labels: {}
       hosts:
         - host: authentik.michaelthomson.dev
