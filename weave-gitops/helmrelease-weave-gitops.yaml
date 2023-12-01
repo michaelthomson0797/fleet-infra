@@ -19,3 +19,19 @@ spec:
       create: true
       passwordHash: $2a$10$UbI.iTSJlbmim9A/FYGcHOSWdWnSd0Wwzdv5YXW4eGsPupA1nVW/y
       username: admin
+    ingress:
+      enabled: true
+      className: traefik
+      annotations:
+        traefik.ingress.kubernetes.io/router.tls: "true"
+        traefik.ingress.kubernetes.io/router.entrypoints: websecure
+        traefik.ingress.kubernetes.io/router.middlewares: traefik-authentik@kubernetescrd
+      hosts:
+        - host: weave-gitops.michaelthomson.dev
+          paths:
+            - path: "/"
+              pathType: ImplementationSpecific
+      tls:
+        - secretName: letsencrypt-wildcard-cert-michaelthomson.dev
+          hosts:
+            - weave-gitops.michaelthomson.dev
