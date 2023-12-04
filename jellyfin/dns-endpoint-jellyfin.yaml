@@ -1,0 +1,12 @@
+apiVersion: externaldns.k8s.io/v1alpha1
+kind: DNSEndpoint
+metadata:
+  name: jellyfin.michaelthomson.dev
+  namespace: jellyfin
+spec:
+  endpoints:
+  - dnsName: jellyfin.michaelthomson.dev
+    recordTTL: 180
+    recordType: CNAME
+    targets:
+    - server.michaelthomson.dev
