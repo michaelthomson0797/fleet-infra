@@ -155,7 +155,7 @@ spec:
     env:
       OPENVPN_PROVIDER: PROTONVPN
       OPENVPN_CONFIG: us.protonvpn.net.udp
-      LOCAL_NETWORK: 10.0.0.0/8,172.16.0.0/12,192.168.0.0/16
+      LOCAL_NETWORK: 10.0.0.0/8
       CREATE_TUN_DEVICE: "true"
       PUID: "1000"
       PGID: "1000"
