@@ -156,7 +156,7 @@ spec:
       OPENVPN_PROVIDER: PROTONVPN
       OPENVPN_CONFIG: us.protonvpn.net.udp
       LOCAL_NETWORK: "10.42.0.0/16,192.168.2.0/24"
-      CREATE_TUN_DEVICE: "true"
+      # CREATE_TUN_DEVICE: "true"
       OPENVPN_OPTS: --inactive 3600 --ping 10 --ping-exit 60
 
     # -- Sensitive environment variables to be set in the pods. See the [application docs](https://haugene.github.io/docker-transmission-openvpn/config-options/)
@@ -165,7 +165,7 @@ spec:
       OPENVPN_PASSWORD: fh7dwMzYzJGmHgTo5nTlirjaO0LANcUa
 
     # -- Mount the /dev/net/tun device into the pod. Required by OpenVPN when a `tun` device is used
-    mountTunDevice: true
+    mountTunDevice: false
 
     # -- DNS configuration for the pod
     dnsConfig: {}
