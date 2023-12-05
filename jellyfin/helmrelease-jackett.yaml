@@ -44,7 +44,7 @@ spec:
       run_opts: ""
 
     ingress:
-      enabled: false
+      enabled: true
       className: traefik
       # -- Annotations for the ingress
       annotations:
