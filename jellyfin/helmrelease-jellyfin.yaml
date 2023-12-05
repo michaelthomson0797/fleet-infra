@@ -142,7 +142,7 @@ spec:
           # helm.sh/resource-policy: keep
         # -- Config: Access modes for the claim
         accessModes:
-          - ReadWriteOnce
+          - ReadWriteMany
         # -- Config: Size for the claim
         size: 2Gi
         # -- Config: Alternative data volume definition (e.g. nfs, hostPath). Used when `persistence.config.isPvc` is `false`
