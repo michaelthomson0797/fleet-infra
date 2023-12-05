@@ -155,7 +155,7 @@ spec:
     env:
       OPENVPN_PROVIDER: PROTONVPN
       OPENVPN_CONFIG: us.protonvpn.net.udp
-      LOCAL_NETWORK: "10.0.0.0/8,192.168.2.0/24"
+      LOCAL_NETWORK: "10.42.0.0/16,192.168.2.0/24"
       CREATE_TUN_DEVICE: "true"
       OPENVPN_OPTS: --inactive 3600 --ping 10 --ping-exit 60
 
