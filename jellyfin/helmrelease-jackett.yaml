@@ -46,19 +46,14 @@ spec:
     ingress:
       enabled: true
       className: traefik
-      # -- Annotations for the ingress
       annotations:
         traefik.ingress.kubernetes.io/router.tls: "true"
         traefik.ingress.kubernetes.io/router.entrypoints: websecure
         traefik.ingress.kubernetes.io/router.middlewares: traefik-authentik@kubernetescrd
-      # -- Ingress hosts configuration
-      # @default -- see [values.yaml](values.yaml)
       hosts:
-        - host: jackett.michaelthomson.dev
-          paths:
-            - path: /
-              pathType: ImplementationSpecific
-      # -- The TLS configuration for the Ingress
+        - jackett.michaelthomson.dev
+      paths:
+        - /
       tls:
         - secretName: letsencrypt-wildcard-cert-michaelthomson.dev
           hosts:
