@@ -20,7 +20,7 @@ spec:
     replicaCount: 1
 
     # -- Use host network
-    hostNetwork: false
+    hostNetwork: true
 
     hostPort:
       # -- Use host port for the application
