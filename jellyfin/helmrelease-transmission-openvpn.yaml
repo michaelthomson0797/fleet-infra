@@ -157,8 +157,6 @@ spec:
       OPENVPN_CONFIG: us.protonvpn.net.udp
       LOCAL_NETWORK: "10.0.0.0/8,192.168.0.0/24"
       CREATE_TUN_DEVICE: "true"
-      PUID: "1000"
-      PGID: "1000"
       OPENVPN_OPTS: --inactive 3600 --ping 10 --ping-exit 60
 
     # -- Sensitive environment variables to be set in the pods. See the [application docs](https://haugene.github.io/docker-transmission-openvpn/config-options/)
