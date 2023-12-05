@@ -17,3 +17,7 @@ spec:
       kind: HelmRelease
       name: jellyfin
       namespace: jellyfin
+    - apiVersion: helm.toolkit.fluxcd.io/v2beta1
+      kind: HelmRelease
+      name: transmission-openvpn
+      namespace: jellyfin

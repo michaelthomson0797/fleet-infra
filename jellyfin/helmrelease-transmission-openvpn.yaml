@@ -2,7 +2,7 @@ apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
   name: transmission-openvpn
-  namespace: transmission-openvpn
+  namespace: jellyfin
 spec:
   chart:
     spec:
