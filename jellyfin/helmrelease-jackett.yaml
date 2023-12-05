@@ -1,0 +1,96 @@
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: jackett
+  namespace: jellyfin
+spec:
+  chart:
+    spec:
+      chart: jackett
+      version: 0.1.3
+      sourceRef:
+        kind: HelmRepository
+        name: halkeye
+        namespace: flux-system
+  interval: 15m
+  timeout: 5m
+  releaseName: jackett
+  values:
+    # Default values for jackett.
+    # This is a YAML-formatted file.
+    # Declare variables to be passed into your templates.
+
+    replicaCount: 1
+
+    strategy: 
+      type: Recreate
+
+    image:
+      repository: linuxserver/jackett
+      tag: "{{ .Chart.AppVersion }}"
+      pullPolicy: Always
+
+    nameOverride: ""
+    fullnameOverride: ""
+
+    service:
+      type: ClusterIP
+      port: 9117
+
+    jackett:
+      uid: 1000
+      gid: 1000
+      tz: UTC
+      run_opts: ""
+
+    ingress:
+      enabled: false
+      className: traefik
+      # -- Annotations for the ingress
+      annotations:
+        traefik.ingress.kubernetes.io/router.tls: "true"
+        traefik.ingress.kubernetes.io/router.entrypoints: websecure
+        traefik.ingress.kubernetes.io/router.middlewares: traefik-authentik@kubernetescrd
+      # -- Ingress hosts configuration
+      # @default -- see [values.yaml](values.yaml)
+      hosts:
+        - host: jackett.michaelthomson.dev
+          paths:
+            - path: /
+              pathType: ImplementationSpecific
+      # -- The TLS configuration for the Ingress
+      tls:
+        - secretName: letsencrypt-wildcard-cert-michaelthomson.dev
+          hosts:
+            - jackett.michaelthomson.dev
+
+    resources: {}
+      # We usually recommend not to specify default resources and to leave this as a conscious
+      # choice for the user. This also increases chances charts run on environments with little
+      # resources, such as Minikube. If you do want to specify resources, uncomment the following
+      # lines, adjust them as necessary, and remove the curly braces after 'resources:'.
+      # limits:
+      #  cpu: 100m
+      #  memory: 128Mi
+      # requests:
+      #  cpu: 100m
+      #  memory: 128Mi
+
+    nodeSelector: {}
+
+    tolerations: []
+
+    affinity: {}
+
+    persistence:
+      enabled: false
+      ## If defined, storageClassName: <storageClass>
+      ## If set to "-", storageClassName: "", which disables dynamic provisioning
+      ## If undefined (the default) or set to null, no storageClassName spec is
+      ##   set, choosing the default provisioner.  (gp2 on AWS, standard on
+      ##   GKE, AWS & OpenStack)
+      ##
+      storageClassName: ""
+      accessModes:
+        - ReadWriteOnce
+      size: 1Gi
