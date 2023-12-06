@@ -44,7 +44,7 @@ spec:
       run_opts: ""
 
     ingress:
-      enabled: true
+      enabled: false
       annotations:
         traefik.ingress.kubernetes.io/router.tls: "true"
         traefik.ingress.kubernetes.io/router.entrypoints: websecure
