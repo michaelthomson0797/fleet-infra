@@ -10,5 +10,5 @@ data:
   OPENVPN_PASSWORD: fh7dwMzYzJGmHgTo5nTlirjaO0LANcUa
   LOCAL_NETWORK: 10.0.0.0/8
   OPENVPN_OPTS: --inactive 3600 --ping 10 --ping-exit 60
-  DISABLE_PORT_FORWARDER: "false"
+  DISABLE_PORT_FORWARDER: "true"
   GITHUB_CONFIG_SOURCE_REPO: michaelthomson0797/vpn-configs-contrib
