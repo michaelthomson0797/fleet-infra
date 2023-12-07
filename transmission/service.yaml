@@ -11,7 +11,6 @@ spec:
     name: torrent-ui
     protocol: TCP
     targetPort: 9091
-    nodePort: 9091
   - protocol: TCP
     name: torrent-tcp
     port: 51413
