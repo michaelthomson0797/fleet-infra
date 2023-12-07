@@ -13,11 +13,11 @@ spec:
     targetPort: 9091
   - protocol: TCP
     name: torrent-tcp
-    port: 51413
-    nodePort: 51413
+    port: 31413
+    nodePort: 31413
   - protocol: UDP
     name: torrents-udp
-    port: 51413
-    nodePort: 51413
+    port: 31413
+    nodePort: 31413
   sessionAffinity: None
   type: NodePort
