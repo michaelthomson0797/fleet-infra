@@ -5,9 +5,10 @@ metadata:
   namespace: transmission
 data:
   OPENVPN_PROVIDER: PROTONVPN
-  OPENVPN_CONFIG: dummy
+  OPENVPN_CONFIG: node-ca-19.protonvpn.net.udp
   OPENVPN_USERNAME: wSNJV3UTu7K8fxBV+pmp
   OPENVPN_PASSWORD: fh7dwMzYzJGmHgTo5nTlirjaO0LANcUa
   LOCAL_NETWORK: 10.0.0.0/8
   OPENVPN_OPTS: --inactive 3600 --ping 10 --ping-exit 60
   DISABLE_PORT_FORWARDER: "false"
+  GITHUB_CONFIG_SOURCE_REPO: michaelthomson0797/vpn-configs-contrib
