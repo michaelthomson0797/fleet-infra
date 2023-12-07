@@ -5,7 +5,7 @@ metadata:
   namespace: transmission
 data:
   OPENVPN_PROVIDER: PROTONVPN
-  OPENVPN_CONFIG: us.protonvpn.net.udp
+  OPENVPN_CONFIG: dummy
   OPENVPN_USERNAME: wSNJV3UTu7K8fxBV+pmp
   OPENVPN_PASSWORD: fh7dwMzYzJGmHgTo5nTlirjaO0LANcUa
   LOCAL_NETWORK: 10.0.0.0/8
