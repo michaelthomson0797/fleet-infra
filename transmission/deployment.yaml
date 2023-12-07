@@ -16,7 +16,7 @@ spec:
         app: transmission
     spec:
       containers:
-        - image: haugene/transmission-openvpn
+        - image: haugene/transmission-openvpn:dev
           name: transmission
           imagePullPolicy: Always
           envFrom:
