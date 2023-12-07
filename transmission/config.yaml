@@ -6,7 +6,7 @@ metadata:
 data:
   OPENVPN_PROVIDER: PROTONVPN
   OPENVPN_CONFIG: node-ca-13.protonvpn.net.tcp
-  OPENVPN_USERNAME: wSNJV3UTu7K8fxBV+pmp
+  OPENVPN_USERNAME: wSNJV3UTu7K8fxBV
   OPENVPN_PASSWORD: fh7dwMzYzJGmHgTo5nTlirjaO0LANcUa
   LOCAL_NETWORK: 10.0.0.0/8
   OPENVPN_OPTS: --inactive 3600 --ping 10 --ping-exit 60
