@@ -1,0 +1,60 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: transmission
+  namespace: transmission
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: transmission
+  strategy: Recreate
+  template:
+    metadata:
+      labels:
+        app: transmission
+    spec:
+      containers:
+        - image: haugene/transmission-openvpn
+          name: transmission
+          imagePullPolicy: Always
+          envFrom:
+            - configMapRef:
+              name: transmission-config
+              optional: false
+          livenessProbe:
+            failureThreshold: 3
+            initialDelaySeconds: 10
+            periodSeconds: 2
+            successThreshold: 1
+            tcpSocket:
+              port: 9091
+            timeoutSeconds: 2
+          readinessProbe:
+            failureThreshold: 3
+            initialDelaySeconds: 10
+            periodSeconds: 2
+            successThreshold: 2
+            tcpSocket:
+              port: 9091
+            timeoutSeconds: 2
+          securityContext:
+            allowPrivilegeEscalation: true
+            capabilities:
+              add:
+              - NET_ADMIN
+            privileged: true
+          volumeMounts:
+            - mountPath: /data
+              name: data
+            - mountPath: /config
+              name: config
+      restartPolicy: Always
+      terminationGracePeriodSeconds: 30
+      volumes: 
+        - name: data
+          persistentVolumeClaim:
+            claimName: transmission-data
+        - name: config
+          persistentVolumeClaim:
+            claimName: transmission-config

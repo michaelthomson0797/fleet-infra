@@ -1,0 +1,26 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: transmission
+  namespace: transmission
+  annotations:
+    traefik.ingress.kubernetes.io/router.entrypoints: websecure
+    traefik.ingress.kubernetes.io/router.middlewares: traefik-authentik@kubernetescrd
+    traefik.ingress.kubernetes.io/router.tls: "true"
+spec:
+  ingressClassName: traefik
+  rules:
+    - host: transmission-test.michaelthomson.dev
+      http:
+        paths:
+        - backend:
+            service:
+              name: transmission
+              port:
+                number: 9091
+          path: /
+          pathType: ImplementationSpecific
+  tls:
+    - hosts:
+        - transmission-test.michaelthomson.dev
+      secretName: letsencrypt-wildcard-cert-michaelthomson.dev
