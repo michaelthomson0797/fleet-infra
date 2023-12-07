@@ -21,8 +21,8 @@ spec:
           imagePullPolicy: Always
           envFrom:
             - configMapRef:
-              name: transmission-config
-              optional: false
+                name: transmission-config
+                optional: false
           livenessProbe:
             failureThreshold: 3
             initialDelaySeconds: 10
