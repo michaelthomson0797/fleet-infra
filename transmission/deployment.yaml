@@ -53,7 +53,16 @@ spec:
       initContainers:
       - name: init-media-filesystem
         image: busybox
-        command: ['sh', '-c', "mkdir -p -v /data/{downloads,media}/{movies,music,books,tv}"]
+        command:  
+        - mkdir
+        - -p
+        - -v
+        - /data/downloads/movies
+        - /data/downloads/tv
+        - /data/downloads/books
+        - /data/media/movies
+        - /data/media/tv
+        - /data/media/books
         volumeMounts:
           - mountPath: /data
             name: data
