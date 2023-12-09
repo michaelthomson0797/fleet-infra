@@ -50,6 +50,13 @@ spec:
               name: data
             - mountPath: /config
               name: config
+      initContainers:
+      - name: init-media-filesystem
+        image: busybox
+        command: ['sh', '-c', 'mkdir -p /data/{downloads,media}/{movies,music,books,tv}']
+        volumeMounts:
+          - mountPath: /data
+            name: data
       restartPolicy: Always
       terminationGracePeriodSeconds: 30
       volumes: 
