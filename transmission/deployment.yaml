@@ -56,7 +56,7 @@ spec:
         command: 
         - mkdir
         - -p
-        - "/data/\\{downloads,media\\}/\\{movies,music,books,tv\\}"
+        - /data/{downloads,media}/{movies,music,books,tv}
         volumeMounts:
           - mountPath: /data
             name: data
