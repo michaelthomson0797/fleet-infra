@@ -23,6 +23,8 @@ spec:
             - configMapRef:
                 name: transmission-config
                 optional: false
+            - secretRef:
+                name: transmission-secret
           livenessProbe:
             failureThreshold: 3
             initialDelaySeconds: 10
