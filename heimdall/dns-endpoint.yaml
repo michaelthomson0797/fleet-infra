@@ -1,0 +1,12 @@
+apiVersion: externaldns.k8s.io/v1alpha1
+kind: DNSEndpoint
+metadata:
+  name: heimdall.michaelthomson.dev
+  namespace: heimdall
+spec:
+  endpoints:
+  - dnsName: heimdall.michaelthomson.dev
+    recordTTL: 180
+    recordType: CNAME
+    targets:
+    - server.michaelthomson.dev
