@@ -74,7 +74,7 @@ spec:
 
       # -- Annotations for the DNS service
       annotations:
-        metallb.universe.tf/loadBalancerIPs: 192.168.2.254
+        metallb.universe.tf/loadBalancerIPs: 192.168.2.250
         metallb.universe.tf/allow-shared-ip: pihole-svc
 
     # -- Configuration for the DHCP service on port 67
@@ -142,7 +142,7 @@ spec:
 
       # -- Annotations for the DHCP service
       annotations:
-        metallb.universe.tf/loadBalancerIPs: 192.168.2.254
+        metallb.universe.tf/loadBalancerIPs: 192.168.2.250
         metallb.universe.tf/allow-shared-ip: pihole-svc
 
     virtualHost: pi.hole
