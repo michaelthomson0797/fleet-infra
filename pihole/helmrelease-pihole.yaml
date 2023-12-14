@@ -150,25 +150,25 @@ spec:
     # -- Configuration for the Ingress
     ingress:
       # -- Generate a Ingress resource
-      enabled: false
+      enabled: true
 
       # -- Specify an ingressClassName
-      # ingressClassName: nginx
+      ingressClassName: traefik
 
       # -- Annotations for the ingress
       annotations:
-        {}
-        # kubernetes.io/ingress.class: nginx
-        # kubernetes.io/tls-acme: "true"
+        traefik.ingress.kubernetes.io/router.entrypoints: websecure
+        traefik.ingress.kubernetes.io/router.middlewares: traefik-authentik@kubernetescrd
+        traefik.ingress.kubernetes.io/router.tls: "true"
       path: /
       hosts:
         # virtualHost (default value is pi.hole) will be appended to the hosts
-        - chart-example.local
-      tls: []
-      #  - secretName: chart-example-tls
-      #    hosts:
-      #     #- virtualHost (default value is pi.hole) will be appended to the hosts
-      #      - chart-example.local
+        - pihole.michaelthomson.dev
+      tls:
+        - hosts:
+            # virtualHost (default value is pi.hole) will be appended to the hosts
+            - pihole.michaelthomson.dev
+          secretName: letsencrypt-wildcard-cert-michaelthomson.dev
 
     # -- Probes configuration
     probes:
