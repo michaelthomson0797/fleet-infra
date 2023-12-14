@@ -2,7 +2,7 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: transmission-config
-  namespace: transmission
+  namespace: media
 data:
   OPENVPN_PROVIDER: PROTONVPN
   OPENVPN_CONFIG: node-ca-13.protonvpn.net.tcp

@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: transmission
-  namespace: transmission
+  namespace: media
 spec:
   replicas: 1
   selector:
@@ -48,8 +48,9 @@ spec:
               - NET_ADMIN
             privileged: true
           volumeMounts:
-            - mountPath: /data
+            - mountPath: /data/downloads
               name: data
+              subPath: downloads
             - mountPath: /config
               name: config
       initContainers:
@@ -62,9 +63,11 @@ spec:
         - /data/downloads/movies
         - /data/downloads/tv
         - /data/downloads/books
+        - /data/downloads/audiobooks
         - /data/media/movies
         - /data/media/tv
         - /data/media/books
+        - /data/media/audiobooks
         volumeMounts:
           - mountPath: /data
             name: data
@@ -73,7 +76,7 @@ spec:
       volumes: 
         - name: data
           persistentVolumeClaim:
-            claimName: transmission-data
+            claimName: media-data
         - name: config
           persistentVolumeClaim:
             claimName: transmission-config

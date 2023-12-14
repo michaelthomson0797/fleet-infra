@@ -1,11 +1,11 @@
 apiVersion: externaldns.k8s.io/v1alpha1
 kind: DNSEndpoint
 metadata:
-  name: prowlarr.michaelthomson.dev
-  namespace: prowlarr
+  name: transmission.michaelthomson.dev
+  namespace: media
 spec:
   endpoints:
-  - dnsName: prowlarr.michaelthomson.dev
+  - dnsName: transmission.michaelthomson.dev
     recordTTL: 180
     recordType: CNAME
     targets:
