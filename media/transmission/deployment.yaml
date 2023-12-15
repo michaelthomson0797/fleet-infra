@@ -42,11 +42,9 @@ spec:
               port: 9091
             timeoutSeconds: 2
           securityContext:
-            allowPrivilegeEscalation: true
             capabilities:
               add:
               - NET_ADMIN
-            privileged: true
           volumeMounts:
             - mountPath: /data/downloads
               name: data

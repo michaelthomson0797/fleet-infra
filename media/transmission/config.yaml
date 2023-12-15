@@ -4,6 +4,8 @@ metadata:
   name: transmission-config
   namespace: media
 data:
+  PUID: "1000"
+  PGID: "1000"
   OPENVPN_PROVIDER: PROTONVPN
   OPENVPN_CONFIG: node-ca-13.protonvpn.net.tcp
   LOCAL_NETWORK: 10.0.0.0/8
