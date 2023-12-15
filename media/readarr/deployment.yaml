@@ -15,6 +15,10 @@ spec:
       containers:
       - name: readarr
         image: lscr.io/linuxserver/readarr:nightly
+        envFrom:
+        - configMapRef:
+            name: readarr-config
+            optional: false
         ports:
         - containerPort: 8787
           name: http
