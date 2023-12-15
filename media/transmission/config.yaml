@@ -13,3 +13,4 @@ data:
   DISABLE_PORT_FORWARDER: "true"
   DISABLE_PORT_UPDATER: "true"
   GITHUB_CONFIG_SOURCE_REPO: michaelthomson0797/vpn-configs-contrib
+  TRANSMISSION_DOWNLOAD_DIR: /data/downloads
