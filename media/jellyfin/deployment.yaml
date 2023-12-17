@@ -12,9 +12,16 @@ spec:
       labels:
         app: jellyfin
     spec:
+      securityContext:
+        runAsUser: 1000
+        runAsGroup: 1000
+        supplementalGroups:
+          - 104
       containers:
       - name: jellyfin
         image: lscr.io/linuxserver/jellyfin:latest
+        securityContext:
+          privileged: true
         ports:
         - containerPort: 8096
           name: http
@@ -25,6 +32,8 @@ spec:
         - mountPath: /data/media
           name: data
           subPath: media
+        - name: dev-dri
+          mountPath: /dev/dri
       volumes:
       - name: config
         persistentVolumeClaim: 
@@ -32,5 +41,8 @@ spec:
       - name: data
         persistentVolumeClaim: 
           claimName: media-data
+      - name: dev-dri
+        hostPath:
+          path: /dev/dri
             
           
