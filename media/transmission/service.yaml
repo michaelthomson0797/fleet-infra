@@ -1,0 +1,23 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: transmission
+  namespace: media
+spec:
+  selector:
+    app: transmission
+  ports:
+  - port: 80
+    protocol: TCP
+    targetPort: 9091
+    name: transmission-ui
+  - protocol: TCP
+    port: 51413
+    targetPort: 51413
+    name: transmission-tcp
+  - protocol: UDP
+    port: 51413
+    targetPort: 51413
+    name: transmission-udp
+  sessionAffinity: None
+  type: ClusterIP

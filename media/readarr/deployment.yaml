@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: readarr
+  namespace: media
+spec:
+  selector:
+    matchLabels:
+      app: readarr
+  template:
+    metadata:
+      labels:
+        app: readarr
+    spec:
+      containers:
+      - name: readarr
+        image: lscr.io/linuxserver/readarr:nightly
+        envFrom:
+        - configMapRef:
+            name: readarr-config
+            optional: false
+        ports:
+        - containerPort: 8787
+          name: http
+          protocol: TCP
+        volumeMounts:
+        - name: config
+          mountPath: /config
+        - mountPath: /data
+          name: data
+      volumes:
+      - name: config
+        persistentVolumeClaim: 
+          claimName: readarr-config
+      - name: data
+        persistentVolumeClaim: 
+          claimName: media-data
+            
+          
