@@ -38,6 +38,19 @@ spec:
         - mountPath: /downloads
           name: data
           subPath: downloads
+      initContainers:
+      - name: init-media-filesystem
+        image: busybox
+        command:
+        - /bin/sh
+        - -c
+        - |
+          mkdir -p -v /data/downloads/movies /data/downloads/tv /data/downloads/books /data/downloads/audiobooks /data/media/movies /data/media/tv /data/media/books /data/media/audiobooks
+          chown -R 1000:1000 /data
+          chmod -R a=,a+rX,u+w,g+w /data
+        volumeMounts:
+        - mountPath: /data
+          name: data
       volumes:
       - name: config
         persistentVolumeClaim: 
