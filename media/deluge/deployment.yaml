@@ -1,0 +1,49 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: deluge
+  namespace: media
+spec:
+  selector:
+    matchLabels:
+      app: deluge
+  template:
+    metadata:
+      labels:
+        app: deluge
+    spec:
+      containers:
+      - name: deluge
+        image: lscr.io/linuxserver/deluge:latest
+        envFrom:
+        - configMapRef:
+            name: deluge-config
+            optional: false
+        ports:
+        - containerPort: 8112
+          name: http
+          protocol: TCP
+        - containerPort: 6881
+          name: udp
+          protocol: UDP
+        - containerPort: 6881
+          name: tcp
+          protocol: TCP
+        - containerPort: 58846
+          name: thinclient
+          protocol: TCP
+        volumeMounts:
+        - name: config
+          mountPath: /config
+        - mountPath: /data/downloads
+          name: data
+          subPath: downloads
+      volumes:
+      - name: config
+        persistentVolumeClaim: 
+          claimName: deluge-config
+      - name: data
+        persistentVolumeClaim: 
+          claimName: media-data
+            
+          
