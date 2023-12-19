@@ -18,5 +18,5 @@ spec:
       namespace: media
     - apiVersion: apps/v1
       kind: Deployment
-      name: transmission
+      name: deluge
       namespace: media
