@@ -35,7 +35,7 @@ spec:
         volumeMounts:
         - name: deluge-config
           mountPath: /config
-        - mountPath: /downloads
+        - mountPath: /data/downloads
           name: data
           subPath: downloads
       - name: wireguard
