@@ -33,11 +33,30 @@ spec:
           name: thinclient
           protocol: TCP
         volumeMounts:
-        - name: config
+        - name: deluge-config
           mountPath: /config
         - mountPath: /downloads
           name: data
           subPath: downloads
+      - name: wireguard
+        image: lscr.io/linuxserver/wireguard:latest
+        envFrom:
+        - configMapRef:
+            name: wireguard-config
+            optional: false
+        securityContext:
+          capabilities:
+            add:
+            - NET_ADMIN
+            - SYS_MODULE
+          privileged: true
+        ports:
+        - containerPort: 51820
+          name: tun
+          protocol: UDP
+        volumeMounts:
+        - name: wireguard-config
+          mountPath: /config
       initContainers:
       - name: init-media-filesystem
         image: busybox
@@ -51,12 +70,32 @@ spec:
         volumeMounts:
         - mountPath: /data
           name: data
+      - name: init-wireguard-conf
+        image: busybox
+        command:
+        - /bin/sh
+        - -c
+        - |
+          mkdir -p -v /config/wg_confs
+          cp /wireguard-secret/deluge.conf /config/wg_confs/wg0.conf
+        volumeMounts:
+        - name: wireguard-config
+          mountPath: /config
+        - name: wireguard-secret
+          readOnly: true
+          mountPath: /wireguard-secret
       volumes:
-      - name: config
+      - name: deluge-config
         persistentVolumeClaim: 
           claimName: deluge-config
+      - name: wireguard-config
+        persistentVolumeClaim: 
+          claimName: wireguard-config
       - name: data
         persistentVolumeClaim: 
           claimName: media-data
+      - name: wireguard-secret
+        secret:
+          secretName: wireguard-secret
             
           
