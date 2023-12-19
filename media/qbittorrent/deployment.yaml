@@ -1,26 +1,26 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: deluge
+  name: qbittorrent
   namespace: media
 spec:
   selector:
     matchLabels:
-      app: deluge
+      app: qbittorrent
   template:
     metadata:
       labels:
-        app: deluge
+        app: qbittorrent
     spec:
       containers:
-      - name: deluge
-        image: lscr.io/linuxserver/deluge:latest
+      - name: qbittorrent
+        image: lscr.io/linuxserver/qbittorrent:latest
         envFrom:
         - configMapRef:
-            name: deluge-config
+            name: qbittorrent-config
             optional: false
         ports:
-        - containerPort: 8112
+        - containerPort: 8080
           name: http
           protocol: TCP
         - containerPort: 6881
@@ -29,11 +29,8 @@ spec:
         - containerPort: 6881
           name: tcp
           protocol: TCP
-        - containerPort: 58846
-          name: thinclient
-          protocol: TCP
         volumeMounts:
-        - name: deluge-config
+        - name: qbittorrent-config
           mountPath: /config
         - mountPath: /data/downloads
           name: data
@@ -78,9 +75,9 @@ spec:
         - mountPath: /data
           name: data
       volumes:
-      - name: deluge-config
+      - name: qbittorrent-config
         persistentVolumeClaim: 
-          claimName: deluge-config
+          claimName: qbittorrent-config
       - name: wireguard-config
         persistentVolumeClaim: 
           claimName: wireguard-config
