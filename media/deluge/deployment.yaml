@@ -35,7 +35,7 @@ spec:
         volumeMounts:
         - name: config
           mountPath: /config
-        - mountPath: /data/downloads
+        - mountPath: /downloads
           name: data
           subPath: downloads
       volumes:
