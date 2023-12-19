@@ -54,9 +54,16 @@ spec:
         - containerPort: 51820
           name: tun
           protocol: UDP
+        lifecycle:
+          postStart:
+            exec:
+              command: ['cp', '/wireguard-secret/deluge.conf', '/config/wg_confs/wg0.conf']
         volumeMounts:
         - name: wireguard-config
           mountPath: /config
+        - name: wireguard-secret
+          readOnly: true
+          mountPath: /wireguard-secret
       initContainers:
       - name: init-media-filesystem
         image: busybox
@@ -70,20 +77,6 @@ spec:
         volumeMounts:
         - mountPath: /data
           name: data
-      - name: init-wireguard-conf
-        image: busybox
-        command:
-        - /bin/sh
-        - -c
-        - |
-          mkdir -p -v /config/wg_confs
-          cp /wireguard-secret/deluge.conf /config/wg_confs/wg0.conf
-        volumeMounts:
-        - name: wireguard-config
-          mountPath: /config
-        - name: wireguard-secret
-          readOnly: true
-          mountPath: /wireguard-secret
       volumes:
       - name: deluge-config
         persistentVolumeClaim: 
