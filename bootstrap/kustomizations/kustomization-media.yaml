@@ -18,5 +18,17 @@ spec:
       namespace: media
     - apiVersion: apps/v1
       kind: Deployment
-      name: deluge
+      name: qbittorrent
+      namespace: media
+    - apiVersion: apps/v1
+      kind: Deployment
+      name: radarr
+      namespace: media
+    - apiVersion: apps/v1
+      kind: Deployment
+      name: readarr
+      namespace: media
+    - apiVersion: apps/v1
+      kind: Deployment
+      name: sonarr
       namespace: media
