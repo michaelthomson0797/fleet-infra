@@ -1,0 +1,12 @@
+apiVersion: externaldns.k8s.io/v1alpha1
+kind: DNSEndpoint
+metadata:
+  name: qbittorrent.michaelthomson.dev
+  namespace: qbittorrent
+spec:
+  endpoints:
+  - dnsName: qbittorrent.michaelthomson.dev
+    recordTTL: 180
+    recordType: CNAME
+    targets:
+    - server.michaelthomson.dev
