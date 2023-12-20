@@ -23,44 +23,24 @@ spec:
         - containerPort: 8080
           name: http
           protocol: TCP
-        - containerPort: 6881
-          name: udp
-          protocol: UDP
-        - containerPort: 6881
-          name: tcp
-          protocol: TCP
         volumeMounts:
         - name: qbittorrent-config
           mountPath: /config
-        - mountPath: /data/downloads
-          name: data
+        - name: data
+          mountPath: /data/downloads
           subPath: downloads
-      - name: wireguard
-        image: lscr.io/linuxserver/wireguard:latest
+      - name: gluetun
+        image: qmcgaw/gluetun
         envFrom:
         - configMapRef:
-            name: wireguard-config
-            optional: false
+            name: gluetun-config
         securityContext:
           capabilities:
             add:
             - NET_ADMIN
-            - SYS_MODULE
-          privileged: true
-        ports:
-        - containerPort: 51820
-          name: tun
-          protocol: UDP
-        lifecycle:
-          postStart:
-            exec:
-              command: ['cp', '/wireguard-secret/qbittorrent.conf', '/config/wg_confs/wg0.conf']
         volumeMounts:
-        - name: wireguard-config
-          mountPath: /config
-        - name: wireguard-secret
-          readOnly: true
-          mountPath: /wireguard-secret
+        - name: wireguard-config-secret
+          mountPath: /gluetun/wireguard
       initContainers:
       - name: init-media-filesystem
         image: busybox
@@ -78,14 +58,11 @@ spec:
       - name: qbittorrent-config
         persistentVolumeClaim: 
           claimName: qbittorrent-config
-      - name: wireguard-config
-        persistentVolumeClaim: 
-          claimName: wireguard-config
       - name: data
         persistentVolumeClaim: 
           claimName: media-data
-      - name: wireguard-secret
+      - name: wireguard-config-secret
         secret:
-          secretName: wireguard-secret
+          secretName: wireguard-config-secret
             
           
