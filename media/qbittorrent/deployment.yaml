@@ -54,7 +54,7 @@ spec:
         lifecycle:
           postStart:
             exec:
-              command: ['cp', '/wireguard-secret/deluge.conf', '/config/wg_confs/wg0.conf']
+              command: ['cp', '/wireguard-secret/qbittorrent.conf', '/config/wg_confs/wg0.conf']
         volumeMounts:
         - name: wireguard-config
           mountPath: /config
