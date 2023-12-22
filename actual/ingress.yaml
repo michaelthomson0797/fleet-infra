@@ -1,0 +1,25 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: actual
+  namespace: actual
+  annotations:
+    traefik.ingress.kubernetes.io/router.entrypoints: websecure
+    traefik.ingress.kubernetes.io/router.middlewares: traefik-authentik@kubernetescrd
+    traefik.ingress.kubernetes.io/router.tls: "true"
+spec:
+  rules:
+  - host: actual.michaelthomson.dev
+    http:
+      paths:
+      - pathType: ImplementationSpecific
+        path: /
+        backend:
+          service:
+            name: actual
+            port: 
+              name: http
+  tls:
+    - hosts:
+        - actual.michaelthomson.dev
+      secretName: letsencrypt-wildcard-cert-michaelthomson.dev
