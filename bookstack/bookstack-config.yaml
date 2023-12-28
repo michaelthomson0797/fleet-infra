@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: bookstack-config
+  namespace: bookstack
+data:
+  PUID: "1000"
+  PGID: "1000"
+  APP_URL: https://bookstack.michaelthomson.dev
+  DB_HOST: bookstack-db
+  DB_PORT: "3306"
+  DB_DATABASE: bookstackapp

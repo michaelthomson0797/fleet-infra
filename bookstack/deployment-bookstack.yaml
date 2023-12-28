@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: bookstack
+  namespace: bookstack
+spec:
+  selector:
+    matchLabels:
+      app: bookstack
+  template:
+    metadata:
+      labels:
+        app: bookstack
+    spec:
+      containers:
+      - name: bookstack
+        image: lscr.io/linuxserver/bookstack
+        envFrom:
+        - configMapRef:
+            name: bookstack-config
+        - secretRef:
+            name: bookstack-secret
+        ports:
+        - containerPort: 6875
+          name: http
+          protocol: TCP
+        volumeMounts:
+        - mountPath: /config
+          name: config
+      volumes:
+      - name: config
+        persistentVolumeClaim: 
+          claimName: bookstack-config
+            
+          
