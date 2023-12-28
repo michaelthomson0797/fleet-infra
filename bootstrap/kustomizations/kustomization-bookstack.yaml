@@ -16,3 +16,7 @@ spec:
       kind: Deployment
       name: bookstack
       namespace: bookstack
+    - apiVersion: apps/v1
+      kind: Deployment
+      name: bookstack-db
+      namespace: bookstack
