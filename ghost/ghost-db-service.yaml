@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: ghost-db
+  namespace: bookstack
+spec:
+  selector:
+    app: ghost-db
+  ports:
+  - port: 3306
+    targetPort: 3306
