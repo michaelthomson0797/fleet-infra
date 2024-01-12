@@ -1,8 +1,8 @@
 apiVersion: externaldns.k8s.io/v1alpha1
 kind: DNSEndpoint
 metadata:
-  name: git.michaelthomson.dev
-  namespace: git
+  name: gitea.michaelthomson.dev
+  namespace: gitea
 spec:
   endpoints:
   - dnsName: gitea.michaelthomson.dev
