@@ -52,7 +52,7 @@ spec:
         maxUnavailable: 0
 
     ## @param clusterDomain cluster domain
-    clusterDomain: michaelthomson.dev
+    clusterDomain: cluster.local
 
     ## @section Image
     ## @param image.registry image registry, e.g. gcr.io,docker.io
