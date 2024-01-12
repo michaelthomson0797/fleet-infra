@@ -5,7 +5,7 @@ metadata:
   namespace: git
 spec:
   endpoints:
-  - dnsName: git.michaelthomson.dev
+  - dnsName: gitea.michaelthomson.dev
     recordTTL: 180
     recordType: CNAME
     targets:
