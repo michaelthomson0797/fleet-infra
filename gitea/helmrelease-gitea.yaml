@@ -149,9 +149,9 @@ spec:
       ## @param service.ssh.loadBalancerSourceRanges Source range filter for ssh loadbalancer
       ## @param service.ssh.annotations SSH service annotations
       ssh:
-        type: LoadBalancer
+        type: ClusterIP
         port: 22
-        clusterIP: None
+        clusterIP:
         loadBalancerIP:
         nodePort:
         externalTrafficPolicy:
@@ -160,9 +160,7 @@ spec:
         ipFamilies:
         hostPort:
         loadBalancerSourceRanges: []
-        annotations:
-          metallb.universe.tf/loadBalancerIPs: 192.168.2.202
-          metallb.universe.tf/allow-shared-ip: gitea-ssh
+        annotations: {}
 
     ## @section Ingress
     ## @param ingress.enabled Enable ingress
