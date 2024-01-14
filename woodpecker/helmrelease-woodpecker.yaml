@@ -298,7 +298,7 @@ spec:
                   servicePort: *servicePort
         tls:
           - hosts:
-              - gitea.michaelthomson.dev
+              - woodpecker.michaelthomson.dev
             secretName: letsencrypt-wildcard-cert-michaelthomson.dev
 
       # -- Specifies the ressources for the server component
