@@ -193,6 +193,7 @@ spec:
       env:
         WOODPECKER_ADMIN: "woodpecker,admin,gitea_admin,mthomson"
         WOODPECKER_HOST: "https://woodpecker.michaelthomson.dev"
+        WOODPECKER_WEBHOOK_HOST: "http://woodpecker-server:80"
         WOODPECKER_GITEA: "true"
         WOODPECKER_GITEA_URL: "https://gitea.michaelthomson.dev"
         WOODPECKER_GITEA_CLIENT: "93262b6f-e472-4ba5-b28e-3b9aa3de30f6"
