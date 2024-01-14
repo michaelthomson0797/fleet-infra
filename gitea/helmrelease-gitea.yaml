@@ -176,9 +176,9 @@ spec:
       # className: nginx
       className: traefik
       annotations:
-        traefik.ingress.kubernetes.io/router.entrypoints: websecure
-        traefik.ingress.kubernetes.io/router.middlewares: traefik-authentik@kubernetescrd
-        traefik.ingress.kubernetes.io/router.tls: "true"
+        # traefik.ingress.kubernetes.io/router.entrypoints: websecure
+        # traefik.ingress.kubernetes.io/router.middlewares: traefik-authentik@kubernetescrd
+        # traefik.ingress.kubernetes.io/router.tls: "true"
       hosts:
         - host: gitea.michaelthomson.dev
           paths:

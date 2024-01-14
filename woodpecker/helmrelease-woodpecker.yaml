@@ -283,9 +283,9 @@ spec:
         enabled: true
         # -- Add annotations to the ingress
         annotations:
-          traefik.ingress.kubernetes.io/router.entrypoints: websecure
-          traefik.ingress.kubernetes.io/router.middlewares: traefik-authentik@kubernetescrd
-          traefik.ingress.kubernetes.io/router.tls: "true"
+          # traefik.ingress.kubernetes.io/router.entrypoints: websecure
+          # traefik.ingress.kubernetes.io/router.middlewares: traefik-authentik@kubernetescrd
+          # traefik.ingress.kubernetes.io/router.tls: "true"
 
         # -- Defines which ingress controller will implement the resource
         ingressClassName: traefik
