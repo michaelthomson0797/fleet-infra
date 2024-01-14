@@ -203,7 +203,7 @@ spec:
       extraSecretNamesForEnvFrom:
         # - woodpecker-github-client
         # - woodpecker-github-secret
-        - woodpecker-secret
+        # - woodpecker-secret
 
       # -- Additional volumes that can be mounted in containers
       extraVolumes:
