@@ -521,7 +521,7 @@ spec:
           database: gitea
           password: gitea
           username: gitea
-      enabled: true
+      enabled: false
       postgresql:
         repmgrPassword: xWrzijhkYXUcbaBomNqhL99oFaTqyH
         postgresPassword: uvm8tLHENQoqKniuvuYuGV6azAkRuA
@@ -544,7 +544,7 @@ spec:
     ## @param postgresql.global.postgresql.service.ports.postgresql PostgreSQL service port (overrides `service.ports.postgresql`)
     ## @param postgresql.primary.persistence.size PVC Storage Request for PostgreSQL volume
     postgresql:
-      enabled: false
+      enabled: true
       global:
         postgresql:
           auth:
