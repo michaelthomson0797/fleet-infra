@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: act-runner
+  namespace: act-runner
+spec:
+  selector:
+    matchLabels:
+      app: act-runner
+  template:
+    metadata:
+      labels:
+        app: act-runner
+    spec:
+      containers:
+      - name: act-runner
+        image: gitea/act_runner:nightly
+        envFrom:
+        - configMapRef:
+            name: act-runner-config
+        volumeMounts:
+        - name: data
+          mountPath: /data
+      volumes:
+      - name: data
+        persistentVolumeClaim:
+          claimName: data
