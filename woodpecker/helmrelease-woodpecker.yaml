@@ -191,7 +191,7 @@ spec:
 
       # -- Add environment variables for the server component
       env:
-        WOODPECKER_ADMIN: "woodpecker,admin"
+        WOODPECKER_ADMIN: "woodpecker,admin,gitea_admin,mthomson"
         WOODPECKER_HOST: "https://woodpecker.michaelthomson.dev"
         WOODPECKER_GITEA: "true"
         WOODPECKER_GITEA_URL: "https://gitea.michaelthomson.dev"
