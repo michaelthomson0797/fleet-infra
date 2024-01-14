@@ -55,7 +55,7 @@ spec:
         WOODPECKER_CONNECT_RETRY_COUNT: "1"
 
       # -- Add extra secret that is contains environment variables
-      # extraSecretNamesForEnvFrom:
+      extraSecretNamesForEnvFrom: []
       #  - woodpecker-secret
 
       # -- Additional volumes that can be mounted in containers
@@ -200,7 +200,7 @@ spec:
         
 
       # -- Add extra environment variables from the secrets list
-      extraSecretNamesForEnvFrom:
+      extraSecretNamesForEnvFrom: []
         # - woodpecker-github-client
         # - woodpecker-github-secret
         # - woodpecker-secret
