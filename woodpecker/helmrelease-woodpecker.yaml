@@ -194,7 +194,7 @@ spec:
         WOODPECKER_ADMIN: "woodpecker,admin"
         WOODPECKER_HOST: "https://woodpecker.michaelthomson.dev"
         WOODPECKER_GITEA: "true"
-        WOODPECKER_GITEA_URL: "http://gitea.michaelthomson.dev"
+        WOODPECKER_GITEA_URL: "https://gitea.michaelthomson.dev"
         WOODPECKER_GITEA_CLIENT: "93262b6f-e472-4ba5-b28e-3b9aa3de30f6"
         WOODPECKER_GITEA_SECRET: "gto_bd2gg2etyx4enh5zgnnm7yodmsrtztxkx4pgezdo7vpaboq4ejcq"
         
