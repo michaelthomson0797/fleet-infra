@@ -238,7 +238,7 @@ spec:
     ## @param deployment.annotations Annotations for the Gitea deployment to be created
     deployment:
       env:
-        - name: ALLOWED_HOST_LIST
+        - name: GITEA__webhook__ALLOWED_HOST_LIST
           value: external,loopback,private
       terminationGracePeriodSeconds: 60
       labels: {}
