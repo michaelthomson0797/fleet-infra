@@ -53,6 +53,7 @@ spec:
         WOODPECKER_BACKEND_K8S_POD_LABELS: ""
         WOODPECKER_BACKEND_K8S_POD_ANNOTATIONS: ""
         WOODPECKER_CONNECT_RETRY_COUNT: "1"
+        WOODPECKER_AGENT_SECRET: "nfijsebifeisihbes87843ygyibdui"
 
       # -- Add extra secret that is contains environment variables
       extraSecretNamesForEnvFrom: []
@@ -199,6 +200,7 @@ spec:
         WOODPECKER_GITEA_CLIENT: "93262b6f-e472-4ba5-b28e-3b9aa3de30f6"
         WOODPECKER_GITEA_SECRET: "gto_bd2gg2etyx4enh5zgnnm7yodmsrtztxkx4pgezdo7vpaboq4ejcq"
         WOODPECKER_GITEA_SKIP_VERIFY: "true"
+        WOODPECKER_AGENT_SECRET: "nfijsebifeisihbes87843ygyibdui"
 
       # -- Add extra environment variables from the secrets list
       extraSecretNamesForEnvFrom: []
