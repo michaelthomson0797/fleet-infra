@@ -238,9 +238,8 @@ spec:
     ## @param deployment.annotations Annotations for the Gitea deployment to be created
     deployment:
       env:
-        []
-        # - name: VARIABLE
-        #   value: my-value
+        - name: ALLOWED_HOST_LIST
+          value: external,loopback,private
       terminationGracePeriodSeconds: 60
       labels: {}
       annotations: {}
