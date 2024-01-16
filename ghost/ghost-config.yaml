@@ -1,7 +1,0 @@
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: ghost-config
-  namespace: ghost
-data:
-  url: https://ghost.michaelthomson.dev
