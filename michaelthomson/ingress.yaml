@@ -11,8 +11,16 @@ spec:
   - host: michaelthomson.dev
     http:
       paths:
-      - pathType: ImplementationSpecific
-        path: /
+      - path: /
+        backend:
+          service:
+            name: michaelthomson
+            port: 
+              name: http
+  - host: www.michaelthomson.dev
+    http:
+      paths:
+      - path: /
         backend:
           service:
             name: michaelthomson
@@ -21,4 +29,5 @@ spec:
   tls:
     - hosts:
         - michaelthomson.dev
+        - www.michaelthomson.dev
       secretName: letsencrypt-wildcard-cert-michaelthomson.dev
