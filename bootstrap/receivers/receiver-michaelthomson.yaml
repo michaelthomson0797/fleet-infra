@@ -4,7 +4,7 @@ metadata:
   name: michaelthomson
   namespace: flux-system
 spec:
-  type: github
+  type: generic
   secretRef:
     name: webhook-token
   resources:
