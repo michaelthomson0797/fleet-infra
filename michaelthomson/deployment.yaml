@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: michaelthomson
+  namespace: michaelthomson
+spec:
+  selector:
+    matchLabels:
+      app: michaelthomson
+  template:
+    metadata:
+      labels:
+        app: michaelthomson
+    spec:
+      containers:
+      - name: michaelthomson
+        image: gitea.michaelthomson.dev/mthomson/michaelthomson:latest
+        ports:
+        - containerPort: 3000
+          name: http
+          protocol: TCP
