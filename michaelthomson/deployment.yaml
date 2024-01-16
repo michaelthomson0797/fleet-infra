@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: michaelthomson
-        image: gitea.michaelthomson.dev/mthomson/michaelthomson:latest # {"$imagepolicy": "flux-system:podinfo"}
+        image: gitea.michaelthomson.dev/mthomson/michaelthomson:latest # {"$imagepolicy": "flux-system:michaelthomson"}
         ports:
         - containerPort: 3000
           name: http
