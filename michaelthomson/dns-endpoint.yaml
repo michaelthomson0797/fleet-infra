@@ -13,3 +13,8 @@ spec:
     providerSpecific:
       - name: external-dns.alpha.kubernetes.io/cloudflare-proxied
         value: "true"
+  - dnsName: www.michaelthomson.dev
+    recordTTL: 180
+    recordType: CNAME
+    targets:
+    - michaelthomson.dev
