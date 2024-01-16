@@ -20,5 +20,4 @@ spec:
     kind: GitRepository
     name: flux-system
   update:
-    path: ./bootstrap
     strategy: Setters
