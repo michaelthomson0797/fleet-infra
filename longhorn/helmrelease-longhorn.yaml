@@ -131,7 +131,7 @@ spec:
       snapshotterReplicaCount: ~
 
     defaultSettings:
-      backupTarget: s3://s3.us-west-004.backblazeb2.com/michaelthomson-longhorn
+      backupTarget: s3://michaelthomson-longorn@us-west-004
       backupTargetCredentialSecret: backblaze-secret
       allowRecurringJobWhileVolumeDetached: ~
       createDefaultDiskLabeledNodes: ~
