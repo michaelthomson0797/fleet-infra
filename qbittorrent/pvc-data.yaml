@@ -3,8 +3,6 @@ kind: PersistentVolumeClaim
 metadata:
   name: data
   namespace: qbittorrent
-  annotations:
-    nfs.io/storage-path: "media"
 spec:
   accessModes:
     - ReadWriteOnce
