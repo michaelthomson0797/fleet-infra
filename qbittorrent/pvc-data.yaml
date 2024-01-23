@@ -3,10 +3,12 @@ kind: PersistentVolumeClaim
 metadata:
   name: data
   namespace: qbittorrent
+  annotations:
+    nfs.io/storage-path: "media"
 spec:
   accessModes:
     - ReadWriteOnce
-  storageClassName: longhorn
+  storageClassName: nfs-client
   resources:
     requests:
-      storage: 20Gi
+      storage: 5Ti
