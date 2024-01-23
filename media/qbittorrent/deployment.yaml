@@ -64,5 +64,3 @@ spec:
       - name: wireguard-config-secret
         secret:
           secretName: wireguard-config-secret
-            
-          

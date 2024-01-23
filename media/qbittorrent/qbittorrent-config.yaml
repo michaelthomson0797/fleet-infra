@@ -6,4 +6,3 @@ metadata:
 data:
   PUID: "1000"
   PGID: "1000"
-  DOCKER_MODS: arafatamim/linuxserver-io-mod-vuetorrent
