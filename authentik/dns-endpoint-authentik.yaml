@@ -7,6 +7,9 @@ spec:
   endpoints:
   - dnsName: authentik.michaelthomson.dev
     recordTTL: 180
-    recordType: CNAME
+    recordType: A
     targets:
-    - server.michaelthomson.dev
+      - 142.126.163.72
+    providerSpecific:
+      - name: external-dns.alpha.kubernetes.io/cloudflare-proxied
+        value: "true"
