@@ -7,9 +7,9 @@ spec:
   endpoints:
   - dnsName: michaelthomson.dev
     recordTTL: 180
-    recordType: A
+    recordType: CNAME
     targets:
-      - 142.126.163.72
+      - michaelthomson.ddns.net
     providerSpecific:
       - name: external-dns.alpha.kubernetes.io/cloudflare-proxied
         value: "true"
