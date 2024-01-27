@@ -25,11 +25,11 @@ spec:
     # -- server containerSecurityContext
     containerSecurityContext: {}
     # -- server deployment strategy
-    strategy: {}
-      # type: RollingUpdate
-      # rollingUpdate:
-      #  maxSurge: 25%
-      #  maxUnavailable: 25%
+    strategy:
+      type: RollingUpdate
+      rollingUpdate:
+       maxSurge: 1
+       maxUnavailable: 1
 
     worker:
       # -- worker replicas
@@ -41,11 +41,11 @@ spec:
       # -- worker containerSecurityContext
       containerSecurityContext: {}
       # -- worker strategy
-      strategy: {}
-        # type: RollingUpdate
-        # rollingUpdate:
-        #  maxSurge: 25%
-        #  maxUnavailable: 25%
+      strategy:
+        type: RollingUpdate
+        rollingUpdate:
+         maxSurge: 1
+         maxUnavailable: 1
 
     image:
       repository: ghcr.io/goauthentik/server
