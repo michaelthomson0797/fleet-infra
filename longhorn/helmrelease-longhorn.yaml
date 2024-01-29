@@ -283,7 +283,7 @@ spec:
       annotations:
         traefik.ingress.kubernetes.io/router.tls: "true"
         traefik.ingress.kubernetes.io/router.entrypoints: websecure
-        traefik.ingress.kubernetes.io/router.middlewares: traefik-authentik@kubernetescrd
+        # traefik.ingress.kubernetes.io/router.middlewares: traefik-authentik@kubernetescrd
 
       secrets:
       ## If you're providing your own certificates, please use this to add the certificates as secrets
