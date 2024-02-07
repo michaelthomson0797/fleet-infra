@@ -7,7 +7,7 @@ spec:
   chart:
     spec:
       chart: authentik
-      version: 2023.10.6
+      version: 2023.10.7
       sourceRef:
         kind: HelmRepository
         name: authentik
@@ -17,7 +17,7 @@ spec:
   releaseName: authentik
   values:
     # -- Server replicas
-    replicas: 2
+    replicas: 1
     # -- Custom priority class for different treatment by the scheduler
     priorityClassName:
     # -- server securityContext
