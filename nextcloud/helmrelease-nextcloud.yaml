@@ -392,7 +392,7 @@ spec:
       ##   set, choosing the default provisioner.  (gp2 on AWS, standard on
       ##   GKE, AWS & OpenStack)
       ##
-      storageClass: longhorn
+      storageClass: nfs-client
 
       ## A manually managed Persistent Volume and Claim
       ## Requires persistence.enabled: true
@@ -400,12 +400,12 @@ spec:
       # existingClaim:
 
       accessMode: ReadWriteOnce
-      size: 8Gi
+      size: 1Ti
 
       ## Use an additional pvc for the data directory rather than a subpath of the default PVC
       ## Useful to store data on a different storageClass (e.g. on slower disks)
       nextcloudData:
-        enabled: true
+        enabled: false
         subPath:
         annotations: {}
         storageClass: nfs-client
