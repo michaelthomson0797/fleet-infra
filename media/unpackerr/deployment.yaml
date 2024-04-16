@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: unpackerr
+  namespace: media
+spec:
+  selector:
+    matchLabels:
+      app: unpackerr
+  template:
+    metadata:
+      labels:
+        app: unpackerr
+    spec:
+      containers:
+      - name: unpackerr
+        image: golift/unpackerr:latest
+        envFrom:
+        - configMapRef:
+            name: unpackerr-config
+            optional: false
+        - mountPath: /data
+          name: data
+      volumes:
+      - name: data
+        persistentVolumeClaim: 
+          claimName: media-data
+            
+          
