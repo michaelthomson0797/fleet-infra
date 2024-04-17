@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: wg-easy
+  namespace: wg-easy
+spec:
+  selector:
+    app: wg-easy
+  ports:
+  - port: 80
+    targetPort: 51821
+    name: http
+  - port: 51820
+    targetPort: 51820
+    name: udp

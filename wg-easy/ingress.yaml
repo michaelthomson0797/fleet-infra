@@ -1,0 +1,24 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: wg-easy
+  namespace: wg-easy
+  annotations:
+    traefik.ingress.kubernetes.io/router.entrypoints: websecure
+    traefik.ingress.kubernetes.io/router.tls: "true"
+spec:
+  rules:
+  - host: wireguard.michaelthomson.dev
+    http:
+      paths:
+      - pathType: ImplementationSpecific
+        path: /
+        backend:
+          service:
+            name: wg-easy
+            port: 
+              name: http
+  tls:
+    - hosts:
+        - wireguard.michaelthomson.dev
+      secretName: letsencrypt-wildcard-cert-michaelthomson.dev
