@@ -9,4 +9,4 @@ spec:
   routes:
   - services:
     - name: wg-easy
-      port: 51820
+      port: 51822

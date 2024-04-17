@@ -758,7 +758,7 @@ spec:
         port: 55522
         expose: true
       wireguard-udp:
-        port: 51820
+        port: 51822
         expose: true
         protocol: UDP
 

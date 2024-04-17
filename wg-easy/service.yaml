@@ -10,7 +10,7 @@ spec:
   - port: 80
     targetPort: 51821
     name: http
-  - port: 51820
-    targetPort: 51820
+  - port: 51822
+    targetPort: 51822
     name: udp
     protocol: UDP
