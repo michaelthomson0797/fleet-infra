@@ -47,3 +47,7 @@ spec:
         storageClass: nfs-client
         accessMode: ReadWriteOnce
         size: 14Ti
+    livenessProbe:
+      enabled: false
+    readinessProbe:
+      enabled: false
