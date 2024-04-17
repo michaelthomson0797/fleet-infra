@@ -11,5 +11,5 @@ spec:
     app: wg-easy
   ports:
   - port: 51822
-    targetPort: 51822
+    targetPort: 51820
     protocol: UDP
