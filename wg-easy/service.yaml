@@ -13,3 +13,4 @@ spec:
   - port: 51820
     targetPort: 51820
     name: udp
+    protocol: UDP
