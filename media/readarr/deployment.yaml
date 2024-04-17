@@ -15,6 +15,7 @@ spec:
       containers:
       - name: readarr
         image: lscr.io/linuxserver/readarr:nightly
+        imagePullPolicy: Always
         envFrom:
         - configMapRef:
             name: readarr-config
