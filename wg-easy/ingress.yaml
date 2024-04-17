@@ -5,6 +5,7 @@ metadata:
   namespace: wg-easy
   annotations:
     traefik.ingress.kubernetes.io/router.entrypoints: websecure
+    traefik.ingress.kubernetes.io/router.middlewares: traefik-authentik@kubernetescrd
     traefik.ingress.kubernetes.io/router.tls: "true"
 spec:
   rules:

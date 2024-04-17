@@ -757,6 +757,10 @@ spec:
       gitea-ssh:
         port: 55522
         expose: true
+      wireguard-udp:
+        port: 51820
+        expose: true
+        protocol: UDP
 
     # -- TLS Options are created as TLSOption CRDs
     # https://doc.traefik.io/traefik/https/tls/#tls-options

@@ -1,0 +1,12 @@
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRouteUDP
+metadata:
+  name: wireguard-udp
+  namespace: wg-easy
+spec:
+  entryPoints:
+    - wireguard-udp
+  routes:
+  - services:
+    - name: wg-easy
+      port: 51820
