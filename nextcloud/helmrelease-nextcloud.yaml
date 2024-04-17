@@ -30,6 +30,9 @@ spec:
       path: /
       pathType: Prefix
 
+    phpClientHttpsFix:
+      enabled: true
+
     nextcloud:
       host: nextcloud.michaelthomson.dev
       username: admin
