@@ -15,6 +15,7 @@ spec:
       containers:
       - name: jellyseerr
         image: fallenbagel/jellyseerr:latest
+        imagePullPolicy: Always
         envFrom:
         - configMapRef:
             name: jellyseerr-config
