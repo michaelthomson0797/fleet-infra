@@ -29,11 +29,13 @@ spec:
     ports:
       gitea-ssh:
         port: 55522
-        expose: true
+        expose:
+          default: true
       wireguard-udp:
         port: 51822
-        expose: true
         protocol: UDP
+        expose:
+          default: true
 
     service:
       annotations: 
