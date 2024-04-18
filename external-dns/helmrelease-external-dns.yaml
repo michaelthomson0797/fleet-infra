@@ -39,3 +39,7 @@ spec:
       ## @param cloudflare.proxied When using the Cloudflare provider, enable the proxy feature (DDOS protection, CDN...) (optional)
       ##
       proxied: false
+    crd:
+      ## @param crd.create Install and use the integrated DNSEndpoint CRD
+      ##
+      create: true
