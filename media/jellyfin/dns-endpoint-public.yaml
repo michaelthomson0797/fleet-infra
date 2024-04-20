@@ -1,11 +1,11 @@
 apiVersion: externaldns.k8s.io/v1alpha1
 kind: DNSEndpoint
 metadata:
-  name: media.michaelthomson.dev
+  name: jellyfin.michaelthomson.dev
   namespace: media
 spec:
   endpoints:
-  - dnsName: media.michaelthomson.dev
+  - dnsName: jellyfin.michaelthomson.dev
     recordTTL: 180
     recordType: CNAME
     targets:
