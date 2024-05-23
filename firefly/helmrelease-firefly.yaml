@@ -6,7 +6,7 @@ metadata:
 spec:
   chart:
     spec:
-      chart: firefly-iii/firefly-iii-stack
+      chart: firefly-iii-stack
       version: 0.7.x
       sourceRef:
         kind: HelmRepository
