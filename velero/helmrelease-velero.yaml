@@ -1,0 +1,54 @@
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: velero
+  namespace: velero
+spec:
+  chart:
+    spec:
+      chart: velero
+      version: 0.6.x
+      sourceRef:
+        kind: HelmRepository
+        name: vmware-tanzu
+        namespace: flux-system
+  interval: 15m
+  timeout: 5m
+  releaseName: velero
+  values:
+    initContainers:
+      - name: velero-plugin-for-aws
+        image: velero/velero-plugin-for-aws:v1.9.0
+        imagePullPolicy: IfNotPresent
+        volumeMounts:
+          - mountPath: /target
+            nameconfiguration:
+    backupStorageLocation:
+      # name is the name of the backup storage location where backups should be stored. If a name is not provided,
+      # a backup storage location will be created with the name "default". Optional.
+    - name: backblaze
+      # provider is the name for the backup storage location provider.
+      provider: aws
+      # bucket is the name of the bucket to store backups in. Required.
+      bucket: mthomson-cluster-backup
+      credential:
+        # name of the secret used by this backupStorageLocation.
+        name: velero-secret
+        # name of key that contains the secret data to be used.
+        key: cloud
+      # Additional provider-specific configuration. See link above
+      # for details of required/optional fields for your provider.
+      config:
+        region: us-west-004
+        s3Url: "https://s3.us-west-004.backblazeb2.com"
+    schedules:
+      daily-backup:
+        disabled: false
+        schedule: "0 0 * * *" # once a day, at midnight
+        useOwnerReferencesInBackup: false
+        template:
+          ttl: "240h"
+          storageLocation: backblaze # use the same name you defined above in backupStorageLocation
+          excludedNamespaces:
+          - media
+
