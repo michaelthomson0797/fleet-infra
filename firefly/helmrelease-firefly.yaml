@@ -38,8 +38,6 @@ spec:
           traefik.ingress.kubernetes.io/router.tls: "true"
         hosts:
           - host: firefly.michaelthomson.dev
-            paths:
-              - path: "/"
         tls:
           - hosts:
               - firefly.michaelthomson.dev
@@ -56,8 +54,6 @@ spec:
           traefik.ingress.kubernetes.io/router.tls: "true"
         hosts:
           - host: importer.michaelthomson.dev
-            paths:
-              - path: "/"
         tls:
           - hosts:
               - importer.michaelthomson.dev
