@@ -27,7 +27,7 @@ spec:
       backupStorageLocation:
         # name is the name of the backup storage location where backups should be stored. If a name is not provided,
         # a backup storage location will be created with the name "default". Optional.
-      - name: backblaze
+      - name: default
         # provider is the name for the backup storage location provider.
         provider: aws
         # bucket is the name of the bucket to store backups in. Required.
@@ -49,7 +49,7 @@ spec:
         useOwnerReferencesInBackup: false
         template:
           ttl: "240h"
-          storageLocation: backblaze # use the same name you defined above in backupStorageLocation
+          storageLocation: default # use the same name you defined above in backupStorageLocation
           excludedNamespaces:
           - media
 
