@@ -22,7 +22,7 @@ spec:
       imagePullPolicy: IfNotPresent
       volumeMounts:
       - mountPath: /target
-        nameconfiguration:
+        name: plugins
     configuration:
       backupStorageLocation:
         # name is the name of the backup storage location where backups should be stored. If a name is not provided,
