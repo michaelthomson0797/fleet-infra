@@ -23,24 +23,25 @@ spec:
         volumeMounts:
           - mountPath: /target
             nameconfiguration:
-    backupStorageLocation:
-      # name is the name of the backup storage location where backups should be stored. If a name is not provided,
-      # a backup storage location will be created with the name "default". Optional.
-    - name: backblaze
-      # provider is the name for the backup storage location provider.
-      provider: aws
-      # bucket is the name of the bucket to store backups in. Required.
-      bucket: mthomson-cluster-backup
-      credential:
-        # name of the secret used by this backupStorageLocation.
-        name: velero-secret
-        # name of key that contains the secret data to be used.
-        key: cloud
-      # Additional provider-specific configuration. See link above
-      # for details of required/optional fields for your provider.
-      config:
-        region: us-west-004
-        s3Url: "https://s3.us-west-004.backblazeb2.com"
+    configuration:
+      backupStorageLocation:
+        # name is the name of the backup storage location where backups should be stored. If a name is not provided,
+        # a backup storage location will be created with the name "default". Optional.
+      - name: backblaze
+        # provider is the name for the backup storage location provider.
+        provider: aws
+        # bucket is the name of the bucket to store backups in. Required.
+        bucket: mthomson-cluster-backup
+        credential:
+          # name of the secret used by this backupStorageLocation.
+          name: velero-secret
+          # name of key that contains the secret data to be used.
+          key: cloud
+        # Additional provider-specific configuration. See link above
+        # for details of required/optional fields for your provider.
+        config:
+          region: us-west-004
+          s3Url: "https://s3.us-west-004.backblazeb2.com"
     schedules:
       daily-backup:
         disabled: false
