@@ -43,6 +43,13 @@ spec:
         config:
           region: us-west-004
           s3Url: "https://s3.us-west-004.backblazeb2.com"
+      volumeSnapshotLocation:
+        # name is the name of the volume snapshot location where snapshots are being taken. Required.
+      - name: longhorn
+        # provider is the name for the volume snapshot provider.
+        provider: csi
+      defaultVolumeSnapshotLocations: csi:longhorn
+      features: EnableCSI
     schedules:
       daily-backup:
         disabled: false
