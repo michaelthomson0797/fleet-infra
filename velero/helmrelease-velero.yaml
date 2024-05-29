@@ -48,7 +48,7 @@ spec:
       - name: longhorn
         # provider is the name for the volume snapshot provider.
         provider: csi
-      defaultVolumeSnapshotLocations: longhorn
+      defaultVolumeSnapshotLocations: csi:longhorn
       features: EnableCSI
     schedules:
       daily-backup:
