@@ -18,7 +18,7 @@ spec:
   values:
     controller:
       volumeSnapshotClasses:
-      - name: longhorn
+      - name: longhorn-snapshot-vsc
         driver: driver.longhorn.io
         labels:
           velero.io/csi-volumesnapshot-class: "true"
