@@ -64,6 +64,4 @@ spec:
         template:
           ttl: "240h"
           storageLocation: backblaze # use the same name you defined above in backupStorageLocation
-          excludedNamespaces:
-          - media
 
