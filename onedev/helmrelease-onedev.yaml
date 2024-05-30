@@ -31,10 +31,10 @@ spec:
         secretName: letsencrypt-wildcard-cert-michaelthomson.dev
     persistence:
       # persistence.storageClassName -- (string) Specify the storageClassName for PersistentVolumeClaims.
-      storageClassName: "nfs-client"
+      storageClassName: "longhorn"
       # persistence.accessModes -- Specify the accessModes for PersistentVolumeClaims.
       accessModes: "ReadWriteOnce"
       # persistence.size -- Specify the size of PersistentVolumeClaims.
-      size: 100Gi
+      size: 50Gi
       # persistence.selector -- Specify the selectors for PersistentVolumeClaims.
       selector: {}
