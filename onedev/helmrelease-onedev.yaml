@@ -26,12 +26,6 @@ spec:
       securityContext:
         runAsUser: 0
         runAsGroup: 0
-        allowPrivilegeEscalation: true
-        capabilities:
-          add:
-          - CHOWN
-          - FOWNER
-          - DAC_OVERRIDE
       volumeMounts:
       - name: data
         mountPath: /opt/onedev
