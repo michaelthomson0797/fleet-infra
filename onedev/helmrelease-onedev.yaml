@@ -16,9 +16,6 @@ spec:
   timeout: 5m
   releaseName: onedev
   values:
-    securityContext:
-      runAsUser: 1000
-      runAsGroup: 1000
     # Configure Ingress resource
     ingress:
       enabled: true
