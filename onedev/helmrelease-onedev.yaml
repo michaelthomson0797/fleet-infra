@@ -16,6 +16,18 @@ spec:
   timeout: 5m
   releaseName: onedev
   values:
+    securityContext:
+      runAsUser: 1000
+      runAsGroup: 1000
+    initContainers:
+    - name: fix-ownership
+      image: busybox
+      command: ["chown", "-R", "1000:1000", "/opt/onedev"]
+      volumeMounts:
+          - name: data
+            mountPath: /opt/onedev
+          - name: trust-certs
+            mountPath: /opt/onedev/conf/trust-certs
     # Configure Ingress resource
     ingress:
       enabled: true
