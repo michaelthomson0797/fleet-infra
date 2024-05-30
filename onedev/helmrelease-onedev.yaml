@@ -1,0 +1,40 @@
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: onedev
+  namespace: onedev
+spec:
+  chart:
+    spec:
+      chart: onedev
+      version: 10.x
+      sourceRef:
+        kind: HelmRepository
+        name: onedev
+        namespace: flux-system
+  interval: 15m
+  timeout: 5m
+  releaseName: onedev
+  values:
+    # Configure Ingress resource
+    ingress:
+      enabled: true
+      className: "traefik"
+      annotations: 
+        traefik.ingress.kubernetes.io/router.entrypoints: websecure
+        traefik.ingress.kubernetes.io/router.tls: "true"
+      host: onedev.michaelthomson.dev
+
+      # ingress.tls -- Configure TLS for the Ingress.
+      tls:
+        enabled: true
+        secretName: letsencrypt-wildcard-cert-michaelthomson.dev
+    persistence:
+      # persistence.storageClassName -- (string) Specify the storageClassName for PersistentVolumeClaims.
+      storageClassName: "nfs-client"
+      # persistence.accessModes -- Specify the accessModes for PersistentVolumeClaims.
+      accessModes: "ReadWriteOnce"
+      # persistence.size -- Specify the size of PersistentVolumeClaims.
+      size: 100Gi
+      # persistence.selector -- Specify the selectors for PersistentVolumeClaims.
+      selector: {}
