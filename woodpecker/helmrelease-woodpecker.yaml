@@ -44,6 +44,9 @@ spec:
       extraSecretNamesForEnvFrom:
       - woodpecker-secret
 
+      secrets:
+      - name: woodpecker-secret-core
+
       persistentVolume:
         # -- Enable the creation of the persistent volume
         enabled: true
