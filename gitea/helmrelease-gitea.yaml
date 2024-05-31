@@ -59,6 +59,9 @@ spec:
         nodes: 3 # default: 6
         replicas: 0 # default: 1
 
+    postgresql-ha:
+      enabled: false
+
     postgresql:
       enabled: true
       global:
