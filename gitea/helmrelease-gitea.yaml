@@ -53,7 +53,7 @@ spec:
         email: "gitea@michaelthomson.dev"
 
     redis-cluster:
-      enabled: true
+      enabled: false
       usePassword: false
       cluster:
         nodes: 3 # default: 6
