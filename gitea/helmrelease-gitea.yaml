@@ -44,6 +44,8 @@ spec:
 
     gitea:
       config:
+        server:
+          SSH_PORT: 55522
         service:
           DISABLE_REGISTRATION: true
         webhook:
