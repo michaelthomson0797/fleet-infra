@@ -21,6 +21,13 @@ spec:
 
     replicaCount: 1
 
+    service:
+      ssh:
+        type: LoadBalancer
+        port: 2222
+        annotations:
+          metallb.universe.tf/loadBalancerIPs: 192.168.2.248
+
     ingress:
       enabled: true
       className: traefik
@@ -45,7 +52,7 @@ spec:
     gitea:
       config:
         server:
-          SSH_PORT: 55522
+          SSH_PORT: 2222
         service:
           DISABLE_REGISTRATION: true
         webhook:

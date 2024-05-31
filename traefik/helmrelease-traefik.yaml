@@ -27,14 +27,6 @@ spec:
           domains:
             - main: server.michaelthomson.dev
     ports:
-      gitea-ssh:
-        port: 55522
-        expose:
-          default: true
-      onedev-ssh:
-        port: 2222
-        expose:
-          default: true
       wireguard-udp:
         port: 51822
         protocol: UDP
