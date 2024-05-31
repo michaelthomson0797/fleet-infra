@@ -37,27 +37,23 @@ spec:
             - gitea.michaelthomson.dev
           secretName: letsencrypt-wildcard-cert-michaelthomson.dev
 
-    deployment:
-      env:
-        - name: GITEA__webhook__ALLOWED_HOST_LIST
-          value: external,loopback,private
-
     persistence:
       claimName: gitea-shared-storage
       size: 10Gi
       storageClass: longhorn
 
     gitea:
+      config:
+        service:
+          DISABLE_REGISTRATION: true
+        webhook:
+          ALLOWED_HOST_LIST: external,loopback,private
       admin:
         existingSecret: gitea-admin-secret
         email: "gitea@michaelthomson.dev"
 
     redis-cluster:
       enabled: false
-      usePassword: false
-      cluster:
-        nodes: 3 # default: 6
-        replicas: 0 # default: 1
 
     postgresql-ha:
       enabled: false
