@@ -1,0 +1,12 @@
+apiVersion: externaldns.k8s.io/v1alpha1
+kind: DNSEndpoint
+metadata:
+  name: syncthing.michaelthomson.dev
+  namespace: syncthing
+spec:
+  endpoints:
+  - dnsName: syncthing.michaelthomson.dev
+    recordTTL: 180
+    recordType: CNAME
+    targets:
+    - server.michaelthomson.dev
