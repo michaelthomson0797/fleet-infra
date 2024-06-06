@@ -10,14 +10,3 @@ spec:
     - name: http
       port: 8384
       targetPort: http
-    - name: tcp
-      port: 22000
-      targetPort: tcp
-    - name: quic
-      port: 22000
-      protocol: UDP
-      targetPort: quic
-    - name: discovery
-      port: 21027
-      protocol: UDP
-      targetPort: discovery
