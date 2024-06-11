@@ -15,6 +15,7 @@ spec:
       containers:
       - name: actual
         image: docker.io/actualbudget/actual-server:edge
+        imagePullPolicy: Always
         ports:
         - containerPort: 5006
           name: http
