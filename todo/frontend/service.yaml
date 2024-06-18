@@ -5,7 +5,7 @@ metadata:
   namespace: todo
 spec:
   selector:
-    app: todo
+    app: todo-app
   ports:
   - port: 80
     targetPort: http
