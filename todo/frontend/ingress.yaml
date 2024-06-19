@@ -11,8 +11,7 @@ spec:
   - host: todo.michaelthomson.dev
     http:
       paths:
-      - pathType: ImplementationSpecific
-        path: /
+      - path: /
         backend:
           service:
             name: todo
