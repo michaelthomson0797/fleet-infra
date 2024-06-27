@@ -8,7 +8,7 @@ metadata:
     traefik.ingress.kubernetes.io/router.tls: "true"
 spec:
   rules:
-  - host: michaelthomson.dev
+  - host: www.michaelthomson.dev
     http:
       paths:
       - path: /
