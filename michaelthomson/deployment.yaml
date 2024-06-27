@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
       - image: gitea.michaelthomson.dev/mthomson/michaelthomson.dev:latest
-        name: michaelthomson.dev
+        name: michaelthomson
         ports:
         - name: http
           containerPort: 80
