@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: michaelthomson
+  namespace: michaelthomson
+  labels:
+    app: michaelthomson
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: michaelthomson
+  template:
+    metadata:
+      labels:
+        app: michaelthomson
+    spec:
+      containers:
+      - image: gitea.michaelthomson.dev/mthomson/michaelthomson.dev:latest
+        name: michaelthomson.dev
+        ports:
+        - name: http
+          containerPort: 80

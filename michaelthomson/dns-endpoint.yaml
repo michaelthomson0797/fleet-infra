@@ -1,0 +1,15 @@
+apiVersion: externaldns.k8s.io/v1alpha1
+kind: DNSEndpoint
+metadata:
+  name: michaelthomson.dev
+  namespace: michaelthomson
+spec:
+  endpoints:
+  - dnsName: michaelthomson.dev
+    recordTTL: 180
+    recordType: CNAME
+    targets:
+      - michaelthomson.ddns.net
+    providerSpecific:
+      - name: external-dns.alpha.kubernetes.io/cloudflare-proxied
+        value: "true"
