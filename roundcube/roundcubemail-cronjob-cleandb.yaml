@@ -1,0 +1,22 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: cleandb
+  namesapce: roundcube
+spec:
+  schedule: "@daily"
+  concurrencyPolicy: Replace
+  jobTemplate:
+    spec:
+      template:
+        metadata:
+          name:  cleandb
+        spec:
+          restartPolicy: OnFailure
+          containers:
+            - name: roundcubemail
+              image: roundcube/roundcubemail:latest-fpm-alpine
+              imagePullPolicy: ""
+              env: *env
+              args:
+                - bin/cleandb.sh
