@@ -34,6 +34,8 @@ spec:
             secretKeyRef:
               name: roundcubemail-shared-secret
               key: DB_PASSWORD
+        - name: PG_DATA
+          value: /var/lib/postgresql/data/pgdata
         ports:
         - containerPort: 5432
         volumeMounts:
