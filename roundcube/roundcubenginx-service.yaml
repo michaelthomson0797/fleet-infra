@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: roundcubenginx
+  namespace: roundcube
+  labels:
+    service: roundcubenginx
+spec:
+  ports:
+  - name: http
+    port: 8080
+    targetPort: 80
+  selector:
+    service: roundcubenginx
