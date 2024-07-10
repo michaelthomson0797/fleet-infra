@@ -44,11 +44,11 @@ spec:
               name: roundcubemail-shared-secret
               key: DES_KEY
         - name: ROUNDCUBEMAIL_DEFAULT_HOST
-          value: tls://mail.michaelthomson.dev
+          value: ssl://mail.michaelthomson.dev
         - name: ROUNDCUBEMAIL_DEFAULT_PORT
           value: "993"
         - name: ROUNDCUBEMAIL_SMTP_SERVER
-          value: tls://mail.michaelthomson.dev
+          value: ssl://mail.michaelthomson.dev
         - name: ROUNDCUBEMAIL_SMTP_PORT
           value: "465"
         - name: ROUNDCUBEMAIL_SKIN
