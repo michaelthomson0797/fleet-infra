@@ -18,8 +18,9 @@ spec:
   values:
     # -- Configuration for the DNS service on port 53
     serviceDns:
+      type: LoadBalancer
       annotations:
-        metallb.universe.tf/loadBalancerIPs: 192.168.2.225
+        metallb.universe.tf/loadBalancerIPs: 192.168.2.250
         metallb.universe.tf/allow-shared-ip: pihole-svc
 
     # -- Configuration for the Ingress
