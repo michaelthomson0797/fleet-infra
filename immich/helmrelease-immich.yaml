@@ -46,4 +46,4 @@ spec:
               secretName: letsencrypt-wildcard-cert-michaelthomson.dev
 
     machine-learning:
-      enabled: false
+      enabled: true
