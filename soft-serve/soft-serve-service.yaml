@@ -3,6 +3,9 @@ kind: Service
 metadata:
   name: soft-serve
   namespace: soft-serve
+  annotations:
+    metallb.universe.tf/loadBalancerIPs: 192.168.2.210
+  type: LoadBalancer
 spec:
   ports:
     - name: "23231"
