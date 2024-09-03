@@ -1,0 +1,43 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: soft-serve
+  namespace: soft-serve
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: soft-serve
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: soft-serve
+    spec:
+      containers:
+        - env:
+            - name: SOFT_SERVE_INITIAL_ADMIN_KEYS
+              valueFrom:
+                secretKeyRef:
+                  name: soft-serve-secret
+                  key: admin_key
+          image: charmcli/soft-serve:latest
+          name: soft-serve
+          ports:
+            - containerPort: 23231
+              protocol: TCP
+            - containerPort: 23232
+              protocol: TCP
+            - containerPort: 23233
+              protocol: TCP
+            - containerPort: 9418
+              protocol: TCP
+          volumeMounts:
+            - mountPath: /soft-serve
+              name: soft-serve-claim0
+      restartPolicy: Always
+      volumes:
+        - name: soft-serve-claim0
+          persistentVolumeClaim:
+            claimName: soft-serve-claim0
