@@ -9,7 +9,7 @@ spec:
   type: LoadBalancer
   ports:
     - name: "23231"
-      port: 22
+      port: 23231
       targetPort: 23231
     - name: "23232"
       port: 23232
