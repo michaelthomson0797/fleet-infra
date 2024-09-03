@@ -22,6 +22,8 @@ spec:
                 secretKeyRef:
                   name: soft-serve-secret
                   key: admin_key
+            - name: SOFT_SERVE_SSH_PUBLIC_URL
+              value: ssh://git.michaelthomson.dev
           image: charmcli/soft-serve:latest
           name: soft-serve
           ports:
