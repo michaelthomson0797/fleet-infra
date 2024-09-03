@@ -5,8 +5,8 @@ metadata:
   namespace: soft-serve
   annotations:
     metallb.universe.tf/loadBalancerIPs: 192.168.2.210
-  type: LoadBalancer
 spec:
+  type: LoadBalancer
   ports:
     - name: "23231"
       port: 23231
