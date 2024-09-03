@@ -35,9 +35,9 @@ spec:
               protocol: TCP
           volumeMounts:
             - mountPath: /soft-serve
-              name: soft-serve-claim0
+              name: soft-serve-pvc
       restartPolicy: Always
       volumes:
-        - name: soft-serve-claim0
+        - name: soft-serve-pvc
           persistentVolumeClaim:
-            claimName: soft-serve-claim0
+            claimName: soft-serve-pvc
