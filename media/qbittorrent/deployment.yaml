@@ -12,6 +12,10 @@ spec:
       labels:
         app: qbittorrent
     spec:
+      securityContext:
+        sysctls:
+        - name: net.ipv4.conf.all.src_valid_mark
+          value: "1"
       containers:
       - name: qbittorrent
         image: lscr.io/linuxserver/qbittorrent:libtorrentv1
@@ -35,15 +39,14 @@ spec:
         - configMapRef:
             name: wireguard-config
         securityContext:
-          sysctls:
-          - name: net.ipv4.conf.all.src_valid_mark
-            value: "1"
           capabilities:
             add:
             - NET_ADMIN
         volumeMounts:
         - name: wireguard-config-secret
           mountPath: /config/wg_confs
+        - name: wireguard-config
+          mountPath: /config
       volumes:
       - name: qbittorrent-config
         persistentVolumeClaim:
@@ -51,6 +54,9 @@ spec:
       - name: data
         persistentVolumeClaim:
           claimName: media-data
+      - name: wireguard-config
+        persistentVolumeClaim:
+          claimName: wireguard-config
       - name: wireguard-config-secret
         secret:
           secretName: wireguard-config-secret
