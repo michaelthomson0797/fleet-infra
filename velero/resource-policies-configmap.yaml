@@ -1,0 +1,20 @@
+apiVersion: v1
+data:
+  resource-policies-configmap.yaml: |
+    version: v1
+    volumePolicies:
+      - conditions:
+          storageClass:
+            - nfs-client
+        action:
+          type: skip
+      - conditions:
+          storageClass:
+            - longhorn
+        action:
+          type: snapshot
+kind: ConfigMap
+metadata:
+  creationTimestamp: null
+  name: resource-policies-configmap
+  namespace: velero

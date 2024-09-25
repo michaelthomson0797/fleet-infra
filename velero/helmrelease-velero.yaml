@@ -25,28 +25,18 @@ spec:
         name: plugins
     configuration:
       backupStorageLocation:
-        # name is the name of the backup storage location where backups should be stored. If a name is not provided,
-        # a backup storage location will be created with the name "default". Optional.
       - name: backblaze
         default: true
-        # provider is the name for the backup storage location provider.
         provider: aws
-        # bucket is the name of the bucket to store backups in. Required.
         bucket: mthomson-cluster-backup
         credential:
-          # name of the secret used by this backupStorageLocation.
           name: velero-secret
-          # name of key that contains the secret data to be used.
           key: cloud
-        # Additional provider-specific configuration. See link above
-        # for details of required/optional fields for your provider.
         config:
           region: us-west-004
           s3Url: "https://s3.us-west-004.backblazeb2.com"
       volumeSnapshotLocation:
-        # name is the name of the volume snapshot location where snapshots are being taken. Required.
       - name: longhorn
-        # provider is the name for the volume snapshot provider.
         provider: csi
       defaultVolumeSnapshotLocations: csi:longhorn
       features: EnableCSI
@@ -58,4 +48,6 @@ spec:
         template:
           ttl: "240h"
           storageLocation: backblaze # use the same name you defined above in backupStorageLocation
-
+          resourcePolicy:
+            kind: configmap
+            name: resource-policies-configmap
