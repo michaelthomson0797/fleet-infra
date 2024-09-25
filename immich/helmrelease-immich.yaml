@@ -16,6 +16,8 @@ spec:
   timeout: 5m
   releaseName: immich
   values:
+    image:
+      tag: v1.115.0
     immich:
       persistence:
         library:
