@@ -58,9 +58,19 @@ spec:
           DISABLE_REGISTRATION: true
         webhook:
           ALLOWED_HOST_LIST: external,loopback,private
+        mailer:
+          ENABLED: true
+          FROM: gitea@michaelthomson.dev
+          PROTOCOL: smtps
+          SMTP_ADDR: mail.michaelthomson.dev
+          SMTP_PORT: 465
+          USER: gitea@michaelthomson.dev
       admin:
         existingSecret: gitea-admin-secret
         email: "gitea@michaelthomson.dev"
+      additionalConfigSources:
+        - secret:
+            secretName: gitea-mailer-config-secret
 
     redis-cluster:
       enabled: false
