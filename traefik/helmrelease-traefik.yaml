@@ -20,8 +20,6 @@ spec:
       dashboard:
         matchRule: Host(`server.michaelthomson.dev`)
         entryPoints: ["websecure"]
-        middlewares:
-          - name: authentik
         tls:
           secretName: letsencrypt-wildcard-cert-michaelthomson.dev
           domains:
