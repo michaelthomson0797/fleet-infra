@@ -56,6 +56,8 @@ spec:
           SSH_PORT: 2222
         service:
           DISABLE_REGISTRATION: true
+          REGISTER_EMAIL_CONFIRM: true
+          ENABLE_NOTIFY_MAIL: true
         webhook:
           ALLOWED_HOST_LIST: external,loopback,private
         mailer:
