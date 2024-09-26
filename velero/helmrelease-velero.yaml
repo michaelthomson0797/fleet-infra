@@ -43,7 +43,7 @@ spec:
       features: EnableCSI
     schedules:
       daily-backup:
-        disabled: true
+        disabled: false
         schedule: "0 0 * * *" # once a day, at midnight
         useOwnerReferencesInBackup: false
         template:
