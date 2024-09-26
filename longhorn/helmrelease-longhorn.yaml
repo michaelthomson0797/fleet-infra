@@ -7,7 +7,7 @@ spec:
   chart:
     spec:
       chart: longhorn
-      version: 1.6.x
+      version: 1.7.x
       sourceRef:
         kind: HelmRepository
         name: longhorn
@@ -19,8 +19,8 @@ spec:
     persistence:
       defaultClassReplicaCount: 2
 
-    defaultSettings:
-      backupTarget: nfs://192.168.2.50:/volume1/k8sbackupstore
+    # defaultSettings:
+    #   backupTarget: nfs://192.168.2.50:/volume1/k8sbackupstore
 
     ingress:
       enabled: true
