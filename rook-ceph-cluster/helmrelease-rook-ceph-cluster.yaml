@@ -33,6 +33,10 @@ spec:
         useAllNodes: true
         useAllDevices: false
         deviceFilter: sda
+      resources:
+        mon:
+          requests:
+            cpu: 500m
 
     ingress:
       dashboard:
