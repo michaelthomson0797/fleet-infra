@@ -24,7 +24,7 @@ spec:
   releaseName: rook-ceph-cluster
   values:
     toolbox:
-      enabled: false
+      enabled: true
 
     cephClusterSpec:
       mon:
