@@ -37,11 +37,9 @@ spec:
         annotations:
           traefik.ingress.kubernetes.io/router.entrypoints: websecure
           traefik.ingress.kubernetes.io/router.tls: "true"
-        hosts:
-          - host: rook.michaelthomson.dev
-            paths:
-              - path: /
-                pathType: Prefix
+        host:
+          name: rook.michaelthomson.dev
+          path: "/"
         tls:
           - hosts:
               - rook.michaelthomson.dev
