@@ -28,13 +28,19 @@ spec:
 
     cephClusterSpec:
       mon:
-        count: 2
+        count: 1
       storage:
         useAllNodes: true
         useAllDevices: false
         deviceFilter: sda
       resources:
+        mgr:
+          requests:
+            cpu: 250m
         mon:
+          requests:
+            cpu: 500m
+        osd:
           requests:
             cpu: 500m
 
