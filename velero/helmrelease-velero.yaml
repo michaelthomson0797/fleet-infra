@@ -50,6 +50,7 @@ spec:
           ttl: "240h"
           storageLocation: backblaze # use the same name you defined above in backupStorageLocation
           snapshotMoveData: true
+          csiSnapshotTimeout: 1h
           resourcePolicy:
             kind: configmap
             name: resource-policies-configmap
