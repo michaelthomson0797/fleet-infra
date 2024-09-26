@@ -19,8 +19,10 @@ spec:
     persistence:
       defaultClassReplicaCount: 2
 
-    # defaultSettings:
-    #   backupTarget: nfs://192.168.2.50:/volume1/k8sbackupstore
+    defaultSettings:
+      backupTarget: s3://mthomson-longhorn-backups@us-west-004/
+      backupTargetCredentialSecret: longhorn-backblaze-secret
+      backupstorePollInterval: 0
 
     ingress:
       enabled: true
