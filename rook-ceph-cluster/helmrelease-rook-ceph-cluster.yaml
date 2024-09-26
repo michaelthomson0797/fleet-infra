@@ -27,6 +27,8 @@ spec:
       enabled: false
 
     cephClusterSpec:
+      mon:
+        count: 2
       storage:
         useAllNodes: true
         useAllDevices: false
