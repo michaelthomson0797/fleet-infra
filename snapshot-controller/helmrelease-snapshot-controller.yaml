@@ -21,6 +21,5 @@ spec:
       - name: longhorn
         driver: driver.longhorn.io
         labels:
-          velero.io/csi-volumesnapshot-class: "true"
           snapshot.storage.kubernetes.io/is-default-class: "true"
         deletionPolicy: Delete
