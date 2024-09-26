@@ -28,6 +28,8 @@ spec:
 
     cephClusterSpec:
       mon:
+        count: 2
+      mgr:
         count: 1
       storage:
         useAllNodes: true
