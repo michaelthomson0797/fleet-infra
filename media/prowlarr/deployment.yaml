@@ -25,7 +25,5 @@ spec:
           mountPath: /config
       volumes:
       - name: config
-        persistentVolumeClaim: 
+        persistentVolumeClaim:
           claimName: prowlarr-config
-            
-          
