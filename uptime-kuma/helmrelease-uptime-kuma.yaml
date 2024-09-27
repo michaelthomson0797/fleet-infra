@@ -1,0 +1,38 @@
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: uptime-kuma
+  namespace: uptime-kuma
+spec:
+  chart:
+    spec:
+      chart: uptime-kuma
+      version: 1.x
+      sourceRef:
+        kind: HelmRepository
+        name: uptime-kuma
+        namespace: flux-system
+  interval: 15m
+  timeout: 5m
+  releaseName: uptime-kuma
+  values:
+    ingress:
+      enabled: true
+      className: traefik
+      annotations:
+        traefik.ingress.kubernetes.io/router.entrypoints: websecure
+        traefik.ingress.kubernetes.io/router.tls: "true"
+      hosts:
+        - host: kuma.michaelthomson.dev
+          paths:
+            - path: /
+              pathType: Prefix
+      tls:
+        - hosts:
+            - kuma.michaelthomson.dev
+          secretName: letsencrypt-wildcard-cert-michaelthomson.dev
+
+    persistence:
+      enabled: true
+      sizeLimit: 4Gi
+      storageClass: longhorn
