@@ -55,6 +55,8 @@ spec:
       auth:
         existingSecret: nextcloud-redis-secret
         existingSecretPasswordKey: password
+      global:
+        storageClass: longhorn
     livenessProbe:
       enabled: false
     readinessProbe:
