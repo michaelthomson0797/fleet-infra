@@ -50,6 +50,11 @@ spec:
         storageClass: nfs-client
         accessMode: ReadWriteOnce
         size: 14Ti
+    redis:
+      enabled: true
+      auth:
+        existingSecret: nextcloud-redis-secret
+        existingSecretPasswordKey: password
     livenessProbe:
       enabled: false
     readinessProbe:
