@@ -33,20 +33,18 @@ spec:
         - name: data
           mountPath: /data/downloads
           subPath: downloads
-      - name: wireguard
-        image: lscr.io/linuxserver/wireguard:latest
+      - name: gluetun
+        image: qmcgaw/gluetun
         envFrom:
         - configMapRef:
-            name: wireguard-config
+            name: gluetun-config
         securityContext:
           capabilities:
             add:
             - NET_ADMIN
         volumeMounts:
         - name: wireguard-config-secret
-          mountPath: /config/wg_confs
-        - name: wireguard-config
-          mountPath: /config
+          mountPath: /gluetun/wireguard
       volumes:
       - name: qbittorrent-config
         persistentVolumeClaim:
@@ -54,9 +52,6 @@ spec:
       - name: data
         persistentVolumeClaim:
           claimName: media-data
-      - name: wireguard-config
-        persistentVolumeClaim:
-          claimName: wireguard-config
       - name: wireguard-config-secret
         secret:
           secretName: wireguard-config-secret
