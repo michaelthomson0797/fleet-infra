@@ -29,3 +29,16 @@ spec:
           - secretName: letsencrypt-wildcard-cert-michaelthomson.dev
             hosts:
               - grafana.michaelthomson.dev
+    prometheus:
+      ingress:
+        enabled: true
+        annotations:
+          traefik.ingress.kubernetes.io/router.tls: "true"
+          traefik.ingress.kubernetes.io/router.entrypoints: websecure
+        hosts:
+        - prometheus.michaelthomson.dev
+        path: /
+        tls:
+          - secretName: letsencrypt-wildcard-cert-michaelthomson.dev
+            hosts:
+              - prometheus.michaelthomson.dev
