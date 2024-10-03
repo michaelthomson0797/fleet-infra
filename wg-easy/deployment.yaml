@@ -7,8 +7,6 @@ spec:
   selector:
     matchLabels:
       app: wg-easy
-  strategy:
-    type: Recreate
   template:
     metadata:
       labels:
