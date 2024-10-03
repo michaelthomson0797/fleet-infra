@@ -7,5 +7,5 @@ data:
   LANG: "en"
   WG_HOST: "wireguard.michaelthomson.dev"
   WG_PORT: "30000"
-  UI_TRAFFIC_STATS: true
+  UI_TRAFFIC_STATS: "true"
   UI_CHART_TYPE: "1"
