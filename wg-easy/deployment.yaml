@@ -7,17 +7,19 @@ spec:
   selector:
     matchLabels:
       app: wg-easy
+  strategy:
+    type: Recreate
   template:
     metadata:
       labels:
         app: wg-easy
     spec:
-      securityContext:
-        sysctls:
-        - name: net.ipv4.ip_forward
-          value: "1"
-        - name: net.ipv4.conf.all.src_valid_mark
-          value: "1"
+      # securityContext:
+      #   sysctls:
+      #   - name: net.ipv4.ip_forward
+      #     value: "1"
+      #   - name: net.ipv4.conf.all.src_valid_mark
+      #     value: "1"
       containers:
       - name: wg-easy
         image: ghcr.io/wg-easy/wg-easy
@@ -28,8 +30,11 @@ spec:
             optional: false
         ports:
         - containerPort: 51820
+          name: wg
           protocol: UDP
         - containerPort: 51821
+          name: http
+          protocol: TCP
         securityContext:
           capabilities:
             add:
@@ -41,5 +46,5 @@ spec:
       restartPolicy: Always
       volumes:
       - name: config
-        persistentVolumeClaim: 
+        persistentVolumeClaim:
           claimName: wg-easy-config

@@ -4,12 +4,13 @@ metadata:
   name: wg-easy-dns
   namespace: wg-easy
   annotations:
-    metallb.universe.tf/loadBalancerIPs: 192.168.2.249
+    metallb.universe.tf/loadBalancerIPs: 192.168.2.245
 spec:
   type: LoadBalancer
   selector:
     app: wg-easy
   ports:
-  - port: 51822
-    targetPort: 51820
+  - name: wg
+    port: 30000
+    targetPort: wg
     protocol: UDP

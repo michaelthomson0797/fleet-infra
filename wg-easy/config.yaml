@@ -6,4 +6,4 @@ metadata:
 data:
   LANG: "en"
   WG_HOST: "wireguard.michaelthomson.dev"
-  WG_PORT: "51822"
+  WG_PORT: "30000"
