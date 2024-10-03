@@ -7,7 +7,7 @@ spec:
   chart:
     spec:
       chart: immich
-      version: 0.x
+      version: 0.7.x
       sourceRef:
         kind: HelmRepository
         name: immich
