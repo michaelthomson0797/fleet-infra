@@ -16,6 +16,7 @@ spec:
   timeout: 5m
   releaseName: keycloak
   values:
+    production: true
     ingress:
       enabled: true
       annotations:
@@ -27,3 +28,4 @@ spec:
         - hosts:
             - keycloak.michaelthomson.dev
           secretName: letsencrypt-wildcard-cert-michaelthomson.dev
+    proxy: edge
