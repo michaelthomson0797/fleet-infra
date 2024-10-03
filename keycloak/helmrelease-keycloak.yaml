@@ -21,10 +21,8 @@ spec:
       annotations:
         traefik.ingress.kubernetes.io/router.entrypoints: websecure
         traefik.ingress.kubernetes.io/router.tls: "true"
+      hostname: keycloak.michaelthomson.dev
       tls: true
-      extraHosts:
-        - name: keycloak.michaelthomson.dev
-          path: /
       extraTls:
         - hosts:
             - keycloak.michaelthomson.dev
