@@ -17,13 +17,22 @@ spec:
   releaseName: authentik
   values:
     global:
-      envFrom:
-        - secretRef:
-            name: authentik-postgresql-password
-        - secretRef:
-            name: authentik-secret-key
-        - secretRef:
-            name: authentik-email-password
+      env:
+        - name: AUTHENTIK_SECRET_KEY
+          valueFrom:
+            secretKeyRef:
+              name: authentik-secret-key
+              key: AUTHENTIK_SECRET_KEY
+        - name: AUTHENTIK_POSTGRESQL__PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: authentik-postgresql-password
+              key: AUTHENTIK_POSTGRESQL__PASSWORD
+        - name: AUTHENTIK_EMAIL__PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: authentik-email-password
+              key: AUTHENTIK_EMAIL__PASSWORD
 
     server:
       ingress:
