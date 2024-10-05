@@ -55,6 +55,12 @@ spec:
 
     postgresql:
       enabled: true
+      auth:
+        existingSecret: authentik-postgresql-password
+        secretKeys:
+          adminPasswordKey: AUTHENTIK_POSTGRESQL__PASSWORD
+          userPasswordKey: AUTHENTIK_POSTGRESQL__PASSWORD
+          replicationPasswordKey: AUTHENTIK_POSTGRESQL__PASSWORD
 
     redis:
       enabled: true
