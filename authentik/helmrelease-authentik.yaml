@@ -28,6 +28,11 @@ spec:
             secretKeyRef:
               name: authentik-postgresql-password
               key: AUTHENTIK_POSTGRESQL__PASSWORD
+        - name: POSTGRES_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: authentik-postgresql-password
+              key: AUTHENTIK_POSTGRESQL__PASSWORD
         - name: AUTHENTIK_EMAIL__PASSWORD
           valueFrom:
             secretKeyRef:
