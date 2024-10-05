@@ -36,7 +36,9 @@ spec:
             - name: SEAFILE_SERVER_LETSENCRYPT
               value: "false"
             - name: SEAFILE_SERVER_HOSTNAME
-              value: "https://seafile.michaelthomson.dev" #hostname
+              value: "seafile.michaelthomson.dev" #hostname
+            - name: FORCE_HTTPS_IN_CONF
+              value: "true" #hostname
           ports:
             - containerPort: 80
               name: http
