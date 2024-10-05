@@ -39,6 +39,14 @@ spec:
               name: authentik-email-password
               key: AUTHENTIK_EMAIL__PASSWORD
 
+    authentik:
+      email:
+        host: mail.michaelthomson.dev
+        port: 465
+        username: server@michaelthomson.dev
+        use_tls: true
+        from: "Michael's Server <server@michaelthomson.dev>"
+
     server:
       ingress:
         enabled: true
@@ -64,10 +72,3 @@ spec:
 
     redis:
       enabled: true
-
-    email:
-      host: mail.michaelthomson.dev
-      port: 465
-      username: server@michaelthomson.dev
-      use_tls: true
-      from: "Michael's Server <server@michaelthomson.dev>"
