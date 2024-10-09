@@ -16,6 +16,9 @@ spec:
   timeout: 5m
   releaseName: traefik
   values:
+    providers:
+      kubernetesCRD:
+        allowCrossNamespace: true
     ingressRoute:
       dashboard:
         matchRule: Host(`server.michaelthomson.dev`)
