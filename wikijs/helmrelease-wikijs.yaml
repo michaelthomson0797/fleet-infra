@@ -1,0 +1,38 @@
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: wikijs
+  namespace: wikijs
+spec:
+  chart:
+    spec:
+      chart: wikijs
+      version: 2.x
+      sourceRef:
+        kind: HelmRepository
+        name: wikijs
+        namespace: flux-system
+  interval: 15m
+  timeout: 5m
+  releaseName: wikijs
+  values:
+    ingress:
+      enabled: true
+      className: ""
+      annotations:
+        traefik.ingress.kubernetes.io/router.entrypoints: websecure
+        traefik.ingress.kubernetes.io/router.tls: "true"
+      hosts:
+        - host: wiki.michaelthomson.dev
+          paths:
+            - path: "/"
+              pathType: Prefix
+
+      tls:
+        - hosts:
+            - wiki.michaelthomson.dev
+          secretName: letsencrypt-wildcard-cert-michaelthomson.dev
+
+    postgresql:
+      persistence:
+        size: 8Gi
