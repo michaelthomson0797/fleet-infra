@@ -53,6 +53,11 @@ spec:
             optional: false
         ports:
         - containerPort: 10200
+      - name: openwakeword
+        image: rhasspy/wyoming-openwakeword
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 10400
       volumes:
       - name: config
         persistentVolumeClaim:
