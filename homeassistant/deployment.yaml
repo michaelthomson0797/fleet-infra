@@ -27,6 +27,13 @@ spec:
         volumeMounts:
         - name: config
           mountPath: /config
+        securityContext:
+          privileged: true
+          capabilities:
+            add:
+              - NET_ADMIN
+              - NET_RAW
+        hostNetwork: true
       volumes:
       - name: config
         persistentVolumeClaim:
