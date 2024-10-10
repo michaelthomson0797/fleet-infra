@@ -6,7 +6,7 @@ metadata:
 spec:
   chart:
     spec:
-      chart: wikijs
+      chart: wiki
       version: 2.x
       sourceRef:
         kind: HelmRepository
