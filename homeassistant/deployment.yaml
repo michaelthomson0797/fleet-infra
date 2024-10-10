@@ -24,6 +24,7 @@ spec:
         - containerPort: 8123
           name: http
           protocol: TCP
+          hostPort: 8123
         volumeMounts:
         - name: config
           mountPath: /config
