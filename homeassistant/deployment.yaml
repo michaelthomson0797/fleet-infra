@@ -12,6 +12,7 @@ spec:
       labels:
         app: homeassistant
     spec:
+      nodeName: patrick
       containers:
       - name: homeassistant
         image: lscr.io/linuxserver/homeassistant:latest
@@ -28,6 +29,8 @@ spec:
         volumeMounts:
         - name: config
           mountPath: /config
+        - name: dev-serial
+          mountPath: /dev/serial
         securityContext:
           privileged: true
           capabilities:
@@ -62,3 +65,6 @@ spec:
       - name: config
         persistentVolumeClaim:
           claimName: homeassistant-config
+      - name: dev-serial
+        hostPath:
+          path: /dev/serial
