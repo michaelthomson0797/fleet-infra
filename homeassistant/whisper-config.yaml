@@ -6,4 +6,4 @@ metadata:
 data:
   PUID: "1000"
   PGID: "1000"
-  WHISPER_MODEL: "small"
+  WHISPER_MODEL: "tiny"
