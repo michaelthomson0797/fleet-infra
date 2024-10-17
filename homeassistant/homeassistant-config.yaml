@@ -4,5 +4,6 @@ metadata:
   name: homeassistant-config
   namespace: homeassistant
 data:
+  TZ: "America/Toronto"
   PUID: "1000"
   PGID: "1000"

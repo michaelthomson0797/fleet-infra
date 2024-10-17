@@ -4,6 +4,8 @@ metadata:
   name: whisper-config
   namespace: homeassistant
 data:
+  TZ: "America/Toronto"
   PUID: "1000"
   PGID: "1000"
-  WHISPER_MODEL: "tiny"
+  WHISPER_MODEL: "base"
+  WHISPER_LANG: "en"

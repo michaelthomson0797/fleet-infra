@@ -4,6 +4,7 @@ metadata:
   name: piper-config
   namespace: homeassistant
 data:
+  TZ: "America/Toronto"
   PUID: "1000"
   PGID: "1000"
   PIPER_VOICE: "en_US-lessac-medium"
