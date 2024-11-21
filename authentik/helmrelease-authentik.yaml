@@ -42,9 +42,9 @@ spec:
     authentik:
       outposts:
         kubernetes_ingress_secret_name: letsencrypt-wildcard-cert-michaelthomson.dev
-        kubernetes_ingress_annotations:
-          traefik.ingress.kubernetes.io/router.tls: "true"
-          traefik.ingress.kubernetes.io/router.entrypoints: websecure
+        # kubernetes_ingress_annotations:
+        #   traefik.ingress.kubernetes.io/router.tls: "true"
+        #   traefik.ingress.kubernetes.io/router.entrypoints: websecure
       email:
         host: mail.michaelthomson.dev
         port: 465
