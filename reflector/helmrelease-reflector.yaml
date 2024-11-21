@@ -34,7 +34,7 @@ spec:
 
     cron:
       enabled: false
-      schedule: "*/15 * * * *"
+      schedule: "*/5 * * * *"
       activeDeadlineSeconds: 600
       securityContext:
         runAsNonRoot: true
