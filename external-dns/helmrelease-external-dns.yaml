@@ -4,14 +4,10 @@ metadata:
   name: external-dns
   namespace: external-dns
 spec:
-  chart:
-    spec:
-      chart: external-dns
-      version: 8.x # auto-update to semver bugfixes only
-      sourceRef:
-        kind: OCIRespository
-        name: bitnami
-        namespace: flux-system
+  chartRef:
+    kind: OCIRepository
+    name: external-dns
+    namespace: flux-system
   interval: 15m
   timeout: 5m
   releaseName: external-dns
