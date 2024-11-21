@@ -23,7 +23,11 @@ spec:
       backupTarget: s3://mthomson-longhorn-backups@us-west-004/
       backupTargetCredentialSecret: longhorn-backblaze-secret
       replicaAutoBalance: best-effort
-      dataLocality: best-effort
+      defaultDataLocality: best-effort
+      defaultReplicaCount: 2
+      replicaZoneSoftAntiAffinity: false
+      replicaDiskSoftAntiAffinity: false
+      replicaSoftAntiAffinity: false
 
     ingress:
       enabled: true
