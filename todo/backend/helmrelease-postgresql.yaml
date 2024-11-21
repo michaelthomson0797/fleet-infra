@@ -9,7 +9,7 @@ spec:
       chart: postgresql
       version: 15.x
       sourceRef:
-        kind: HelmRepository
+        kind: OCIRespository
         name: bitnami
         namespace: flux-system
   interval: 15m
