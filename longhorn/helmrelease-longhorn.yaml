@@ -25,7 +25,7 @@ spec:
       replicaAutoBalance: best-effort
       defaultDataLocality: best-effort
       defaultReplicaCount: 2
-      replicaZoneSoftAntiAffinity: false
+      replicaZoneSoftAntiAffinity: true
       replicaDiskSoftAntiAffinity: false
       replicaSoftAntiAffinity: false
 
