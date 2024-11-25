@@ -16,16 +16,20 @@ spec:
   timeout: 5m
   releaseName: vaultwarden
   values:
+    data:
+      name: "vaultwarden-data"
+      size: "15Gi"
+      class: "longhorn"
     domain: "https://vaultwarden.michaelthomson.dev"
     signupsAllowed: false
     signupsVerify: "true"
     requireDeviceEmail: "true"
     adminToken:
-      existingSecret: "admincreds_secret"
+      existingSecret: "admincreds-secret"
       existingSecretKey: "ADMIN_TOKEN"
     timeZone: "America/Toronto"
     smtp:
-      existingSecret: "smtpcreds_secret"
+      existingSecret: "smtpcreds-secret"
       host: "mail.michaelthomson.dev"
       security: "starttls"
       port: 465
