@@ -33,7 +33,7 @@ spec:
     smtp:
       existingSecret: "smtpcreds-secret"
       host: "mail.michaelthomson.dev"
-      security: "starttls"
+      security: "force_tls"
       port: 465
       from: "vaultwarden@michaelthomson.dev"
       fromName: "Vaultwarden"
