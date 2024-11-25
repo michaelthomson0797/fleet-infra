@@ -1,0 +1,47 @@
+apiVersion: helm.toolkit.fluxcd.io/v2beta2
+kind: HelmRelease
+metadata:
+  name: vaultwarden
+  namespace: vaultwarden
+spec:
+  chart:
+    spec:
+      chart: vaultwarden
+      version: 0.30.x
+      sourceRef:
+        kind: HelmRepository
+        name: vaultwarden
+        namespace: flux-system
+  interval: 15m
+  timeout: 5m
+  releaseName: vaultwarden
+  values:
+    domain: "https://vaultwarden.michaelthomson.dev"
+    signupsAllowed: false
+    signupsVerify: "true"
+    requireDeviceEmail: "true"
+    adminToken:
+      existingSecret: "admincreds_secret"
+      existingSecretKey: "ADMIN_TOKEN"
+    timeZone: "America/Toronto"
+    smtp:
+      existingSecret: "smtpcreds_secret"
+      host: "mail.michaelthomson.dev"
+      security: "starttls"
+      port: 465
+      from: "vaultwarden@michaelthomson.dev"
+      fromName: "Vaultwarden"
+      username:
+        existingSecretKey: "SMTP_USERNAME"
+      password:
+        existingSecretKey: "SMTP_PASSWORD"
+    ingress:
+      enabled: true
+      class: "traefik"
+      additionalAnnotations:
+        traefik.ingress.kubernetes.io/router.entrypoints: websecure
+        traefik.ingress.kubernetes.io/router.tls: "true"
+      labels: {}
+      tls: true
+      hostname: "vaultwarden.michaelthomson.dev"
+      tlsSecret: "letsencrypt-wildcard-cert-michaelthomson.dev"
