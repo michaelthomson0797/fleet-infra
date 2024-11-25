@@ -16,10 +16,12 @@ spec:
   timeout: 5m
   releaseName: vaultwarden
   values:
+    resourceType: Deployment
     data:
       name: "vaultwarden-data"
       size: "15Gi"
       class: "longhorn"
+      accessMode: "ReadWriteOnce"
     domain: "https://vaultwarden.michaelthomson.dev"
     signupsAllowed: false
     signupsVerify: "true"
