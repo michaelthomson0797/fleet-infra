@@ -9,4 +9,7 @@ spec:
     recordTTL: 180
     recordType: CNAME
     targets:
-    - server.michaelthomson.dev
+      - michaelthomson.ddns.net
+    providerSpecific:
+      - name: external-dns.alpha.kubernetes.io/cloudflare-proxied
+        value: "true"
