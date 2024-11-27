@@ -8,5 +8,5 @@ data:
   GUID: "1000"
   TZ: America/Toronto
   DOCKER_MODS: linuxserver/mods:universal-package-install
-  INSTALL_PACKAGES: libnatpmp
+  INSTALL_PACKAGES: libnatpmp|jq
   # DOCKER_MODS: ghcr.io/fusetim/external_natpmp_qbittorrent:ecf567b21e5f079762e36c9cee9afaf86fcb22be
