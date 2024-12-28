@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: lazylibrarian
+  namespace: media
+spec:
+  selector:
+    matchLabels:
+      app: lazylibrarian
+  template:
+    metadata:
+      labels:
+        app: lazylibrarian
+    spec:
+      containers:
+      - name: lazylibrarian
+        image: lscr.io/linuxserver/lazylibrarian:latest
+        imagePullPolicy: Always
+        envFrom:
+        - configMapRef:
+            name: lazylibrarian-config
+            optional: false
+        ports:
+        - containerPort: 5299
+          name: http
+          protocol: TCP
+        volumeMounts:
+        - name: config
+          mountPath: /config
+        - mountPath: /data
+          name: data
+      volumes:
+      - name: config
+        persistentVolumeClaim:
+          claimName: lazylibrarian-config
+      - name: data
+        persistentVolumeClaim:
+          claimName: media-data
