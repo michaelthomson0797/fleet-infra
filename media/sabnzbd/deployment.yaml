@@ -1,34 +1,34 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: nzbget
+  name: sabnzbd
   namespace: media
 spec:
   selector:
     matchLabels:
-      app: nzbget
+      app: sabnzbd
   template:
     metadata:
       labels:
-        app: nzbget
+        app: sabnzbd
     spec:
       securityContext:
         sysctls:
         - name: net.ipv4.conf.all.src_valid_mark
           value: "1"
       containers:
-      - name: nzbget
-        image: lscr.io/linuxserver/nzbget:latest
+      - name: sabnzbd
+        image: lscr.io/linuxserver/sabnzbd:latest
         envFrom:
         - configMapRef:
-            name: nzbget-config
+            name: sabnzbd-config
             optional: false
         ports:
         - containerPort: 6789
           name: http
           protocol: TCP
         volumeMounts:
-        - name: nzbget-config
+        - name: sabnzbd-config
           mountPath: /config
         - name: data
           mountPath: /data/usenet
@@ -37,26 +37,26 @@ spec:
         image: lscr.io/linuxserver/wireguard:latest
         envFrom:
         - configMapRef:
-            name: nzbget-wireguard-config
+            name: sabnzbd-wireguard-config
         securityContext:
           capabilities:
             add:
             - NET_ADMIN
         volumeMounts:
-        - name: nzbget-wireguard-config-secret
+        - name: sabnzbd-wireguard-config-secret
           mountPath: /config/wg_confs
-        - name: nzbget-wireguard-config
+        - name: sabnzbd-wireguard-config
           mountPath: /config
       volumes:
-      - name: nzbget-config
+      - name: sabnzbd-config
         persistentVolumeClaim:
-          claimName: nzbget-config
+          claimName: sabnzbd-config
       - name: data
         persistentVolumeClaim:
           claimName: media-data
-      - name: nzbget-wireguard-config
+      - name: sabnzbd-wireguard-config
         persistentVolumeClaim:
-          claimName: nzbget-wireguard-config
-      - name: nzbget-wireguard-config-secret
+          claimName: sabnzbd-wireguard-config
+      - name: sabnzbd-wireguard-config-secret
         secret:
-          secretName: nzbget-wireguard-config-secret
+          secretName: sabnzbd-wireguard-config-secret

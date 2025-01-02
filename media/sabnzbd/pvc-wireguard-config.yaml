@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: nzbget-wireguard-config
+  name: sabnzbd-wireguard-config
   namespace: media
 spec:
   resources:

@@ -1,11 +1,11 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: nzbget
+  name: sabnzbd
   namespace: media
 spec:
   selector:
-    app: nzbget
+    app: sabnzbd
   ports:
   - port: 80
     targetPort: http
