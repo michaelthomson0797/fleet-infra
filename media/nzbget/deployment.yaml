@@ -1,0 +1,62 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nzbget
+  namespace: media
+spec:
+  selector:
+    matchLabels:
+      app: nzbget
+  template:
+    metadata:
+      labels:
+        app: nzbget
+    spec:
+      securityContext:
+        sysctls:
+        - name: net.ipv4.conf.all.src_valid_mark
+          value: "1"
+      containers:
+      - name: nzbget
+        image: lscr.io/linuxserver/nzbget:latest
+        envFrom:
+        - configMapRef:
+            name: nzbget-config
+            optional: false
+        ports:
+        - containerPort: 6789
+          name: http
+          protocol: TCP
+        volumeMounts:
+        - name: nzbget-config
+          mountPath: /config
+        - name: data
+          mountPath: /data/downloads
+          subPath: downloads
+      - name: wireguard
+        image: lscr.io/linuxserver/wireguard:latest
+        envFrom:
+        - configMapRef:
+            name: nzbget-wireguard-config
+        securityContext:
+          capabilities:
+            add:
+            - NET_ADMIN
+        volumeMounts:
+        - name: nzbget-wireguard-config-secret
+          mountPath: /config/wg_confs
+        - name: nzbget-wireguard-config
+          mountPath: /config
+      volumes:
+      - name: nzbget-config
+        persistentVolumeClaim:
+          claimName: nzbget-config
+      - name: data
+        persistentVolumeClaim:
+          claimName: media-data
+      - name: nzbget-wireguard-config
+        persistentVolumeClaim:
+          claimName: wireguard-config
+      - name: nzbget-wireguard-config-secret
+        secret:
+          secretName: nzbget-wireguard-config-secret
