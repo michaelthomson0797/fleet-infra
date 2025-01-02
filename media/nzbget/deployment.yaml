@@ -56,7 +56,7 @@ spec:
           claimName: media-data
       - name: nzbget-wireguard-config
         persistentVolumeClaim:
-          claimName: wireguard-config
+          claimName: nzbget-wireguard-config
       - name: nzbget-wireguard-config-secret
         secret:
           secretName: nzbget-wireguard-config-secret
