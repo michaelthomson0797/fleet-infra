@@ -31,8 +31,8 @@ spec:
         - name: nzbget-config
           mountPath: /config
         - name: data
-          mountPath: /data/downloads
-          subPath: downloads
+          mountPath: /data/usenet
+          subPath: usenet
       - name: wireguard
         image: lscr.io/linuxserver/wireguard:latest
         envFrom:
