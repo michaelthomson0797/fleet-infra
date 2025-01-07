@@ -58,6 +58,31 @@ spec:
       global:
         storageClass: longhorn
 
+    collabora:
+      enabled: true
+
+      collabora:
+        existingSecret:
+          enabled: true
+          secretName: "collabora-secret"
+          usernameKey: "username"
+          passwordKey: "password"
+
+      ingress:
+        enabled: true
+        annotations:
+          traefik.ingress.kubernetes.io/router.entrypoints: websecure
+          traefik.ingress.kubernetes.io/router.tls: "true"
+        hosts:
+          - host: collabora.michaelthomson.dev
+            paths:
+            - path: /
+              pathType: ImplementationSpecific
+        tls:
+          - hosts:
+              - collabora.michaelthomson.dev
+            secretName: letsencrypt-wildcard-cert-michaelthomson.dev
+
     cronjob:
       enabled: true
 
