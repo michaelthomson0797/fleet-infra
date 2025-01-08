@@ -50,6 +50,34 @@ spec:
             'forwarded_for_headers' => array('HTTP_X_FORWARDED_FOR'),
           );
 
+    internalDatabase:
+      enable: false
+
+    externalDatabase:
+      enable: true
+      type: postgresql
+      existingSecret:
+        enable: true
+        secretName: postgres-secret
+        usernameKey: username
+        passwordKey: password
+
+
+    postgresql:
+      enable: true
+      global:
+        auth:
+          existingSecret: postgres-secret
+          secretKeys:
+            adminPasswordKey: password
+            userPasswordKey: password
+            replicationPasswordKey: password
+      primary:
+        persistence:
+          enable: true
+          storageClass: longhorn
+          size: 8Gi
+
     persistence:
       enabled: true
       storageClass: longhorn
