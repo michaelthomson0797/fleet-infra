@@ -68,6 +68,11 @@ spec:
           usernameKey: "username"
           passwordKey: "password"
 
+      securityContext:
+        capabilities:
+          add:
+            - SYS_ADMIN
+
       ingress:
         enabled: true
         annotations:
