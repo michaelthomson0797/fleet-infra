@@ -51,10 +51,10 @@ spec:
           );
 
     internalDatabase:
-      enable: false
+      enabled: false
 
     externalDatabase:
-      enable: true
+      enabled: true
       type: postgresql
       existingSecret:
         enable: true
@@ -64,14 +64,15 @@ spec:
 
 
     postgresql:
-      enable: true
+      enabled: true
       global:
-        auth:
-          existingSecret: postgres-secret
-          secretKeys:
-            adminPasswordKey: password
-            userPasswordKey: password
-            replicationPasswordKey: password
+        postgresql:
+          auth:
+            existingSecret: postgres-secret
+            secretKeys:
+              adminPasswordKey: password
+              userPasswordKey: password
+              replicationPasswordKey: password
       primary:
         persistence:
           enable: true
