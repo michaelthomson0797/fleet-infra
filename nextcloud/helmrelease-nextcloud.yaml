@@ -69,6 +69,7 @@ spec:
           passwordKey: "password"
 
       securityContext:
+        runAsNonRoot: true
         capabilities:
           add:
             - SYS_ADMIN
