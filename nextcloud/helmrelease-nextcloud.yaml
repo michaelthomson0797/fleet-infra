@@ -61,6 +61,9 @@ spec:
     collabora:
       enabled: true
 
+      image:
+        tag: 24.04.11.1.1
+
       collabora:
         existingSecret:
           enabled: true
@@ -68,13 +71,13 @@ spec:
           usernameKey: "username"
           passwordKey: "password"
 
-      securityContext:
-        runAsNonRoot: true
-        privileged: true
-        capabilities:
-          add:
-            - SYS_ADMIN
-            - MKNOD
+      # securityContext:
+      #   runAsNonRoot: true
+      #   privileged: true
+      #   capabilities:
+      #     add:
+      #       - SYS_ADMIN
+      #       - MKNOD
 
       ingress:
         enabled: true
