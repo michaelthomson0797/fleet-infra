@@ -12,10 +12,6 @@ spec:
       labels:
         app: sabnzbd
     spec:
-      securityContext:
-        sysctls:
-        - name: net.ipv4.conf.all.src_valid_mark
-          value: "1"
       containers:
       - name: sabnzbd
         image: lscr.io/linuxserver/sabnzbd:latest
@@ -33,20 +29,6 @@ spec:
         - name: data
           mountPath: /data/usenet
           subPath: usenet
-      - name: wireguard
-        image: lscr.io/linuxserver/wireguard:latest
-        envFrom:
-        - configMapRef:
-            name: sabnzbd-wireguard-config
-        securityContext:
-          capabilities:
-            add:
-            - NET_ADMIN
-        volumeMounts:
-        - name: sabnzbd-wireguard-config-secret
-          mountPath: /config/wg_confs
-        - name: sabnzbd-wireguard-config
-          mountPath: /config
       volumes:
       - name: sabnzbd-config
         persistentVolumeClaim:
@@ -54,9 +36,3 @@ spec:
       - name: data
         persistentVolumeClaim:
           claimName: media-data
-      - name: sabnzbd-wireguard-config
-        persistentVolumeClaim:
-          claimName: sabnzbd-wireguard-config
-      - name: sabnzbd-wireguard-config-secret
-        secret:
-          secretName: sabnzbd-wireguard-config-secret
