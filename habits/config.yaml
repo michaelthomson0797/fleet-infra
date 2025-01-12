@@ -4,4 +4,4 @@ metadata:
   name: beaverhabits
   namespace: habits
 data:
-  HABITS_STORAGE: "USER_DISK"
+  HABITS_STORAGE: "DATABASE"
