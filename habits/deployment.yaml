@@ -12,6 +12,9 @@ spec:
       labels:
         app: beaverhabits
     spec:
+      securityContext:
+        runAsUser: 1000
+        runAsGroup: 1000
       containers:
       - name: beaverhabits
         image: daya0576/beaverhabits:latest
