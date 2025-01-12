@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: beaverhabits
+  namespace: habits
+spec:
+  selector:
+    matchLabels:
+      app: beaverhabits
+  template:
+    metadata:
+      labels:
+        app: beaverhabits
+    spec:
+      containers:
+      - name: beaverhabits
+        image: daya0576/beaverhabits:latest
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8080
+          name: http
+          protocol: TCP
+        volumeMounts:
+        - name: data
+          mountPath: /app/.user
+      volumes:
+      - name: data
+        persistentVolumeClaim:
+          claimName: beaverhabits
