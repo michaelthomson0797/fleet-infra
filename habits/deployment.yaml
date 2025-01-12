@@ -16,6 +16,10 @@ spec:
       - name: beaverhabits
         image: daya0576/beaverhabits:latest
         imagePullPolicy: Always
+        envFrom:
+        - configMapRef:
+            name: beaverhabits
+            optional: false
         ports:
         - containerPort: 8080
           name: http
