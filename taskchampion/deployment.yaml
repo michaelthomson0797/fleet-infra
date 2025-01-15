@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: taskchampion
+  namespace: taskchampion
+spec:
+  selector:
+    matchLabels:
+      app: taskchampion
+  template:
+    metadata:
+      labels:
+        app: taskchampion
+    spec:
+      containers:
+      - name: taskchampion
+        image: ghcr.io/gothenburgbitfactory/taskchampion-sync-server:latest
+        imagePullPolicy: Always
+        args: ["--data-dir", "/tss", "--port", "8080"]
+        env:
+        - name: RUST_LOG
+          value: info
+        ports:
+        - containerPort: 8080
+          name: http
+          protocol: TCP
+        volumeMounts:
+        - name: data
+          mountPath: /tss
+      volumes:
+      - name: data
+        persistentVolumeClaim:
+          claimName: taskchampion-data
