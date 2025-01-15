@@ -12,6 +12,13 @@ spec:
       labels:
         app: taskchampion
     spec:
+      initContainers:
+      - name: mkdir
+        image: busybox:1.28
+        command: ['sh', '-c', 'chown -R 100:100 /tss']
+        volumeMounts:
+        - name: data
+          mountPath: /tss
       containers:
       - name: taskchampion
         image: ghcr.io/gothenburgbitfactory/taskchampion-sync-server:latest
