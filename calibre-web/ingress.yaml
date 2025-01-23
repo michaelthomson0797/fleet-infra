@@ -8,7 +8,7 @@ metadata:
     traefik.ingress.kubernetes.io/router.tls: "true"
 spec:
   rules:
-  - host: calibre-web.michaelthomson.dev
+  - host: calibre.michaelthomson.dev
     http:
       paths:
       - pathType: ImplementationSpecific
@@ -20,5 +20,5 @@ spec:
               name: http
   tls:
     - hosts:
-        - calibre-web.michaelthomson.dev
+        - calibre.michaelthomson.dev
       secretName: letsencrypt-wildcard-cert-michaelthomson.dev
