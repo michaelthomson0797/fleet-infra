@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kubedock-server
+  namespace: woodpecker
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: kubedock-server
+  template:
+    metadata:
+      labels:
+        app: kubedock-server
+    spec:
+      serviceAccountName: kubedock
+      containers:
+        - name: kubedock-server
+          image: joyrex2001/kubedock
+          ports:
+            - containerPort: 2475
+          args: [
+              "server",
+              "--namespace=woodpecker",
+              "--service-account=kubedock",
+              "--timeout=20m0s",
+              "--disable-dind",
+              "--reverse-proxy",
+              "--reapmax=60m",
+            ]
