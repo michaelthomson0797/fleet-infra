@@ -16,6 +16,9 @@ spec:
   timeout: 5m
   releaseName: nextcloud
   values:
+    image:
+      pullPolicy: Always
+
     ingress:
       enabled: true
       className: traefik
