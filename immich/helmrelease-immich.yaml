@@ -17,7 +17,7 @@ spec:
   releaseName: immich
   values:
     image:
-      tag: v1.131.3
+      tag: v1.118.1
     immich:
       persistence:
         library:
