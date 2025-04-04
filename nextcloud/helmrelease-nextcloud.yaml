@@ -102,8 +102,7 @@ spec:
       primary:
         persistence:
           enable: true
-          storageClass: longhorn
-          size: 8Gi
+          existingClaim: pvc-postgres
 
     persistence:
       enabled: true
