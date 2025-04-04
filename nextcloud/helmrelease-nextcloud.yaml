@@ -90,7 +90,7 @@ spec:
 
 
     postgresql:
-      enabled: true
+      enabled: false
       global:
         postgresql:
           auth:
