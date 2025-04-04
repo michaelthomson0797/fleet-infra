@@ -101,7 +101,7 @@ spec:
               replicationPasswordKey: password
       primary:
         persistence:
-          enable: true
+          enabled: true
           existingClaim: pvc-postgres
 
     persistence:
