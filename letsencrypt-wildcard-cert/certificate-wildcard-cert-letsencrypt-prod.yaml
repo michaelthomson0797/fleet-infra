@@ -16,4 +16,5 @@ spec:
     name: letsencrypt-prod
     kind: ClusterIssuer
   dnsNames:
+    - "michaelthomson.dev"
     - "*.michaelthomson.dev"

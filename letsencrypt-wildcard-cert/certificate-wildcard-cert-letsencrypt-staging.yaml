@@ -5,7 +5,7 @@ metadata:
   namespace: letsencrypt-wildcard-cert
 spec:
   # secretName doesn't have to match the certificate name, but it may as well, for simplicity!
-  secretName: letsencrypt-wildcard-cert-michaelthomson.dev-staging 
+  secretName: letsencrypt-wildcard-cert-michaelthomson.dev-staging
   issuerRef:
     name: letsencrypt-staging
     kind: ClusterIssuer
