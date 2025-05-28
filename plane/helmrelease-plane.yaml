@@ -29,6 +29,7 @@ spec:
         "traefik.ingress.kubernetes.io/router.tls": "true"
       }
     redis:
+      local_setup: true
       storageClass: "longhorn"
 
     postgres:
