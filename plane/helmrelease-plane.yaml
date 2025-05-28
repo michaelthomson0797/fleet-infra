@@ -1,0 +1,75 @@
+apiVersion: helm.toolkit.fluxcd.io/v2beta2
+kind: HelmRelease
+metadata:
+  name: plane
+  namespace: plane
+spec:
+  chart:
+    spec:
+      chart: plane-ce
+      version: 1.x
+      sourceRef:
+        kind: HelmRepository
+        name: plane
+        namespace: flux-system
+  interval: 15m
+  timeout: 5m
+  releaseName: plane
+  values:
+    ingress:
+      enabled: true
+      appHost: "plane.michaelthomson.dev"
+      ingressClass: "traefik"
+
+    # SSL Configuration - Valid only if ingress.enabled is true
+    ssl:
+      tls_secret_name: "letsencrypt-wildcard-cert-michaelthomson.dev" # If you have a custom TLS secret name
+      annotations: {
+        "traefik.ingress.kubernetes.io/router.entrypoints": "websecure",
+        "traefik.ingress.kubernetes.io/router.tls": "true"
+      }
+    redis:
+      storageClass: "longhorn"
+
+    postgres:
+      storageClass: "longhorn"
+      volumeSize: 8Gi
+
+    rabbitmq:
+      storageClass: "longhorn"
+      volumeSize: 100Mi
+
+    minio:
+      storageClass: "nfs-client"
+      volumeSize: 1Gi
+
+    web:
+      replicas: 1
+
+    space:
+      replicas: 1
+
+    admin:
+      replicas: 1
+
+    live:
+      replicas: 1
+
+    api:
+      replicas: 1
+
+    worker:
+      replicas: 1
+
+    beatworker:
+      replicas: 1
+
+    external_secrets:
+      rabbitmq_existingSecret: 'rabbitmq_secret'
+      pgdb_existingSecret: 'pgdb_secret'
+      doc_store_existingSecret: 'doc_store_secret'
+      app_env_existingSecret: 'app_env_secret'
+
+    env:
+      docstore_bucket: "uploads"
+      doc_upload_size_limit: "5242880" # 5MB
