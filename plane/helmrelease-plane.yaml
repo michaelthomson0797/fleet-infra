@@ -65,10 +65,10 @@ spec:
       replicas: 1
 
     external_secrets:
-      rabbitmq_existingSecret: 'rabbitmq_secret'
-      pgdb_existingSecret: 'pgdb_secret'
-      doc_store_existingSecret: 'doc_store_secret'
-      app_env_existingSecret: 'app_env_secret'
+      rabbitmq_existingSecret: 'rabbitmq-secret'
+      pgdb_existingSecret: 'pgdb-secret'
+      doc_store_existingSecret: 'doc-store-secret'
+      app_env_existingSecret: 'app-env-secret'
 
     env:
       docstore_bucket: "uploads"
