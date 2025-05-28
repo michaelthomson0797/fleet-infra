@@ -19,6 +19,8 @@ spec:
     ingress:
       enabled: true
       appHost: "plane.michaelthomson.dev"
+      minioHost: "plane-minio.michaelthomson.dev"
+      rabbitmqHost: "plane-mq.michaelthomson.dev"
       ingressClass: "traefik"
 
     # SSL Configuration - Valid only if ingress.enabled is true
@@ -73,5 +75,4 @@ spec:
       live_env_existingSecret: 'live-env-secret'
 
     env:
-      docstore_bucket: "uploads"
       doc_upload_size_limit: "5242880" # 5MB
