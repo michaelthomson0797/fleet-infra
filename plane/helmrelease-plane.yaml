@@ -70,6 +70,7 @@ spec:
       pgdb_existingSecret: 'pgdb-secret'
       doc_store_existingSecret: 'doc-store-secret'
       app_env_existingSecret: 'app-env-secret'
+      live_env_existingSecret: 'live-env-secret'
 
     env:
       docstore_bucket: "uploads"
