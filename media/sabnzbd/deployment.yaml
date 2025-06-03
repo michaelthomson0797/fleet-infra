@@ -29,6 +29,8 @@ spec:
         - name: data
           mountPath: /data/usenet
           subPath: usenet
+        - name: sabnzbd-incomplete
+          mountPath: /incomplete
       volumes:
       - name: sabnzbd-config
         persistentVolumeClaim:
@@ -36,3 +38,6 @@ spec:
       - name: data
         persistentVolumeClaim:
           claimName: media-data
+      - name: sabnzbd-incomplete
+        emptyDir:
+          sizeLimit: 50Gi
