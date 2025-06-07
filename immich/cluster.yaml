@@ -28,13 +28,19 @@ spec:
         - CREATE EXTENSION IF NOT EXISTS "vectors";
         - CREATE EXTENSION IF NOT EXISTS "cube" CASCADE;
         - CREATE EXTENSION IF NOT EXISTS "earthdistance" CASCADE;
+      import:
+        type: microservice
+        databases:
+          - immich
+        source:
+          externalCluster: immich-postgresql
 
   storage:
     size: 8Gi
     storageClass: longhorn
 
   externalClusters:
-    - name: cluster-pg96
+    - name: immich-postgresql
       connectionParameters:
         # Use the correct IP or host name for the source database
         host: "immich-postgresql.immich.svc.cluster.local:5432"
