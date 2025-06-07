@@ -16,6 +16,7 @@ spec:
       - name: jellyfin
         image: lscr.io/linuxserver/jellyfin:latest
         imagePullPolicy: Always
+        runtimeClassName: nvidia
         securityContext:
           privileged: true
         ports:
@@ -30,6 +31,11 @@ spec:
           subPath: media
         - name: dev-dri
           mountPath: /dev/dri
+        env:
+        - name: NVIDIA_VISIBLE_DEVICES
+          value: all
+        - name: NVIDIA_DRIVER_CAPABILITIES
+          value: all
       volumes:
       - name: config
         persistentVolumeClaim: 
@@ -40,5 +46,3 @@ spec:
       - name: dev-dri
         hostPath:
           path: /dev/dri
-            
-          
