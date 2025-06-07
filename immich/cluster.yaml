@@ -37,7 +37,7 @@ spec:
     - name: cluster-pg96
       connectionParameters:
         # Use the correct IP or host name for the source database
-        host: "http://immich-postgresql.immich.svc.cluster.local:5432"
+        host: "immich-postgresql.immich.svc.cluster.local:5432"
         user: immich
         dbname: immich
       password:
