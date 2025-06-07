@@ -4,13 +4,12 @@ metadata:
   name: immich-postgres
   namespace: immich
 spec:
-  # At the time of writing, immich is only compatible with pgvecto.rs <0.4. Latest postgres image with that version is 16.5.
-  imageName: ghcr.io/tensorchord/cloudnative-pgvecto.rs:16.5-v0.3.0@sha256:be3f025d79aa1b747817f478e07e71be43236e14d00d8a9eb3914146245035ba
+  imageName: ghcr.io/tensorchord/cloudnative-vectorchord:17
   instances: 1
 
   postgresql:
     shared_preload_libraries:
-      - "vectors.so"
+      - "vchord.so"
 
   managed:
     roles:
@@ -24,28 +23,10 @@ spec:
       owner: immich
       secret:
         name: immich-postgres-user
-      import:
-        type: microservice
-        databases:
-          - immich
-        source:
-          externalCluster: immich-postgresql
       postInitSQL:
-        - CREATE EXTENSION IF NOT EXISTS "vectors";
-        - CREATE EXTENSION IF NOT EXISTS "cube" CASCADE;
+        - CREATE EXTENSION IF NOT EXISTS "vchord" CASCADE;
         - CREATE EXTENSION IF NOT EXISTS "earthdistance" CASCADE;
 
   storage:
     size: 8Gi
     storageClass: longhorn
-
-  externalClusters:
-    - name: immich-postgresql
-      connectionParameters:
-        # Use the correct IP or host name for the source database
-        host: immich-postgresql.immich.svc.cluster.local
-        user: immich
-        dbname: immich
-      password:
-        name: immich-postgres-user
-        key: password
