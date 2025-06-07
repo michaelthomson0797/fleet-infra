@@ -7,7 +7,7 @@ spec:
   chart:
     spec:
       chart: longhorn
-      version: 1.8.x
+      version: 1.9.x
       sourceRef:
         kind: HelmRepository
         name: longhorn
@@ -16,14 +16,14 @@ spec:
   releaseName: longhorn
   values:
     persistence:
-      defaultClassReplicaCount: 2
+      defaultClassReplicaCount: 3
 
     defaultSettings:
       backupTarget: s3://mthomson-longhorn-backups@us-west-004/
       backupTargetCredentialSecret: longhorn-backblaze-secret
       replicaAutoBalance: best-effort
       defaultDataLocality: best-effort
-      defaultReplicaCount: 2
+      defaultReplicaCount: 3
       replicaZoneSoftAntiAffinity: true
       replicaDiskSoftAntiAffinity: false
       replicaSoftAntiAffinity: false
