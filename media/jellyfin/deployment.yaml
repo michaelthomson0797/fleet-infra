@@ -29,8 +29,8 @@ spec:
         - mountPath: /data/media
           name: data
           subPath: media
-        - name: dev-dri
-          mountPath: /dev/dri
+        # - name: dev-dri
+        #   mountPath: /dev/dri
         env:
         - name: NVIDIA_VISIBLE_DEVICES
           value: all
@@ -43,6 +43,6 @@ spec:
       - name: data
         persistentVolumeClaim: 
           claimName: media-data
-      - name: dev-dri
-        hostPath:
-          path: /dev/dri
+      # - name: dev-dri
+      #   hostPath:
+      #     path: /dev/dri
