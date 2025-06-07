@@ -24,7 +24,7 @@ spec:
       backupTargetCredentialSecret: longhorn-backblaze-secret
       replicaAutoBalance: best-effort
       defaultDataLocality: best-effort
-      defaultReplicaCount: 2
+      defaultReplicaCount: 3
       replicaZoneSoftAntiAffinity: true
       replicaDiskSoftAntiAffinity: false
       replicaSoftAntiAffinity: false
