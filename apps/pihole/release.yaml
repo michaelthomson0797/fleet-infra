@@ -1,0 +1,84 @@
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: pihole
+  namespace: pihole
+spec:
+  chart:
+    spec:
+      chart: pihole
+      version: 2.x
+      sourceRef:
+        kind: HelmRepository
+        name: mojo2600
+  interval: 15m
+  timeout: 5m
+  releaseName: pihole
+  values:
+    # -- Configuration for the DNS service on port 53
+    serviceDns:
+      type: LoadBalancer
+      annotations:
+        metallb.universe.tf/loadBalancerIPs: 192.168.2.250
+        metallb.universe.tf/allow-shared-ip: pihole-svc
+
+    # -- Configuration for the Ingress
+    ingress:
+      # -- Generate a Ingress resource
+      enabled: true
+
+      # -- Specify an ingressClassName
+      ingressClassName: traefik
+
+      # -- Annotations for the ingress
+      annotations:
+        traefik.ingress.kubernetes.io/router.entrypoints: websecure
+        traefik.ingress.kubernetes.io/router.tls: "true"
+      path: /
+      hosts:
+        - pihole.michaelthomson.dev
+      tls:
+        - hosts:
+            - pihole.michaelthomson.dev
+          secretName: letsencrypt-wildcard-cert-michaelthomson.dev
+
+    # -- `spec.PersitentVolumeClaim` configuration
+    persistentVolumeClaim:
+      # -- set to true to use pvc
+      enabled: true
+      storageClass: longhorn
+
+    # -- Administrator password when not using an existing secret (see below)
+    adminPassword: "admin"
+
+    # -- Use an existing secret for the admin password.
+    admin:
+      # -- Specify an existing secret to use as admin password
+      existingSecret: ""
+      # -- Specify the key inside the secret to use
+      passwordKey: "password"
+
+    adlists:
+      {}
+      # If you want to provide blocklists, add them here.
+      # - https://hosts-file.net/grm.txt
+      # - https://reddestdream.github.io/Projects/MinimalHosts/etc/MinimalHostsBlocker/minimalhosts
+
+    # -- list of whitelisted domains to import during initial start of the container
+    whitelist:
+      {}
+      # If you want to provide whitelisted domains, add them here.
+      # - clients4.google.com
+
+    # -- list of blacklisted domains to import during initial start of the container
+    blacklist:
+      {}
+      # If you want to have special domains blacklisted, add them here
+      # - *.blackist.com
+
+    podDnsConfig:
+      enabled: true
+      policy: "None"
+      nameservers:
+        - 127.0.0.1
+        - 8.8.8.8
