@@ -43,7 +43,7 @@ spec:
     - name: immich-postgresql
       connectionParameters:
         # Use the correct IP or host name for the source database
-        host: "immich-postgresql.immich.svc.cluster.local:5432"
+        host: immich-postgresql
         user: immich
         dbname: immich
       password:
