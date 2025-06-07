@@ -6,7 +6,7 @@ metadata:
 spec:
   chart:
     spec:
-      chart: cnpg
+      chart: cloudnative-pg
       version: 0.24.x
       sourceRef:
         kind: HelmRepository
