@@ -12,7 +12,6 @@ spec:
         kind: HelmRepository
         name: longhorn
   interval: 15m
-  timeout: 5m
   releaseName: longhorn
   values:
     persistence:

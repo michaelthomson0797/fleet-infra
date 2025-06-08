@@ -12,6 +12,5 @@ spec:
         kind: HelmRepository
         name: metallb
   interval: 15m
-  timeout: 5m
   releaseName: metallb
   values:

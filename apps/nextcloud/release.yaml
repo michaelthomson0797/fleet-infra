@@ -12,7 +12,6 @@ spec:
         kind: HelmRepository
         name: nextcloud
   interval: 15m
-  timeout: 5m
   releaseName: nextcloud
   values:
     image:

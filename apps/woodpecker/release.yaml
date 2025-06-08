@@ -12,7 +12,6 @@ spec:
         kind: HelmRepository
         name: woodpecker
   interval: 15m
-  timeout: 5m
   releaseName: woodpecker
   values:
     agent:

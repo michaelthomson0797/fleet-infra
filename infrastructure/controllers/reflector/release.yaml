@@ -12,7 +12,6 @@ spec:
         kind: HelmRepository
         name: reflector
   interval: 15m
-  timeout: 5m
   releaseName: reflector
   values:
     # Default values for reflector.

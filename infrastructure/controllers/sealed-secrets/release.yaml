@@ -12,6 +12,5 @@ spec:
         kind: HelmRepository
         name: sealed-secrets
   interval: 15m
-  timeout: 5m
   releaseName: sealed-secrets
   values:

@@ -8,7 +8,6 @@ spec:
     kind: OCIRepository
     name: external-dns
   interval: 15m
-  timeout: 5m
   releaseName: external-dns
   values:
     sources:

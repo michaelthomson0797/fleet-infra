@@ -12,7 +12,6 @@ spec:
         kind: HelmRepository
         name: immich
   interval: 15m
-  timeout: 5m
   releaseName: immich
   values:
     env:

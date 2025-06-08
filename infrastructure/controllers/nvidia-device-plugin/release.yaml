@@ -12,7 +12,6 @@ spec:
         kind: HelmRepository
         name: nvidia-device-plugin
   interval: 15m
-  timeout: 5m
   releaseName: nvidia-device-plugin
   values:
     # Plugin configuration

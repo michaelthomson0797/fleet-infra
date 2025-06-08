@@ -12,6 +12,5 @@ spec:
         kind: HelmRepository
         name: cnpg
   interval: 15m
-  timeout: 5m
   releaseName: cnpg
   values:

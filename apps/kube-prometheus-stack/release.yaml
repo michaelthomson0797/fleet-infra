@@ -12,7 +12,6 @@ spec:
         kind: HelmRepository
         name: prometheus-community
   interval: 15m
-  timeout: 5m
   releaseName: kube-prometheus-stack
   values:
     grafana:

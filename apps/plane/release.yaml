@@ -12,7 +12,6 @@ spec:
         kind: HelmRepository
         name: plane
   interval: 15m
-  timeout: 5m
   releaseName: plane
   values:
     ingress:
