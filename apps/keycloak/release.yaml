@@ -4,13 +4,9 @@ metadata:
   name: keycloak
   namespace: keycloak
 spec:
-  chart:
-    spec:
-      chart: keycloak
-      version: 24.x
-      sourceRef:
-        kind: OCIRepository
-        name: keycloak
+  chartRef:
+    kind: OCIRepository
+    name: keycloak
   interval: 15m
   releaseName: keycloak
   values:
