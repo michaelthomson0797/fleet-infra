@@ -34,6 +34,7 @@ spec:
 
     server:
       enabled: true
+      runtimeClassName: nvidia
       resources:
         limits:
           nvidia.com/gpu: 1
@@ -54,6 +55,7 @@ spec:
 
     machine-learning:
       enabled: true
+      runtimeClassName: nvidia
       resources:
         limits:
           nvidia.com/gpu: 1
