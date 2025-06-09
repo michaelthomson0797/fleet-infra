@@ -6,7 +6,7 @@ metadata:
 spec:
   interval: 15m
   path: ./apps/vaultwarden
-  prune: false # remove any elements later removed from the above path
+  prune: true # remove any elements later removed from the above path
   wait: true
   sourceRef:
     kind: GitRepository
