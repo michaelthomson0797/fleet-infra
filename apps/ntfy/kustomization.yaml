@@ -6,7 +6,4 @@ resources:
   - pvc.yaml
   - ingress.yaml
   - dns-endpoint.yaml
-configMapGenerator:
-    - name: server-config
-      files: 
-        - server-config.yaml
+  - server-config.yaml
