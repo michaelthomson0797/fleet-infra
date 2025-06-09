@@ -14,6 +14,7 @@ spec:
   interval: 15m
   releaseName: immich
   values:
+    runtimeClassName: nvidia
     env:
       DB_HOSTNAME: "immich-postgres-rw"
       DB_USERNAME: "immich"
@@ -34,7 +35,6 @@ spec:
 
     server:
       enabled: true
-      runtimeClassName: nvidia
       resources:
         limits:
           nvidia.com/gpu: 1
@@ -55,7 +55,6 @@ spec:
 
     machine-learning:
       enabled: true
-      runtimeClassName: nvidia
       resources:
         limits:
           nvidia.com/gpu: 1
