@@ -12,6 +12,11 @@ spec:
   values:
     proxy: edge
     production: true
+    resources:
+      limits:
+        cpu: 2000m
+        ephemeral-storage: 2Gi
+        memory: 2Gi
     ingress:
       enabled: true
       annotations:
