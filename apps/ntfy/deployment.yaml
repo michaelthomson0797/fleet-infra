@@ -33,11 +33,11 @@ spec:
             - containerPort: 80
               name: http
           volumeMounts:
-              - mountPath: /etc/ntfy
-                subPath: server.yml
-                name: config-volume
-              - mountPath: /var/cache/ntfy
-                name: cache-volume
+            - mountPath: /etc/ntfy
+              subPath: server.yml
+              name: config-volume
+            - mountPath: /var/cache/ntfy
+              name: cache-volume
         volumes:
           - name: config-volume
             configMap:
