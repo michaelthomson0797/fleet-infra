@@ -26,6 +26,12 @@ spec:
           domains:
             - main: server.michaelthomson.dev
     ports:
+      websecure:
+        transport:
+          respondingTimeouts:
+            readTimeout: 600s
+            idleTimeout: 600s
+            writeTimeout: 600s
       wireguard-udp:
         port: 51822
         protocol: UDP
