@@ -1,0 +1,24 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ntfy
+  namespace: ntfy
+  annotations:
+    traefik.ingress.kubernetes.io/router.entrypoints: websecure
+    traefik.ingress.kubernetes.io/router.tls: "true"
+spec:
+  rules:
+  - host: ntfy.michaelthomson.dev
+    http:
+      paths:
+      - pathType: Prefix
+        path: /
+        backend:
+          service:
+            name: service
+            port: 
+              name: http
+  tls:
+    - hosts:
+        - ntfy.michaelthomson.dev
+      secretName: letsencrypt-wildcard-cert-michaelthomson.dev
