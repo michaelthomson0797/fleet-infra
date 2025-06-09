@@ -19,6 +19,7 @@ spec:
         allowCrossNamespace: true
     ingressRoute:
       dashboard:
+        enabled: true
         matchRule: Host(`server.michaelthomson.dev`)
         entryPoints: ["websecure"]
         tls:
