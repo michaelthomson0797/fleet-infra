@@ -38,10 +38,10 @@ spec:
               name: config-volume
             - mountPath: /var/cache/ntfy
               name: cache-volume
-        volumes:
-          - name: config-volume
-            configMap:
-              name: server-config
-          - name: cache-volume
-            persistentVolumeClaim:
-              claimName: pvc
+      volumes:
+        - name: config-volume
+          configMap:
+            name: server-config
+        - name: cache-volume
+          persistentVolumeClaim:
+            claimName: pvc
