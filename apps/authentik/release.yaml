@@ -48,6 +48,12 @@ spec:
           mountPath: /secret-key
           readOnly: true
     worker:
+      env:
+        - name: AUTHENTIK_SECRET_KEY
+          valueFrom:
+            secretKeyRef:
+              name: authentik-secret-key
+              key: key
       volumes:
         - name: postgres-creds
           secret:
