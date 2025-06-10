@@ -12,7 +12,7 @@ spec:
         kind: HelmRepository
         name: authentik
   interval: 15m
-  releaseName: immich
+  releaseName: authentik
   values:
     authentik:
       secret_key: file:///secret-key/key
