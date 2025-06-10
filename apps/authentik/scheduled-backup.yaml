@@ -8,4 +8,4 @@ spec:
   backupOwnerReference: self
   #immediate: true
   cluster:
-    name: authentik-postgres
+    name: postgres-cluster

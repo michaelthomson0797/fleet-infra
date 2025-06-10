@@ -17,7 +17,7 @@ spec:
     authentik:
       secret_key: file:///secret-key/key
       postgresql:
-        host: authentik-postgres-rw
+        host: postgres-cluster-rw
         user: file:///postgres-creds/username
         password: file:///postgres-creds/password
     server:
