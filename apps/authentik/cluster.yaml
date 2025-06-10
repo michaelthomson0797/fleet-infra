@@ -13,11 +13,11 @@ spec:
         login: true
 
   bootstrap:
-    initdb:
-      database: authentik
-      owner: authentik
-      secret:
-        name: authentik-postgres-credentials
+    # initdb:
+    #   database: authentik
+    #   owner: authentik
+    #   secret:
+    #     name: authentik-postgres-credentials
     recovery:
       source: clusterBackup
 
@@ -51,3 +51,4 @@ spec:
         secretAccessKey:
           name: backblaze-secret
           key: ACCESS_SECRET_KEY
+    retentionPolicy: "30d"
