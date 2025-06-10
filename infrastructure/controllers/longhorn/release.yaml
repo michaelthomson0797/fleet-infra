@@ -20,8 +20,8 @@ spec:
         enable: true
         jobList: '[{"name":"backup","isGroup":true},{"name":"snapshot","isGroup":true},{"name":"trim","isGroup":true}]'
     defaultSettings:
-      backupTarget: s3://mthomson-longhorn-backups@us-west-004/
-      backupTargetCredentialSecret: longhorn-backblaze-secret
+      backupTarget: s3://mthomson-longhorn-backup/
+      backupTargetCredentialSecret: wasabi-secret
       replicaAutoBalance: best-effort
       defaultDataLocality: best-effort
       defaultReplicaCount: 3
