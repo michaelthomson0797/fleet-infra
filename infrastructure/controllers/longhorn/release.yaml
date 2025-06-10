@@ -18,7 +18,7 @@ spec:
       defaultClassReplicaCount: 3
       recurringJobSelector:
         enable: true
-        jobList: [{"name":"backup","isGroup":true},{"name":"snapshot","isGroup":true},{"name":"trim","isGroup":true}]
+        jobList: '[{"name":"backup","isGroup":true},{"name":"snapshot","isGroup":true},{"name":"trim","isGroup":true}]'
     defaultSettings:
       backupTarget: s3://mthomson-longhorn-backups@us-west-004/
       backupTargetCredentialSecret: longhorn-backblaze-secret
