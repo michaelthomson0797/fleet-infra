@@ -38,7 +38,7 @@ spec:
             name: backblaze-secret
             key: ACCESS_SECRET_KEY
         wal:
-          maxParallel: 8
+          encryption: ""
 
   backup:
     barmanObjectStore:
