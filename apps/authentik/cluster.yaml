@@ -29,26 +29,23 @@ spec:
     - name: clusterBackup
       barmanObjectStore:
         destinationPath: "s3://mthomson-cnpg-backup/authentik/"
-        endpointURL: "https://s3.us-west-004.backblazeb2.com"
+        endpointURL: s3.ca-central-1.wasabisys.com
         s3Credentials:
           accessKeyId:
-            name: backblaze-secret
+            name: wasabi-secret
             key: ACCESS_KEY_ID
           secretAccessKey:
-            name: backblaze-secret
+            name: wasabi-secret
             key: ACCESS_SECRET_KEY
 
   backup:
     barmanObjectStore:
       destinationPath: "s3://mthomson-cnpg-backup/authentik/"
-      endpointURL: "https://s3.us-west-004.backblazeb2.com"
+      endpointURL: s3.ca-central-1.wasabisys.com
       s3Credentials:
         accessKeyId:
-          name: backblaze-secret
+          name: wasabi-secret
           key: ACCESS_KEY_ID
         secretAccessKey:
-          name: backblaze-secret
+          name: wasabi-secret
           key: ACCESS_SECRET_KEY
-      wal:
-        compression: gzip
-        encryption: AES256
