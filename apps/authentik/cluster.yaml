@@ -29,7 +29,7 @@ spec:
     - name: clusterBackup
       barmanObjectStore:
         destinationPath: "s3://mthomson-cnpg-backup/authentik/"
-        endpointURL: s3.ca-central-1.wasabisys.com
+        endpointURL: "https://s3.ca-central-1.wasabisys.com"
         s3Credentials:
           accessKeyId:
             name: wasabi-secret
@@ -41,7 +41,7 @@ spec:
   backup:
     barmanObjectStore:
       destinationPath: "s3://mthomson-cnpg-backup/authentik/"
-      endpointURL: s3.ca-central-1.wasabisys.com
+      endpointURL: "https://s3.ca-central-1.wasabisys.com"
       s3Credentials:
         accessKeyId:
           name: wasabi-secret
