@@ -43,7 +43,7 @@ spec:
   backup:
     barmanObjectStore:
       destinationPath: "s3://mthomson-cnpg-backup/authentik/"
-      endpointURL: "s3.us-west-004.backblazeb2.com"
+      endpointURL: "https://s3.us-west-004.backblazeb2.com"
       s3Credentials:
         accessKeyId:
           name: backblaze-secret
@@ -51,4 +51,3 @@ spec:
         secretAccessKey:
           name: backblaze-secret
           key: ACCESS_SECRET_KEY
-    retentionPolicy: "30d"
