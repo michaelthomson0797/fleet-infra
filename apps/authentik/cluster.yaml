@@ -28,8 +28,8 @@ spec:
   externalClusters:
     - name: clusterBackup
       barmanObjectStore:
-        destinationPath: "s3://mthomson-cnpg-backup@us-west-004/authentik"
-        endpointURL: s3.us-west-004.backblazeb2.com
+        destinationPath: "s3://mthomson-cnpg-backup/authentik/"
+        endpointURL: "https://s3.us-west-004.backblazeb2.com"
         s3Credentials:
           accessKeyId:
             name: backblaze-secret
@@ -42,8 +42,8 @@ spec:
 
   backup:
     barmanObjectStore:
-      destinationPath: "s3://mthomson-cnpg-backup@us-west-004/authentik"
-      endpointURL: s3.us-west-004.backblazeb2.com
+      destinationPath: "s3://mthomson-cnpg-backup/authentik/"
+      endpointURL: "https://s3.us-west-004.backblazeb2.com"
       s3Credentials:
         accessKeyId:
           name: backblaze-secret
