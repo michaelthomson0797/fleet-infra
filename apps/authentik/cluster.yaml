@@ -13,13 +13,13 @@ spec:
         login: true
 
   bootstrap:
-    # initdb:
-    #   database: authentik
-    #   owner: authentik
-    #   secret:
-    #     name: authentik-postgres-credentials
-    recovery:
-      source: clusterBackup
+    initdb:
+      database: authentik
+      owner: authentik
+      secret:
+        name: authentik-postgres-credentials
+    # recovery:
+    #   source: clusterBackup
 
   storage:
     size: 8Gi
