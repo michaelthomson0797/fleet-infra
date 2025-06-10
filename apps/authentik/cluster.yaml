@@ -38,7 +38,7 @@ spec:
             name: backblaze-secret
             key: ACCESS_SECRET_KEY
         wal:
-          encryption: ""
+          encryption: "AES256"
 
   backup:
     barmanObjectStore:
