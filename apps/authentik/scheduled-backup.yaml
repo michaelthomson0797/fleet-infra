@@ -6,6 +6,6 @@ metadata:
 spec:
   schedule: "0 0 0 * * *"
   backupOwnerReference: self
-  immediate: true
+  #immediate: true
   cluster:
     name: authentik-postgres
