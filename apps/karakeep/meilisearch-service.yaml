@@ -2,7 +2,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: meilisearch
-  namespace: hoarder
+  namespace: karakeep
 spec:
   selector:
     app: meilisearch

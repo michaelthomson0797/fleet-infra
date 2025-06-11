@@ -1,11 +1,11 @@
 apiVersion: externaldns.k8s.io/v1alpha1
 kind: DNSEndpoint
 metadata:
-  name: hoarder.michaelthomson.dev
-  namespace: hoarder
+  name: karakeep.michaelthomson.dev
+  namespace: karakeep
 spec:
   endpoints:
-  - dnsName: hoarder.michaelthomson.dev
+  - dnsName: karakeep.michaelthomson.dev
     recordTTL: 180
     recordType: CNAME
     targets:

@@ -1,8 +1,8 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: data-pvc
-  namespace: hoarder
+  name: meilisearch-pvc
+  namespace: karakeep
 spec:
   accessModes:
     - ReadWriteOnce

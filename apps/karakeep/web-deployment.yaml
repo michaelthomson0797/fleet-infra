@@ -2,24 +2,26 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: web
-  namespace: hoarder
+  namespace: karakeep
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: hoarder-web
+      app: karakeep-web
   template:
     metadata:
       labels:
-        app: hoarder-web
+        app: karakeep-web
     spec:
       containers:
         - name: web
-          image: ghcr.io/hoarder-app/hoarder:release
+          image: ghcr.io/karakeep-app/karakeep
           imagePullPolicy: Always
           ports:
             - containerPort: 3000
           env:
+            - name: NEXTAUTH_URL
+              value: https://karakeep.michaelthomson.dev
             - name: MEILI_ADDR
               value: http://meilisearch:7700
             - name: BROWSER_WEB_URL
@@ -33,7 +35,7 @@ spec:
               name: data
           envFrom:
             - secretRef:
-                name: hoarder-secrets
+                name: karakeep-secrets
       volumes:
         - name: data
           persistentVolumeClaim:
