@@ -3,6 +3,9 @@ kind: Cluster
 metadata:
   name: immich-postgres
   namespace: immich
+  annotations:
+    # needed to allow for recovery from same name cluster backup
+    cnpg.io/skipEmptyWalArchiveCheck: enabled
 spec:
   imageName: ghcr.io/tensorchord/cloudnative-vectorchord:17-0.3.0
   instances: 3
@@ -26,7 +29,35 @@ spec:
       postInitSQL:
         - CREATE EXTENSION IF NOT EXISTS "vchord" CASCADE;
         - CREATE EXTENSION IF NOT EXISTS "earthdistance" CASCADE;
+    # NOTE: uncomment this and commend the above initdb when recovering
+    # recovery:
+    #   source: immich-postgres
 
   storage:
     size: 8Gi
     storageClass: longhorn-pg
+
+  externalClusters:
+    - name: immich-postgres
+      barmanObjectStore:
+        destinationPath: "s3://mthomson-cnpg-backup/immich/"
+        endpointURL: "https://s3.ca-central-1.wasabisys.com"
+        s3Credentials:
+          accessKeyId:
+            name: wasabi-secret
+            key: ACCESS_KEY_ID
+          secretAccessKey:
+            name: wasabi-secret
+            key: ACCESS_SECRET_KEY
+
+  backup:
+    barmanObjectStore:
+      destinationPath: "s3://mthomson-cnpg-backup/immich/"
+      endpointURL: "https://s3.ca-central-1.wasabisys.com"
+      s3Credentials:
+        accessKeyId:
+          name: wasabi-secret
+          key: ACCESS_KEY_ID
+        secretAccessKey:
+          name: wasabi-secret
+          key: ACCESS_SECRET_KEY
