@@ -18,9 +18,9 @@ spec:
         imagePullPolicy: Always
         env:
           - name: ACTUAL_PORT
-            value: 8080
+            value: 5006
         ports:
-        - containerPort: 8080
+        - containerPort: 5006
           name: http
           protocol: TCP
         volumeMounts:
