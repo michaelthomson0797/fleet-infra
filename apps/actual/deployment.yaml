@@ -16,8 +16,11 @@ spec:
       - name: actual
         image: docker.io/actualbudget/actual-server:latest
         imagePullPolicy: Always
+        env:
+          - name: ACTUAL_PORT
+            value: 8080
         ports:
-        - containerPort: 5006
+        - containerPort: 8080
           name: http
           protocol: TCP
         volumeMounts:
