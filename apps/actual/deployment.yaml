@@ -18,7 +18,7 @@ spec:
         imagePullPolicy: Always
         env:
           - name: ACTUAL_PORT
-            value: 5006
+            value: "5006"
         ports:
         - containerPort: 5006
           name: http
