@@ -17,7 +17,7 @@ spec:
     enabled: true
     existingSecret: actions-secret
     existingSecretKey: token
-    giteaRootUrl: gitea-http:3000
+    giteaRootURL: gitea-http:3000
     statefulset:
       persistence:
         size: 1Gi
