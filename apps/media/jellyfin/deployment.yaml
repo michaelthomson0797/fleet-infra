@@ -29,8 +29,10 @@ spec:
         - mountPath: /data/media
           name: data
           subPath: media
-        # - name: dev-dri
-        #   mountPath: /dev/dri
+        - name: transcode
+          mountPath: /transcode
+        - name: cache
+          mountPath: /cache
         env:
         - name: NVIDIA_VISIBLE_DEVICES
           value: all
@@ -46,6 +48,10 @@ spec:
       - name: data
         persistentVolumeClaim: 
           claimName: media-data
-      # - name: dev-dri
-      #   hostPath:
-      #     path: /dev/dri
+      - name: transcode
+        emptyDir:
+          sizeLimit: 50Gi
+      - name: cache
+        emptyDir:
+          medium: Memory
+          sizeLimit: 2Gi
