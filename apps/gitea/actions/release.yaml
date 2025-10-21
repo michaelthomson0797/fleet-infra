@@ -12,7 +12,7 @@ spec:
         kind: HelmRepository
         name: gitea
   interval: 15m
-  releaseName: gitea
+  releaseName: actions
   values:
     enabled: true
     existingSecret: actions-secret
