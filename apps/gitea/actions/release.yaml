@@ -1,0 +1,23 @@
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: actions
+  namespace: gitea
+spec:
+  chart:
+    spec:
+      chart: actions
+      version: 
+      sourceRef:
+        kind: HelmRepository
+        name: gitea
+  interval: 15m
+  releaseName: gitea
+  values:
+    enabled: true
+    existingSecret: actions-secret
+    existingSecretKey: token
+    giteaRootUrl: gitea-http:3000
+    statefulset:
+      persistence:
+        size: 1Gi
