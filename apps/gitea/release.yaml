@@ -52,6 +52,8 @@ spec:
       config:
         server:
           SSH_PORT: 2222
+        actions:
+          ENABLED: true
         service:
           DISABLE_REGISTRATION: true
           REGISTER_EMAIL_CONFIRM: true
