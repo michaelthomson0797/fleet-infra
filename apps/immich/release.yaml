@@ -41,9 +41,12 @@ spec:
 
     server:
       enabled: true
-      resources:
-        limits:
-          nvidia.com/gpu: 1
+      main:
+        containers:
+          main:
+            resources:
+              limits:
+                nvidia.com/gpu: 1
       ingress:
         main:
           enabled: true
