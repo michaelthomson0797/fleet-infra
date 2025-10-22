@@ -15,15 +15,20 @@ spec:
   releaseName: immich
   values:
     runtimeClassName: nvidia
-    env:
-      DB_HOSTNAME: "immich-postgres-rw"
-      DB_USERNAME: "immich"
-      DB_DATABASE_NAME: "immich"
-      DB_PASSWORD: "immich"
-      NVIDIA_VISIBLE_DEVICES: "all"
-      NVIDIA_DRIVER_CAPABILITIES: "all"
-    image:
-      tag: v1.134.0
+
+    controllers:
+      main:
+        containers:
+          main:
+            image:
+              tag: v2.1.0
+            env:
+              DB_HOSTNAME: "immich-postgres-rw"
+              DB_USERNAME: "immich"
+              DB_DATABASE_NAME: "immich"
+              DB_PASSWORD: "immich"
+              NVIDIA_VISIBLE_DEVICES: "all"
+              NVIDIA_DRIVER_CAPABILITIES: "all"
 
     immich:
       persistence:
