@@ -14,7 +14,8 @@ spec:
   interval: 15m
   releaseName: immich
   values:
-    runtimeClassName: nvidia
+    defaultPodOptions:
+      runtimeClassName: nvidia
 
     controllers:
       main:
@@ -60,6 +61,9 @@ spec:
 
     machine-learning:
       enabled: true
-      resources:
-        limits:
-          nvidia.com/gpu: 1
+      main:
+        containers:
+          main:
+            resources:
+              limits:
+                nvidia.com/gpu: 1
