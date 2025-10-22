@@ -41,9 +41,13 @@ spec:
 
     server:
       enabled: true
-      resources:
-        limits:
-          nvidia.com/gpu: 1
+      controllers:
+        main:
+          containers:
+            main:
+              resources:
+                limits:
+                  nvidia.com/gpu: 1
       ingress:
         main:
           enabled: true
@@ -61,6 +65,10 @@ spec:
 
     machine-learning:
       enabled: true
-      resources:
-        limits:
-          nvidia.com/gpu: 1
+      controllers:
+        main:
+          containers:
+            main:
+              resources:
+                limits:
+                  nvidia.com/gpu: 1
