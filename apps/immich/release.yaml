@@ -30,7 +30,7 @@ spec:
         library:
           existingClaim: immich-data
 
-    redis:
+    valkey:
       enabled: true
 
     server:
