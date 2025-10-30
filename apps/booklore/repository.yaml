@@ -1,0 +1,10 @@
+apiVersion: source.toolkit.fluxcd.io/v1
+kind: GitRepository
+metadata:
+  name: booklore
+  namespace: booklore
+spec:
+  interval: 15m
+  url: https://github.com/booklore-app/booklore.git
+  ref:
+    branch: develop

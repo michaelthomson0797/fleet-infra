@@ -1,0 +1,38 @@
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: booklore
+  namespace: booklore
+spec:
+  chart:
+    spec:
+      chart: ./example-chart
+      sourceRef:
+        kind: GitRepository
+        name: booklore
+  interval: 15m
+  releaseName: booklore
+  values:
+    ingress:
+      enabled: true
+      annotations:
+        traefik.ingress.kubernetes.io/router.entrypoints: websecure
+        traefik.ingress.kubernetes.io/router.tls: "true"
+      hosts:
+        - host: booklore.michaelthomson.dev
+          paths:
+            - path: "/"
+      tls:
+        - hosts:
+            - booklore.michaelthomson.dev
+          secretName: letsencrypt-wildcard-cert-michaelthomson.dev
+
+    # If you want to bring your own persistence (such as a hostPath),
+    # disable these and do so in extraVolumes/extraVolumeMounts
+    persistence:
+      dataVolume:
+        enabled: true
+        size: 1Gi
+      booksVolume:
+        enabled: true
+        size: 10Gi
