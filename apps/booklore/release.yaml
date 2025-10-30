@@ -16,7 +16,7 @@ spec:
     mariadb:
       enabled: true
       image:
-        tag: 12.0.2
+        tag: latest
       auth:
         database: booklore
         username: booklore-user
