@@ -30,6 +30,7 @@ spec:
         - host: booklore.michaelthomson.dev
           paths:
             - path: "/"
+              pathType: ImplementationSpecific
       tls:
         - hosts:
             - booklore.michaelthomson.dev
