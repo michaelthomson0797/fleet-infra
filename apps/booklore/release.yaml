@@ -13,6 +13,14 @@ spec:
   interval: 15m
   releaseName: booklore
   values:
+    mariadb:
+      enabled: true
+      image:
+        tag: 12.0.2
+      auth:
+        database: booklore
+        username: booklore-user
+
     ingress:
       enabled: true
       annotations:
