@@ -53,3 +53,5 @@ spec:
         secretAccessKey:
           name: wasabi-secret
           key: ACCESS_SECRET_KEY
+    retentionPolicy: "10d"
+
