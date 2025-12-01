@@ -4,7 +4,7 @@ metadata:
   name: wg-easy-dns
   namespace: wg-easy
   annotations:
-    metallb.universe.tf/loadBalancerIPs: 192.168.2.245
+    metallb.io/loadBalancerIPs: 192.168.2.245
 spec:
   type: LoadBalancer
   selector:
