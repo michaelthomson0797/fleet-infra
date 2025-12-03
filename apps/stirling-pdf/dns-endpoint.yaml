@@ -1,0 +1,12 @@
+apiVersion: externaldns.k8s.io/v1alpha1
+kind: DNSEndpoint
+metadata:
+  name: pdf.michaelthomson.dev
+  namespace: stirling-pdf
+spec:
+  endpoints:
+  - dnsName: pdf.michaelthomson.dev
+    recordTTL: 180
+    recordType: CNAME
+    targets:
+    - server.michaelthomson.dev
