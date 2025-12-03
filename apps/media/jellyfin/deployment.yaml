@@ -39,8 +39,10 @@ spec:
         - name: NVIDIA_DRIVER_CAPABILITIES
           value: all
         resources:
+          requests:
+            nvidia.com/gpu-all: 1
           limits:
-            nvidia.com/gpu: 1
+            nvidia.com/gpu-all: 1
       volumes:
       - name: config
         persistentVolumeClaim: 

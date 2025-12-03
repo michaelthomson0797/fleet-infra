@@ -46,8 +46,10 @@ spec:
           containers:
             main:
               resources:
+                requests:
+                  nvidia.com/gpu-all: 1
                 limits:
-                  nvidia.com/gpu: 1
+                  nvidia.com/gpu-all: 1
       ingress:
         main:
           enabled: true
@@ -70,5 +72,7 @@ spec:
           containers:
             main:
               resources:
+                requests:
+                  nvidia.com/gpu-all: 1
                 limits:
-                  nvidia.com/gpu: 1
+                  nvidia.com/gpu-all: 1
