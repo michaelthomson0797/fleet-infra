@@ -1,0 +1,49 @@
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: minecraft
+  namespace: minecraft
+spec:
+  chart:
+    spec:
+      chart: minecraft
+      version: 5.x
+      sourceRef:
+        kind: HelmRepository
+        name: minecraft
+  interval: 15m
+  releaseName: minecraft
+  values:
+    nodeSelector:
+      kubernetes.io/hostname: larry
+
+    minecraftServer:
+      # This must be overridden, since we can't accept this for the user.
+      eula: true
+      # One of: LATEST, SNAPSHOT, or a specific version (ie: "1.7.9").
+      version: "LATEST"
+      ## The type of Minecraft server to run, check for related settings below
+      ## Common types: "VANILLA", "FABRIC", "FORGE", "SPIGOT", "BUKKIT", "PAPER",
+      ## "FTBA", "SPONGEVANILLA", "AUTO_CURSEFORGE"
+      ## ref: https://docker-minecraft-server.readthedocs.io/en/latest/types-and-platforms
+      type: "VANILLA"
+      # One of: peaceful, easy, normal, and hard
+      difficulty: normal
+      # A comma-separated list of player names to whitelist.
+      whitelist: DrDeww
+      # A comma-separated list of player names who should be admins.
+      ops: DrDeww
+      # A server icon URL for server listings. Auto-scaled and transcoded.
+      icon:
+      # Message of the Day
+      motd: "Welcome to Michael's Minecraft Server"
+      worldSaveName: world
+      # If you adjust this, you may need to adjust resources.requests above to match.
+      memory: 1024M
+
+    persistence:
+      dataDir:
+        enabled: true
+        Size: 8Gi
+        accessModes:
+          - ReadWriteOnce
