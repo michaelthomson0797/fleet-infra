@@ -17,6 +17,9 @@ spec:
     nodeSelector:
       kubernetes.io/hostname: larry
 
+    serviceAnnotations:
+      metallb.io/loadBalancerIPs: 192.168.2.201
+
     minecraftServer:
       # This must be overridden, since we can't accept this for the user.
       eula: true
@@ -40,6 +43,7 @@ spec:
       worldSaveName: world
       # If you adjust this, you may need to adjust resources.requests above to match.
       memory: 1024M
+      serviceType: LoadBalancer
 
     persistence:
       dataDir:
