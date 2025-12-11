@@ -33,7 +33,7 @@ spec:
       # One of: peaceful, easy, normal, and hard
       difficulty: normal
       # A comma-separated list of player names to whitelist.
-      whitelist: DrDeww
+      whitelist: DrDeww,lolobinbolo
       # A comma-separated list of player names who should be admins.
       ops: DrDeww
       # A server icon URL for server listings. Auto-scaled and transcoded.
