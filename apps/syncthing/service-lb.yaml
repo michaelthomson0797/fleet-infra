@@ -4,7 +4,7 @@ metadata:
   name: syncthing-lb
   namespace: syncthing
   annotations:
-    metallb.io/loadBalancerIPs: 192.168.2.247
+    metallb.io/loadBalancerIPs: 192.168.18.247
 spec:
   selector:
     app: syncthing

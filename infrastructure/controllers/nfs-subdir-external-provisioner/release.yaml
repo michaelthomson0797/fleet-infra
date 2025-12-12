@@ -24,7 +24,7 @@ spec:
     imagePullSecrets: []
 
     nfs:
-      server: 192.168.2.50
+      server: 192.168.18.99
       path: /volume1/k8sdata
       mountOptions:
       volumeName: nfs-subdir-external-provisioner-root

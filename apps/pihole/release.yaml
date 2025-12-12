@@ -18,7 +18,7 @@ spec:
     serviceDns:
       type: LoadBalancer
       annotations:
-        metallb.io/loadBalancerIPs: 192.168.2.250
+        metallb.io/loadBalancerIPs: 192.168.18.250
         metallb.io/allow-shared-ip: pihole-svc
 
     # -- Configuration for the Ingress
