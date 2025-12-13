@@ -21,17 +21,17 @@ spec:
         login: true
 
   bootstrap:
-    initdb:
-      database: immich
-      owner: immich
-      secret:
-        name: immich-postgres-user
-      postInitSQL:
-        - CREATE EXTENSION IF NOT EXISTS "vchord" CASCADE;
-        - CREATE EXTENSION IF NOT EXISTS "earthdistance" CASCADE;
+    # initdb:
+    #   database: immich
+    #   owner: immich
+    #   secret:
+    #     name: immich-postgres-user
+    #   postInitSQL:
+    #     - CREATE EXTENSION IF NOT EXISTS "vchord" CASCADE;
+    #     - CREATE EXTENSION IF NOT EXISTS "earthdistance" CASCADE;
     # NOTE: uncomment this and commend the above initdb when recovering
-    # recovery:
-    #   source: immich-postgres
+    recovery:
+      source: immich-postgres
 
   storage:
     size: 8Gi

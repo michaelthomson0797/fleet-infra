@@ -16,14 +16,14 @@ spec:
         login: true
 
   bootstrap:
-    initdb:
-      database: authentik
-      owner: authentik
-      secret:
-        name: authentik-postgres-credentials
+    # initdb:
+    #   database: authentik
+    #   owner: authentik
+    #   secret:
+    #     name: authentik-postgres-credentials
     # NOTE: uncomment this and commend the above initdb when recovering
-    # recovery:
-    #   source: postgres-cluster
+    recovery:
+      source: postgres-cluster
 
   storage:
     size: 8Gi
