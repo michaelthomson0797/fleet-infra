@@ -16,5 +16,5 @@ spec:
         cloudflare:
           email: michael@michaelthomson.dev
           apiKeySecretRef:
-            name: cloudflare-api-key
+            name: secret
             key: cloudflare_api_key

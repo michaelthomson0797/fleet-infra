@@ -7,11 +7,12 @@ spec:
   chart:
     spec:
       chart: cert-manager
-      version: v1.17.x
+      version: v1.19.x
       sourceRef:
         kind: HelmRepository
         name: cert-manager
   interval: 15m
   releaseName: cert-manager
   values:
-    installCRDs: true
+    crds:
+      enabled: true
