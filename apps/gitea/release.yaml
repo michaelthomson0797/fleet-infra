@@ -68,7 +68,7 @@ spec:
           SMTP_PORT: 465
           USER: gitea@michaelthomson.dev
       admin:
-        existingSecret: gitea-admin-secret
+        existingSecret: admin-secret
         email: "gitea@michaelthomson.dev"
       additionalConfigSources:
         - secret:
