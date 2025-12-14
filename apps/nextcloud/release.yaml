@@ -89,8 +89,8 @@ spec:
 
     postgresql:
       enabled: true
-      # image:
-      #   tag: 16.6.0
+      image:
+        tag: 16.6.0
       global:
         postgresql:
           auth:
