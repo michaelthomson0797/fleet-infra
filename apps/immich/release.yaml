@@ -38,6 +38,15 @@ spec:
 
     valkey:
       enabled: true
+      controllers:
+        main:
+          containers:
+            main:
+              resources:
+                requests:
+                  nvidia.com/gpu-all: 1
+                limits:
+                  nvidia.com/gpu-all: 1
 
     server:
       enabled: true
