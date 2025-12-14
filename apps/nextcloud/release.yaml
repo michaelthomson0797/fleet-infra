@@ -7,7 +7,7 @@ spec:
   chart:
     spec:
       chart: nextcloud
-      version: 7.x
+      version: 8.0.3
       sourceRef:
         kind: HelmRepository
         name: nextcloud
@@ -89,9 +89,7 @@ spec:
 
     postgresql:
       enabled: true
-      image:
-        registry: docker.io
-        repository: bitnamilegacy/postgresql
+      # image:
       #   tag: 16.6.0
       global:
         postgresql:
