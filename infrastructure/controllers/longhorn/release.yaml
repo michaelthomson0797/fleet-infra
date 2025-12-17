@@ -16,18 +16,20 @@ spec:
   values:
     persistence:
       defaultClassReplicaCount: 3
+      defaultDataLocality: best-effort
       recurringJobSelector:
         enable: true
         jobList: '[{"name":"backup","isGroup":true},{"name":"snapshot","isGroup":true},{"name":"trim","isGroup":true}]'
-    defaultSettings:
+    defaultBackupStore:
       backupTarget: s3://mthomson-longhorn-backup@ca-central-1/
       backupTargetCredentialSecret: wasabi-secret
+      pollInterval: 0
+    defaultSettings:
       replicaAutoBalance: best-effort
-      defaultDataLocality: best-effort
-      defaultReplicaCount: 3
       replicaZoneSoftAntiAffinity: true
       replicaDiskSoftAntiAffinity: false
       replicaSoftAntiAffinity: false
+      restoreVolumeRecurringJobs: true
 
     ingress:
       enabled: true
