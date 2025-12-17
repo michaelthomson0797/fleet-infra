@@ -4,6 +4,10 @@ metadata:
   name: infra-crds
   namespace: flux-system
 spec:
+  decryption:
+    provider: sops
+    secretRef:
+      name: sops-age
   dependsOn:
     - name: infra-namespaces
   interval: 1h
