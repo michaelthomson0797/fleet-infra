@@ -25,6 +25,8 @@ spec:
         enabled: true
         ingressClassName: traefik
         annotations:
+          external-dns.alpha.kubernetes.io/target: michaelthomson.ddns.net
+          external-dns.alpha.kubernetes.io/cloudflare-proxied: "true"
           traefik.ingress.kubernetes.io/router.tls: "true"
           traefik.ingress.kubernetes.io/router.entrypoints: websecure
         hosts:

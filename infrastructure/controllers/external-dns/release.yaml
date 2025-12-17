@@ -16,6 +16,7 @@ spec:
   values:
     sources:
       - crd
+      - ingress
     provider:
       name: cloudflare
     env:
