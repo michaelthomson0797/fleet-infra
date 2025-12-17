@@ -9,7 +9,7 @@ spec:
     secretRef:
       name: sops-age
   dependsOn:
-    - name: infra-crds
+    - name: infra-namespaces
   interval: 10m
   retryInterval: 1m
   sourceRef:
