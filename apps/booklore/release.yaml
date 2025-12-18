@@ -24,6 +24,7 @@ spec:
     ingress:
       enabled: true
       annotations:
+        cert-manager.io/cluster-issuer: "letsencrypt-prod"
         external-dns.alpha.kubernetes.io/target: michaelthomson.ddns.net
         external-dns.alpha.kubernetes.io/cloudflare-proxied: "true"
         traefik.ingress.kubernetes.io/router.entrypoints: websecure
@@ -36,7 +37,7 @@ spec:
       tls:
         - hosts:
             - booklore.michaelthomson.dev
-          secretName: letsencrypt-wildcard-cert-michaelthomson.dev
+          secretName: booklore-tls
 
     # If you want to bring your own persistence (such as a hostPath),
     # disable these and do so in extraVolumes/extraVolumeMounts

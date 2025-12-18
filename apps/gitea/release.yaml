@@ -31,6 +31,7 @@ spec:
       enabled: true
       className: traefik
       annotations:
+        cert-manager.io/cluster-issuer: "letsencrypt-prod"
         external-dns.alpha.kubernetes.io/target: michaelthomson.ddns.net
         external-dns.alpha.kubernetes.io/cloudflare-proxied: "false"
         traefik.ingress.kubernetes.io/router.entrypoints: websecure
@@ -43,7 +44,7 @@ spec:
       tls:
         - hosts:
             - gitea.michaelthomson.dev
-          secretName: letsencrypt-wildcard-cert-michaelthomson.dev
+          secretName: gitea-tls
 
     persistence:
       claimName: gitea-shared-storage

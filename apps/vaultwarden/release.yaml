@@ -43,6 +43,7 @@ spec:
       enabled: true
       class: "traefik"
       additionalAnnotations:
+        cert-manager.io/cluster-issuer: "letsencrypt-prod"
         external-dns.alpha.kubernetes.io/target: michaelthomson.ddns.net
         external-dns.alpha.kubernetes.io/cloudflare-proxied: "true"
         traefik.ingress.kubernetes.io/router.entrypoints: websecure
@@ -50,4 +51,4 @@ spec:
       labels: {}
       tls: true
       hostname: "vaultwarden.michaelthomson.dev"
-      tlsSecret: "letsencrypt-wildcard-cert-michaelthomson.dev"
+      tlsSecret: vaultwarden-tls

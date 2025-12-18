@@ -31,6 +31,7 @@ spec:
 
       # -- Annotations for the ingress
       annotations:
+        cert-manager.io/cluster-issuer: "letsencrypt-prod"
         traefik.ingress.kubernetes.io/router.entrypoints: websecure
         traefik.ingress.kubernetes.io/router.tls: "true"
       path: /
@@ -39,7 +40,7 @@ spec:
       tls:
         - hosts:
             - pihole.michaelthomson.dev
-          secretName: letsencrypt-wildcard-cert-michaelthomson.dev
+          secretName: pihole-tls
 
     # -- `spec.PersitentVolumeClaim` configuration
     persistentVolumeClaim:

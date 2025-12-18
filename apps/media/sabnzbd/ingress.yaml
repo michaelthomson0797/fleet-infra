@@ -4,6 +4,7 @@ metadata:
   name: sabnzbd
   namespace: media
   annotations:
+    cert-manager.io/cluster-issuer: "letsencrypt-prod"
     traefik.ingress.kubernetes.io/router.entrypoints: websecure
     traefik.ingress.kubernetes.io/router.tls: "true"
 spec:
@@ -21,4 +22,4 @@ spec:
   tls:
     - hosts:
         - sabnzbd.michaelthomson.dev
-      secretName: letsencrypt-wildcard-cert-michaelthomson.dev
+      secretName: sabnzbd-tls

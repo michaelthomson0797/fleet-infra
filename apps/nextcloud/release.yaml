@@ -21,6 +21,7 @@ spec:
       enabled: true
       className: traefik
       annotations:
+        cert-manager.io/cluster-issuer: "letsencrypt-prod"
         external-dns.alpha.kubernetes.io/target: michaelthomson.ddns.net
         external-dns.alpha.kubernetes.io/cloudflare-proxied: "true"
         traefik.ingress.kubernetes.io/router.entrypoints: websecure
@@ -28,7 +29,7 @@ spec:
       tls:
         - hosts:
             - nextcloud.michaelthomson.dev
-          secretName: letsencrypt-wildcard-cert-michaelthomson.dev
+          secretName: nextclout-tls
       labels: {}
       path: /
       pathType: Prefix
@@ -151,6 +152,7 @@ spec:
       ingress:
         enabled: true
         annotations:
+          cert-manager.io/cluster-issuer: "letsencrypt-prod"
           external-dns.alpha.kubernetes.io/target: michaelthomson.ddns.net
           external-dns.alpha.kubernetes.io/cloudflare-proxied: "true"
           traefik.ingress.kubernetes.io/router.entrypoints: websecure
@@ -163,7 +165,7 @@ spec:
         tls:
           - hosts:
               - collabora.michaelthomson.dev
-            secretName: letsencrypt-wildcard-cert-michaelthomson.dev
+            secretName: collabora-tls
 
     cronjob:
       enabled: true
