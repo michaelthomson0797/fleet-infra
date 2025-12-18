@@ -4,6 +4,7 @@ metadata:
   name: actual
   namespace: actual
   annotations:
+    cert-manager.io/cluster-issuer: "letsencrypt-prod"
     external-dns.alpha.kubernetes.io/target: michaelthomson.ddns.net
     external-dns.alpha.kubernetes.io/cloudflare-proxied: "true"
     traefik.ingress.kubernetes.io/router.entrypoints: websecure
@@ -21,6 +22,6 @@ spec:
             port: 
               name: http
   tls:
-    - hosts:
-        - actual.michaelthomson.dev
-      secretName: letsencrypt-wildcard-cert-michaelthomson.dev
+  - hosts:
+    - actual.michaelthomson.dev
+    secretName: actual-tls
