@@ -32,12 +32,4 @@ spec:
       restoreVolumeRecurringJobs: true
 
     ingress:
-      enabled: true
-      ingressClassName: traefik
-      host: longhorn.michaelthomson.dev
-      tls: true
-      secureBackends: true
-      tlsSecret: letsencrypt-wildcard-cert-michaelthomson.dev
-      annotations:
-        traefik.ingress.kubernetes.io/router.tls: "true"
-        traefik.ingress.kubernetes.io/router.entrypoints: websecure
+      enabled: false
