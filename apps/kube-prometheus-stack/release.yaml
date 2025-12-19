@@ -29,6 +29,11 @@ spec:
             hosts:
               - grafana.michaelthomson.dev
     prometheus:
+      prometheusSpec:
+        podMonitorSelectorNilUsesHelmValues: false
+        ruleSelectorNilUsesHelmValues: false
+        serviceMonitorSelectorNilUsesHelmValues: false
+        probeSelectorNilUsesHelmValues: false
       ingress:
         enabled: true
         annotations:
