@@ -7,7 +7,7 @@ spec:
   chart:
     spec:
       chart: traefik
-      version: 36.x 
+      version: 38.x 
       sourceRef:
         kind: HelmRepository
         name: traefik
@@ -27,16 +27,9 @@ spec:
             readTimeout: 600s
             idleTimeout: 600s
             writeTimeout: 600s
-      wireguard-udp:
-        port: 51822
-        protocol: UDP
-        expose:
-          default: true
-
     service:
       annotations: 
         metallb.io/loadBalancerIPs: 192.168.18.200
-
     logs:
       access:
         enabled: true
