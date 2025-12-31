@@ -14,9 +14,6 @@ spec:
   interval: 15m
   releaseName: immich
   values:
-    defaultPodOptions:
-      runtimeClassName: nvidia
-
     controllers:
       main:
         containers:
@@ -28,8 +25,6 @@ spec:
               DB_USERNAME: "immich"
               DB_DATABASE_NAME: "immich"
               DB_PASSWORD: "immich"
-              NVIDIA_VISIBLE_DEVICES: "all"
-              NVIDIA_DRIVER_CAPABILITIES: "all"
 
     immich:
       persistence:
@@ -38,27 +33,9 @@ spec:
 
     valkey:
       enabled: true
-      controllers:
-        main:
-          containers:
-            main:
-              resources:
-                requests:
-                  nvidia.com/gpu-all: 1
-                limits:
-                  nvidia.com/gpu-all: 1
 
     server:
       enabled: true
-      controllers:
-        main:
-          containers:
-            main:
-              resources:
-                requests:
-                  nvidia.com/gpu-all: 1
-                limits:
-                  nvidia.com/gpu-all: 1
       ingress:
         main:
           enabled: true
@@ -79,12 +56,3 @@ spec:
 
     machine-learning:
       enabled: true
-      controllers:
-        main:
-          containers:
-            main:
-              resources:
-                requests:
-                  nvidia.com/gpu-all: 1
-                limits:
-                  nvidia.com/gpu-all: 1

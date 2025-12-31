@@ -12,7 +12,6 @@ spec:
       labels:
         app: jellyfin
     spec:
-      runtimeClassName: nvidia
       containers:
       - name: jellyfin
         image: lscr.io/linuxserver/jellyfin:latest
@@ -33,16 +32,8 @@ spec:
           mountPath: /transcode
         - name: cache
           mountPath: /cache
-        env:
-        - name: NVIDIA_VISIBLE_DEVICES
-          value: all
-        - name: NVIDIA_DRIVER_CAPABILITIES
-          value: all
-        resources:
-          requests:
-            nvidia.com/gpu-all: 1
-          limits:
-            nvidia.com/gpu-all: 1
+        - name: dev-dri
+          mountPath: /dev/dri
       volumes:
       - name: config
         persistentVolumeClaim: 
@@ -57,3 +48,6 @@ spec:
         emptyDir:
           medium: Memory
           sizeLimit: 2Gi
+      - name: dev-dri
+        hostPath:
+          path: /dev/dri

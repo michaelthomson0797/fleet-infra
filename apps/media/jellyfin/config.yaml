@@ -1,8 +1,0 @@
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: jellyfin-config
-  namespace: media
-data:
-  NVIDIA_VISIBLE_DEVICES: all
-  NVIDIA_DRIVER_CAPABILITIES: all
