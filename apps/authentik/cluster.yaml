@@ -7,7 +7,7 @@ metadata:
     # needed to allow for recovery from same name cluster backup
     cnpg.io/skipEmptyWalArchiveCheck: enabled
 spec:
-  instances: 3
+  instances: 2
 
   managed:
     roles:
