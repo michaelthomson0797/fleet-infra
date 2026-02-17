@@ -6,7 +6,7 @@ metadata:
 spec:
   chart:
     spec:
-      chart: seerr
+      chart: seerr-chart
       version: 3.x
       sourceRef:
         kind: HelmRepository
