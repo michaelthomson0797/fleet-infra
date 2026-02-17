@@ -1,0 +1,36 @@
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: seerr
+  namespace: media
+spec:
+  chart:
+    spec:
+      chart: seerr
+      version: 3.x
+      sourceRef:
+        kind: HelmRepository
+        name: seerr
+  interval: 15m
+  releaseName: seerr
+  values:
+    config:
+      persistence:
+        existingClaim: 'jellyseerr-config'
+    ingress:
+      enabled: true
+      annotations:
+        cert-manager.io/cluster-issuer: "letsencrypt-prod"
+        external-dns.alpha.kubernetes.io/target: michaelthomson.ddns.net
+        external-dns.alpha.kubernetes.io/cloudflare-proxied: "true"
+        traefik.ingress.kubernetes.io/router.entrypoints: websecure
+        traefik.ingress.kubernetes.io/router.tls: "true"
+      hosts:
+        - host: jellyseerr.michaelthomson.dev
+          paths:
+            - path: /
+              pathType: ImplementationSpecific
+      tls:
+        - hosts:
+            - jellyseerr.michaelthomson.dev
+          secretName: jellyseerr-tls
