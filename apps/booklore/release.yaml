@@ -13,6 +13,12 @@ spec:
   interval: 15m
   releaseName: booklore
   values:
+    image:
+      repository: booklore/booklore
+      # This sets the pull policy for images.
+      pullPolicy: Always
+      # Overrides the image tag whose default is the chart appVersion.
+      tag: latest
     mariadb:
       enabled: true
       image:
