@@ -1,0 +1,16 @@
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: alloy
+  namespace: kube-prometheus-stack
+spec:
+  chart:
+    spec:
+      chart: alloy
+      version: 1.x
+      sourceRef:
+        kind: HelmRepository
+        name: grafana
+  interval: 15m
+  releaseName: alloy
+  values:
