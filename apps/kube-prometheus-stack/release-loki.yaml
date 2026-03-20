@@ -10,7 +10,7 @@ spec:
       version: 6.x
       sourceRef:
         kind: HelmRepository
-        name: prometheus-community
+        name: grafana-community
   interval: 15m
   releaseName: loki
   values:
