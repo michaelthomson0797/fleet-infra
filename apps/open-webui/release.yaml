@@ -1,0 +1,27 @@
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: open-webui
+  namespace: open-webui
+spec:
+  chart:
+    spec:
+      chart: open-webui
+      version: 12.x
+      sourceRef:
+        kind: HelmRepository
+        name: open-webui
+  interval: 15m
+  releaseName: open-webui
+  values:
+    ollama:
+      enabled: false
+    ingress:
+      enabled: true
+      annotations:
+        cert-manager.io/cluster-issuer: "letsencrypt-prod"
+        traefik.ingress.kubernetes.io/router.tls: "true"
+        traefik.ingress.kubernetes.io/router.entrypoints: websecure
+      host: "chat.michaelthomson.dev" # update to your real domain
+      tls: true
+      existingSecret: open-webui-tls
