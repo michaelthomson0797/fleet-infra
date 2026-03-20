@@ -1,0 +1,48 @@
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: ollama
+  namespace: ollama
+spec:
+  chart:
+    spec:
+      chart: ollama
+      version: 1.x
+      sourceRef:
+        kind: HelmRepository
+        name: otwld
+  interval: 15m
+  releaseName: ollama
+  values:
+    runtimeClassName: nvidia
+    ollama:
+      gpu:
+        # -- Enable GPU integration
+        enabled: true
+        
+        # -- GPU type: 'nvidia' or 'amd'
+        type: 'nvidia'
+        
+        # -- Specify the number of GPU to 1
+        number: 1
+
+        nvidiaResource: "nvidia.com/gpu-all"
+       
+      # -- List of models to pull at container startup
+      models:
+        pull:
+          - qwen3.5:9b
+
+    ingress:
+      enabled: true
+      annotations:
+        cert-manager.io/cluster-issuer: "letsencrypt-prod"
+        traefik.ingress.kubernetes.io/router.tls: "true"
+        traefik.ingress.kubernetes.io/router.entrypoints: websecure
+      hosts:
+      - ollama.michaelthomson.dev
+      path: /
+      tls:
+        - secretName: ollama-tls
+          hosts:
+            - ollama.michaelthomson.dev
