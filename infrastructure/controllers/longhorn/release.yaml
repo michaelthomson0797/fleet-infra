@@ -7,7 +7,7 @@ spec:
   chart:
     spec:
       chart: longhorn
-      version: 1.10.x
+      version: 1.11.x
       sourceRef:
         kind: HelmRepository
         name: longhorn
@@ -21,8 +21,7 @@ spec:
         enable: true
         jobList: '[{"name":"backup","isGroup":true},{"name":"snapshot","isGroup":true},{"name":"trim","isGroup":true}]'
     defaultBackupStore:
-      backupTarget: s3://mthomson-longhorn-backup@ca-central-1/
-      backupTargetCredentialSecret: wasabi-secret
+      backupTarget: nfs://192.168.18.99:/volume1/k8sbackupstore
       pollInterval: 0
     defaultSettings:
       replicaAutoBalance: best-effort
