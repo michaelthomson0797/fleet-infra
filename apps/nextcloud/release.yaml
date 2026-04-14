@@ -126,47 +126,6 @@ spec:
       global:
         storageClass: longhorn
 
-    collabora:
-      enabled: true
-
-      # image:
-      #   tag: 24.04.11.1.1
-
-      collabora:
-        extra_params: --o:ssl.enable=false --o:ssl.termination=true
-
-        existingSecret:
-          enabled: true
-          secretName: "collabora-secret"
-          usernameKey: "username"
-          passwordKey: "password"
-
-      # securityContext:
-      #   runAsNonRoot: true
-      #   privileged: true
-      #   capabilities:
-      #     add:
-      #       - SYS_ADMIN
-      #       - MKNOD
-
-      ingress:
-        enabled: true
-        annotations:
-          cert-manager.io/cluster-issuer: "letsencrypt-prod"
-          external-dns.alpha.kubernetes.io/target: michaelthomson.ddns.net
-          external-dns.alpha.kubernetes.io/cloudflare-proxied: "true"
-          traefik.ingress.kubernetes.io/router.entrypoints: websecure
-          traefik.ingress.kubernetes.io/router.tls: "true"
-        hosts:
-          - host: collabora.michaelthomson.dev
-            paths:
-            - path: /
-              pathType: ImplementationSpecific
-        tls:
-          - hosts:
-              - collabora.michaelthomson.dev
-            secretName: collabora-tls
-
     cronjob:
       enabled: true
 
